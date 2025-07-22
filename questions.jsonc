@@ -1,0 +1,1360 @@
+[
+  {
+    "id": "Question 1",
+    "question": "A company makes forecasts each quarter to decide how to optimize operations to meet expected demand.\nThe company uses ML models to make these forecasts.\nAn Al practitioner is writing a report about the trained ML models to provide transparency and explainability\nto company stakeholders.\nWhat should the Al practitioner include in the report to meet the transparency and explainability\nrequirements?",
+    "answers": "A. Code for model training\nB. Partial dependence plots (PDPs)\nC. Sample data for training\nD. Model convergence tables",
+    "correct_answer": "B",
+    "explanation": "Partial Dependence Plots (PDPs) are a powerful tool for understanding and explaining how the features in\na machine learning model impact predictions. They are often used to meet transparency and explainability\nrequirements for stakeholders. Let's go over why this is the correct choice, along with why the other options\nare less suitable:\nPartial Dependence Plots (PDPs)\nPurpose: PDPs show the relationship between a feature (or multiple features) and the model's predicted\noutput, which helps to explain the effect of each feature on the model's predictions.\nExplainability: By visualizing how each feature influences the prediction, stakeholders can better\nunderstand how the model works and why it makes certain predictions. This level of interpretability is\nessential for gaining trust from non-technical stakeholders.\nTransparency: PDPs improve transparency by providing an intuitive way to analyze and present the effects\nof individual features."
+  },
+  {
+    "id": "Question 2",
+    "question": "A law firm wants to build an Al application by using large language models (LLMs).\nThe application will read\nlegal documents and extract key points from the documents.\nWhich solution meets these requirements?",
+    "answers": "A. Build an automatic named entity recognition system.\nB. Create a recommendation engine.\nC. Develop a summarization chatbot.\nD. Develop a multi-language translation system.",
+    "correct_answer": "C",
+    "explanation": "A summarization chatbot can effectively read legal documents and generate concise versions that highlight\nkey points. This directly addresses the requirement of extracting essential information, unlike the other\noptions, which focus on different tasks."
+  },
+  {
+    "id": "Question 3",
+    "question": "A company wants to classify human genes into 20 categories based on gene characteristics.\nThe company\nneeds an ML algorithm to document how the inner mechanism of the model affects the output.\nWhich ML algorithm meets these requirements?",
+    "answers": "A. Decision trees\nB. Linear regression\nC. Logistic regression\nD. Neural networks",
+    "correct_answer": "A",
+    "explanation": "Decision trees provide clear transparency into how the model makes decisions, allowing easy\ndocumentation of how the inner mechanism influences the output. The other options do not offer this level\nof interpretability."
+  },
+  {
+    "id": "Question 4",
+    "question": "A company has built an image classification model to predict plant diseases from photos of plant leaves.\nThe company wants to evaluate how many images the model classified correctly.\nWhich evaluation metric should the company use to measure the model's performance?",
+    "answers": "A. R-squared score\nB. Accuracy\nC. Root mean squared error (RMSE)\nD. Learning rate",
+    "correct_answer": "B",
+    "explanation": "Accuracy measures how many images were correctly classified out of the total images, making it the\nappropriate metric for evaluating the performance of an image classification model. The other metrics are\neither not suitable for classification tasks or not used for performance evaluation."
+  },
+  {
+    "id": "Question 5",
+    "question": "A company is using a pre-trained large language model (LLM) to build a chatbot for product\nrecommendations. The company needs the LLM outputs to be short and written in a specific language.\nWhich solution will align the LLM response quality with the company's expectations?",
+    "answers": "A. Adjust the prompt.\nB. Choose an LLM of a different size.\nC. Increase the temperature.\nD. Increase the Top K value.",
+    "correct_answer": "A",
+    "explanation": "Adjusting the prompt allows you to specify the desired length and language of the LLM's responses, making\nit suitable for tailoring the output to meet the company's needs. The other options do not directly control\nresponse length or language."
+  },
+  {
+    "id": "Question 6",
+    "question": "A company uses Amazon SageMaker for its ML pipeline in a production environment.\nThe company has\nlarge input data sizes up to 1 GB and processing times up to 1 hour.\nThe company needs near real-time\nlatency.\nWhich SageMaker inference option meets these requirements?",
+    "answers": "A. Real-time inference\nB. Serverless inference\nC. Asynchronous inference\nD. Batch transform",
+    "correct_answer": "C",
+    "explanation": "Asynchronous inference is suitable for handling large input data and long processing times while still\nproviding responses without blocking other requests. It allows for near real-time latency, whereas the other\noptions are less suitable given the input size and processing time constraints."
+  },
+  {
+    "id": "Question 7",
+    "question": "A company is using domain-specific models. The company wants to avoid creating new models from the\nbeginning.\nThe company instead wants to adapt pre-trained models to create models for new, related tasks.\nWhich ML strategy meets these requirements?",
+    "answers": "A. Increase the number of epochs.\nB. Use transfer learning.\nC. Decrease the number of epochs.\nD. Use unsupervised learning.",
+    "correct_answer": "B",
+    "explanation": "Transfer learning allows the company to adapt pre-trained models for new, related tasks, saving time and\nresources compared to training models from scratch. The other options do not address the goal of reusing\nexisting models."
+  },
+  {
+    "id": "Question 8",
+    "question": "A company is building a solution to generate images for protective eyewear.\nThe solution must have high\naccuracy and must minimize the risk of incorrect annotations.\nWhich solution will meet these requirements?",
+    "answers": "A. Human-in-the-loop validation by using Amazon SageMaker Ground Truth Plus\nB. Data augmentation by using an Amazon Bedrock knowledge base\nC. Image recognition by using Amazon Rekognition\nD. Data summarization by using Amazon QuickSight Q",
+    "correct_answer": "A",
+    "explanation": "Human-in-the-loop validation ensures high accuracy by involving human reviewers to verify and correct\nannotations, minimizing the risk of errors in the generated images. The other options are not directly\nrelevant for ensuring annotation accuracy in image generation."
+  },
+  {
+    "id": "Question 9",
+    "question": "A company wants to create a chatbot by using a foundation model (FM) on Amazon Bedrock.\nThe FM\nneeds to access encrypted data that is stored in an Amazon S3 bucket.\nThe data is encrypted with Amazon\nS3 managed keys (SSE-S3).\nThe FM encounters a failure when attempting to access the S3 bucket data.\nWhich solution will meet these requirements?",
+    "answers": "A. Ensure that the role that Amazon Bedrock assumes has permission to decrypt data with the correct\nencryption key.\nB. Set the access permissions for the S3 buckets to allow public access to enable access over the internet.\nC. Use prompt engineering techniques to tell the model to look for information in Amazon S3.\nD. Ensure that the S3 data does not contain sensitive information.",
+    "correct_answer": "A",
+    "explanation": "The foundation model needs the appropriate permissions to decrypt the encrypted data in the S3 bucket.\nEnsuring that the role used by Amazon Bedrock has permission to access and decrypt the data will resolve\nthe access failure. The other options are not suitable for addressing the encryption and permission issue."
+  },
+  {
+    "id": "Question 10",
+    "question": "A company wants to use language models to create an application for inference on edge devices.\nThe\ninference must have the lowest latency possible.\nWhich solution will meet these requirements?",
+    "answers": "A. Deploy optimized small language models (SLMs) on edge devices.\nB. Deploy optimized large language models (LLMs) on edge devices.\nC. Incorporate a centralized small language model (SLM) API for asynchronous communication with edge\ndevices.\nD. Incorporate a centralized large language model (LLM) API for asynchronous communication with edge\ndevices.",
+    "correct_answer": "A",
+    "explanation": "Deploying optimized small language models (SLMs) directly on edge devices provides low latency for\ninference since the computation happens locally, avoiding the delays associated with network\ncommunication. The other options either increase latency or are less suitable for edge deployment."
+  },
+  {
+    "id": "Question 11",
+    "question": "A company wants to build an ML model by using Amazon SageMaker.\nThe company needs to share and\nmanage variables for model development across multiple teams.\nWhich SageMaker feature meets these requirements?",
+    "answers": "A. Amazon SageMaker Feature Store\nB. Amazon SageMaker Data Wrangler\nC. Amazon SageMaker Clarify\nD. Amazon SageMaker Model Cards",
+    "correct_answer": "A",
+    "explanation": "Amazon SageMaker Feature Store is a centralized repository for storing and managing features, allowing\nmultiple teams to share and reuse variables (features) for model development. The other options serve\ndifferent purposes, such as data preprocessing or model documentation."
+  },
+  {
+    "id": "Question 12",
+    "question": "A company wants to use generative Al to increase developer productivity and software development.\nThe\ncompany wants to use Amazon Q Developer.\nWhat can Amazon Q Developer do to help the company meet these requirements?",
+    "answers": "A. Create software snippets, reference tracking, and open source license tracking.\nB. Run an application without provisioning or managing servers.\nC. Enable voice commands for coding and providing natural language search.\nD. Convert audio files to text documents by using ML models.",
+    "correct_answer": "A",
+    "explanation": "Amazon Q Developer is designed to assist developers by generating software snippets, tracking\nreferences, and managing open source licenses, which aligns with the company's goal of increasing\nproductivity in software development. The other options do not match the intended use of Amazon Q\nDeveloper."
+  },
+  {
+    "id": "Question 13",
+    "question": "A financial institution is using Amazon Bedrock to develop an Al application. The application is hosted in a\nVPC.\nTo meet regulatory compliance standards, the VPC is not allowed access to any internet traffic.\nWhich AWS service or feature will meet these requirements?",
+    "answers": "A. AWS PrivateLink\nB. Amazon Macie\nC. Amazon CloudFront\nD. Internet gateway",
+    "correct_answer": "A",
+    "explanation": "AWS PrivateLink allows secure, private connectivity between VPCs and AWS services without needing\ninternet access, making it suitable for meeting regulatory compliance standards. The other options either do\nnot provide private connectivity or require internet access."
+  },
+  {
+    "id": "Question 14",
+    "question": "A company wants to develop an educational game where users answer questions such as the following: \"A\njar contains six red, four green, and three yellow marbles. What is the probability of choosing a green\nmarble from the jar?\"\nWhich solution meets these requirements with the LEAST operational overhead?",
+    "answers": "A. Use supervised learning to create a regression model that will predict probability.\nB. Use reinforcement learning to train a model to return the probability.\nC. Use code that will calculate probability by using simple rules and computations.\nD. Use unsupervised learning to create a model that will estimate probability density.",
+    "correct_answer": "C",
+    "explanation": "Calculating probability in this scenario involves straightforward arithmetic, making it most efficient to use\nsimple rules and computations. This approach requires the least operational overhead compared to using\ncomplex ML models, which are unnecessary for such basic tasks."
+  },
+  {
+    "id": "Question 15",
+    "question": "Which metric measures the runtime efficiency of operating Al models?",
+    "answers": "A. Customer satisfaction score (CSAT)\nB. Training time for each epoch\nC. Average response time\nD. Number of training instances",
+    "correct_answer": "C",
+    "explanation": "Average response time measures how quickly an Al model produces an output, which reflects the runtime\nefficiency of the model. The other options do not directly measure the efficiency of operating Al models."
+  },
+  {
+    "id": "Question 16",
+    "question": "A company is building a contact center application and wants to gain insights from customer conversations.\nThe company wants to analyze and extract key information from the audio of the customer calls.\nWhich solution meets these requirements?",
+    "answers": "A. Build a conversational chatbot by using Amazon Lex.\nB. Transcribe call recordings by using Amazon Transcribe.\nC. Extract information from call recordings by using Amazon SageMaker Model Monitor.\nD. Create classification labels by using Amazon Comprehend.",
+    "correct_answer": "B",
+    "explanation": "Amazon Transcribe converts audio recordings into text, which allows for further analysis and extraction of\nkey information from customer conversations. The other options do not directly handle audio transcription or\nextraction of information from audio."
+  },
+  {
+    "id": "Question 17",
+    "question": "A company has petabytes of unlabeled customer data to use for an advertisement campaign.\nThe company\nwants to classify its customers into tiers to advertise and promote the company's products.\nWhich methodology should the company use to meet these requirements?",
+    "answers": "A. Supervised learning\nB. Unsupervised learning\nC. Reinforcement learning\nD. Reinforcement learning from human feedback (RLHF)",
+    "correct_answer": "B",
+    "explanation": "Unsupervised learning is suitable for analyzing unlabeled data and grouping it into clusters or tiers, which\naligns with the company's goal of classifying customers. The other methods require labeled data or are\nused for different types of problems."
+  },
+  {
+    "id": "Question 18",
+    "question": "An Al practitioner wants to use a foundation model (FM) to design a search application.\nThe search\napplication must handle queries that have text and images.\nWhich type of FM should the Al practitioner use to power the search application?",
+    "answers": "A. Multi-modal embedding model\nB. Text embedding model\nC. Multi-modal generation model\nD. Image generation model",
+    "correct_answer": "A",
+    "explanation": "A multi-modal embedding model can handle both text and image queries by embedding them into a shared\nspace, enabling the search application to process and relate different data types. The other options are not\nsuitable for handling both text and image inputs effectively."
+  },
+  {
+    "id": "Question 19",
+    "question": "A company uses a foundation model (FM) from Amazon Bedrock for an Al search tool.\nThe company wants\nto fine-tune the model to be more accurate by using the company's data.\nWhich strategy will successfully fine-tune the model?",
+    "answers": "A. Provide labeled data with the prompt field and the completion field.\nB. Prepare the training dataset by creating a.txt file that contains multiple lines in .csv format.\nC. Purchase Provisioned Throughput for Amazon Bedrock.\nD. Train the model on journals and textbooks.",
+    "correct_answer": "A",
+    "explanation": "Fine-tuning a foundation model involves training it with labeled data that contains both input prompts and\ncorresponding expected completions to adjust the model's behavior to fit the company's needs. The other\noptions are not directly related to the fine-tuning process using specific labeled data."
+  },
+  {
+    "id": "Question 20",
+    "question": "A company wants to use Al to protect its application from threats.\nThe Al solution needs to check if an IP\naddress is from a suspicious source.\nWhich solution meets these requirements?",
+    "answers": "A. Build a speech recognition system.\nB. Create a natural language processing (NLP) named entity recognition system.\nC. Develop an anomaly detection system.\nD. Create a fraud forecasting system.",
+    "correct_answer": "C",
+    "explanation": "An anomaly detection system can identify suspicious behavior, such as IP addresses that deviate from\nexpected patterns, which helps in protecting the application from threats. The other options are not\ndesigned for detecting suspicious IP addresses."
+  },
+  {
+    "id": "Question 21",
+    "question": "Which feature of Amazon OpenSearch Service gives companies the ability to build vector database\napplications?",
+    "answers": "A. Integration with Amazon S3 for object storage\nB. Support for geospatial indexing and queries\nC. Scalable index management and nearest neighbor search capability\nD. Ability to perform real-time analysis on streaming data",
+    "correct_answer": "C",
+    "explanation": "The scalable index management and nearest neighbor search capability in Amazon OpenSearch Service\nenables companies to build vector database applications, which are crucial for tasks like similarity search in\nAl models. The other options do not specifically provide the vector search functionality."
+  },
+  {
+    "id": "Question 22",
+    "question": "Which option is a use case for generative Al models?",
+    "answers": "A. Improving network security by using intrusion detection systems\nB. Creating photorealistic images from text descriptions for digital marketing\nC. Enhancing database performance by using optimized indexing\nD. Analyzing financial data to forecast stock market trends",
+    "correct_answer": "B",
+    "explanation": "Generative Al models are used to create new content, such as photorealistic images from text descriptions,\nwhich is useful for digital marketing. The other options involve tasks better suited for analytical or detection\nsystems rather than generative models."
+  },
+  {
+    "id": "Question 23",
+    "question": "A company wants to build a generative Al application by using Amazon Bedrock and needs to choose a\nfoundation model (FM).\nThe company wants to know how much information can fit into one prompt.\nWhich consideration will inform the company's decision?",
+    "answers": "A. Temperature\nB. Context window\nC. Batch size\nD. Model size",
+    "correct_answer": "B",
+    "explanation": "The context window determines how much information can fit into a single prompt. It specifies the number\nof tokens the foundation model can process at once, affecting the length of input that can be provided. The\nother options do not directly relate to prompt size."
+  },
+  {
+    "id": "Question 24",
+    "question": "A company wants to make a chatbot to help customers. The chatbot will help solve technical problems\nwithout human intervention.\nThe company chose a foundation model (FM) for the chatbot.\nThe chatbot needs to produce responses that\nadhere to company tone.\nWhich solution meets these requirements?",
+    "answers": "A. Set a low limit on the number of tokens the FM can produce.\nB. Use batch inferencing to process detailed responses.\nC. Experiment and refine the prompt until the FM produces the desired responses.\nD. Define a higher number for the temperature parameter.",
+    "correct_answer": "C",
+    "explanation": "Experimenting and refining the prompt allows you to guide the FM to produce responses that align with the\ncompany's desired tone. This approach helps to shape the behavior of the chatbot. The other options do\nnot directly ensure adherence to company tone."
+  },
+  {
+    "id": "Question 25",
+    "question": "A company wants to use a large language model (LLM) on Amazon Bedrock for sentiment analysis.\nThe\ncompany wants to classify the sentiment of text passages as positive or negative.\nWhich prompt engineering strategy meets these requirements?",
+    "answers": "A. Provide examples of text passages with corresponding positive or negative labels in the prompt followed\nby the new text passage to be classified.\nB. Provide a detailed explanation of sentiment analysis and how LLMs work in the prompt.\nC. Provide the new text passage to be classified without any additional context or examples.\nD. Provide the new text passage with a few examples of unrelated tasks, such as text summarization or\nquestion answering.",
+    "correct_answer": "A",
+    "explanation": "Providing examples with labels in the prompt helps the LLM understand the context of sentiment analysis,\nimproving its accuracy in classifying the new text passage as positive or negative. The other options do not\neffectively guide the LLM for sentiment analysis."
+  },
+  {
+    "id": "Question 26",
+    "question": "A security company is using Amazon Bedrock to run foundation models (FMs).\nThe company wants to\nensure that only authorized users invoke the models.\nThe company needs to identify any unauthorized\naccess attempts to set appropriate AWS Identity and Access Management (IAM) policies and roles for\nfuture iterations of the FMs.\nWhich AWS service should the company use to identify unauthorized users that are trying to access\nAmazon Bedrock?",
+    "answers": "A. AWS Audit Manager\nB. AWS CloudTrail\nC. Amazon Fraud Detector\nD. AWS Trusted Advisor",
+    "correct_answer": "B",
+    "explanation": "AWS CloudTrail records API activity and provides a log of access attempts, which helps identify\nunauthorized users trying to access Amazon Bedrock. The other services are not specifically used for\ntracking unauthorized access attempts in this context."
+  },
+  {
+    "id": "Question 27",
+    "question": "A company has developed an ML model for image classification.\nThe company wants to deploy the model\nto production so that a web application can use the model.\nThe company needs to implement a solution to host the model and serve predictions without managing any\nof the underlying infrastructure.\nWhich solution will meet these requirements?",
+    "answers": "A. Use Amazon SageMaker Serverless Inference to deploy the model.\nB. Use Amazon CloudFront to deploy the model.\nC. Use Amazon API Gateway to host the model and serve predictions.\nD. Use AWS Batch to host the model and serve predictions.",
+    "correct_answer": "A",
+    "explanation": "Amazon SageMaker Serverless Inference allows the company to deploy the ML model without managing\nany underlying infrastructure, making it suitable for hosting the model and serving predictions. The other\noptions do not directly provide serverless model deployment capabilities."
+  },
+  {
+    "id": "Question 28",
+    "question": "An Al company periodically evaluates its systems and processes with the help of independent software\nvendors (ISVs).\nThe company needs to receive email message notifications when an ISV's compliance\nreports become available.\nWhich AWS service can the company use to meet this requirement?",
+    "answers": "A. AWS Audit Manager\nB. AWS Artifact\nC. AWS Trusted Advisor\nD. AWS Data Exchange",
+    "correct_answer": "B",
+    "explanation": "AWS Artifact provides access to compliance reports, including those from independent software vendors\n(ISVs). The company can use AWS Artifact to receive notifications when new compliance reports are\navailable. The other services are not used for accessing and notifying about compliance reports."
+  },
+  {
+    "id": "Question 29",
+    "question": "A company wants to use a large language model (LLM) to develop a conversational agent.\nThe company\nneeds to prevent the LLM from being manipulated with common prompt engineering techniques to perform\nundesirable actions or expose sensitive information.\nWhich action will reduce these risks?",
+    "answers": "A. Create a prompt template that teaches the LLM to detect attack patterns.\nB. Increase the temperature parameter on invocation requests to the LLM.\nC. Avoid using LLMs that are not listed in Amazon SageMaker.\nD. Decrease the number of input tokens on invocations of the LLM.",
+    "correct_answer": "A",
+    "explanation": "Creating a prompt template that helps the LLM detect common attack patterns can reduce the risk of\nprompt injection and other undesirable manipulations. The other options do not effectively address the risk\nof prompt manipulation or unauthorized use."
+  },
+  {
+    "id": "Question 30",
+    "question": "A company is using the Generative Al Security Scoping Matrix to assess security responsibilities for its\nsolutions.\nThe company has identified four different solution scopes based on the matrix.\nWhich solution scope gives the company the MOST ownership of security responsibilities?",
+    "answers": "A. Using a third-party enterprise application that has embedded generative Al features.\nB. Building an application by using an existing third-party generative Al foundation model (FM).\nC. Refining an existing third-party generative Al foundation model (FM) by fine-tuning the model by using\ndata specific to the business.\nD. Building and training a generative Al model from scratch by using specific data that a customer owns.",
+    "correct_answer": "D",
+    "explanation": "Building and training a generative Al model from scratch gives the company the most ownership of security\nresponsibilities, as it involves full control over data, training, deployment, and security measures. The other\noptions involve varying levels of dependency on third-party tools and services, which reduces the\ncompany's ownership of security."
+  },
+  {
+    "id": "Question 31",
+    "question": "An Al practitioner has a database of animal photos. The Al practitioner wants to automatically identify and\ncategorize the animals in the photos without manual human effort.\nWhich strategy meets these requirements?",
+    "answers": "A. Object detection\nB. Anomaly detection\nC. Named entity recognition\nD. Inpainting",
+    "correct_answer": "A",
+    "explanation": "Object detection is used to automatically identify and categorize objects (in this case, animals) in photos. It\ncan detect the presence of animals and classify them accordingly. The other strategies are not suitable for\nidentifying and categorizing animals in images."
+  },
+  {
+    "id": "Question 32",
+    "question": "A company wants to create an application by using Amazon Bedrock.\nThe company has a limited budget\nand prefers flexibility without long-term commitment.\nWhich Amazon Bedrock pricing model meets these requirements?",
+    "answers": "A. On-Demand\nB. Model customization\nC. Provisioned Throughput\nD. Spot Instance",
+    "correct_answer": "A",
+    "explanation": "The On-Demand pricing model provides flexibility without requiring a long-term commitment, allowing the\ncompany to pay only for the resources used, which fits well with a limited budget. The other options are\neither not relevant to pricing flexibility or involve specific resource commitments."
+  },
+  {
+    "id": "Question 33",
+    "question": "Which AWS service or feature can help an Al development team quickly deploy and consume a foundation\nmodel (FM) within the team's VPC?",
+    "answers": "A. Amazon Personalize\nB. Amazon SageMaker JumpStart\nC. PartyRock, an Amazon Bedrock Playground\nD. Amazon SageMaker endpoints",
+    "correct_answer": "B",
+    "explanation": "Amazon SageMaker JumpStart provides pre-built models, including foundation models, that can be quickly\ndeployed and consumed within a VPC, helping teams get started faster. The other options are not designed\nfor deploying foundation models in this context."
+  },
+  {
+    "id": "Question 34",
+    "question": "How can companies use large language models (LLMs) securely on Amazon Bedrock?",
+    "answers": "A. Configure AWS Identity and Access Management (IAM) roles and policies by using least privilege\naccess.\nB. Enable AWS Audit Manager for automatic model evaluation jobs.\nC. Enable Amazon Bedrock automatic model evaluation jobs.\nD. Use Amazon CloudWatch Logs to make models explainable and to monitor for bias.",
+    "correct_answer": "A",
+    "explanation": "Designing clear prompts and using IAM roles with least privilege access ensures secure use of LLMs on\nAmazon Bedrock by minimizing access risks and preventing misuse. The other options do not directly\naddress securing the use of LLMs."
+  },
+  {
+    "id": "Question 35",
+    "question": "A company has terabytes of data in a database that the company can use for business analysis.\nThe\ncompany wants to build an Al-based application that can build a SQL query from input text that employees\nprovide.\nThe employees have minimal experience with technology.\nWhich solution meets these requirements?",
+    "answers": "A. Generative pre-trained transformers (GPT)\nB. Residual neural network\nC. Support vector machine\nD. WaveNet",
+    "correct_answer": "A",
+    "explanation": "GPT models are well-suited for converting natural language input into structured queries like SQL, making\nthem ideal for building an Al-based application that translates employee-provided text into SQL queries.\nThe other options are not designed for natural language understanding and query generation tasks."
+  },
+  {
+    "id": "Question 36",
+    "question": "A company built a deep learning model for object detection and deployed the model to production.\nWhich Al process occurs when the model analyzes a new image to identify objects?",
+    "answers": "A. Training\nB. Inference\nC. Model deployment\nD. Bias correction",
+    "correct_answer": "B",
+    "explanation": "Inference is the process where the model analyzes new data (in this case, a new image) to make\npredictions or identify objects. The other options are related to different stages of the Al lifecycle, such as\nbuilding or preparing the model."
+  },
+  {
+    "id": "Question 37",
+    "question": "An Al practitioner is building a model to generate images of humans in various professions.\nThe Al\npractitioner discovered that the input data is biased and that specific attributes affect the image generation\nand create bias in the model.\nWhich technique will solve the problem?",
+    "answers": "A. Data augmentation for imbalanced classes\nB. Model monitoring for class distribution\nC. Retrieval Augmented Generation (RAG)\nD. Watermark detection for images",
+    "correct_answer": "A",
+    "explanation": "Data augmentation for imbalanced classes helps address bias by creating a more balanced dataset,\nensuring that different attributes are equally represented. This reduces bias in image generation. The other\noptions do not directly address data bias issues."
+  },
+  {
+    "id": "Question 38",
+    "question": "A company is using an Amazon Titan foundation model (FM) in Amazon Bedrock.\nThe company needs to\nsupplement the model by using relevant data from the company's private data sources.\nWhich solution will meet this requirement?",
+    "answers": "A. Use a different FM.\nB. Choose a lower temperature value.\nC. Create an Amazon Bedrock knowledge base.\nD. Enable model invocation logging.",
+    "correct_answer": "C",
+    "explanation": "Creating an Amazon Bedrock knowledge base allows the company to supplement the foundation model\nwith relevant data from their private data sources. This ensures that the model has access to the additional,\ncontext-specific information needed. The other options do not directly address supplementing the model\nwith private data."
+  },
+  {
+    "id": "Question 39",
+    "question": "A medical company is customizing a foundation model (FM) for diagnostic purposes.\nThe company needs\nthe model to be transparent and explainable to meet regulatory requirements.\nWhich solution will meet these requirements?",
+    "answers": "A. Configure the security and compliance by using Amazon Inspector.\nB. Generate simple metrics, reports, and examples by using Amazon SageMaker Clarify.\nC. Encrypt and secure training data by using Amazon Macie.\nD. Gather more data. Use Amazon Rekognition to add custom labels to the data.",
+    "correct_answer": "B",
+    "explanation": "Amazon SageMaker Clarify helps with transparency and explainability by generating metrics, reports, and\nexamples that show how the model makes decisions, which is essential for meeting regulatory\nrequirements. The other options are not directly related to improving the model's transparency or\nexplainability."
+  },
+  {
+    "id": "Question 40",
+    "question": "A company wants to deploy a conversational chatbot to answer customer questions.\nThe chatbot is based\non a fine-tuned Amazon SageMaker JumpStart model. The application must comply with multiple regulatory\nframeworks.\nWhich capabilities can the company show compliance for? (Choose two.)",
+    "answers": "A. Auto scaling inference endpoints\nB. Threat detection\nC. Data protection\nD. Cost optimization\nE. Loosely coupled microservices",
+    "correct_answer": "BC",
+    "explanation": "Threat detection: Ensuring security measures are in place to detect threats is important for compliance\nwith regulatory frameworks.\nData protection: Proper data handling and protection measures are key compliance aspects, especially in\napplications dealing with sensitive customer information.\nThe other options (auto scaling, cost optimization, and loosely coupled microservices) are more related to\nperformance and architecture rather than regulatory compliance."
+  },
+  {
+    "id": "Question 41",
+    "question": "A company is training a foundation model (FM). The company wants to increase the accuracy of the model\nup to a specific acceptance level.\nWhich solution will meet these requirements?",
+    "answers": "A. Decrease the batch size.\nB. Increase the epochs.\nC. Decrease the epochs.\nD. Increase the temperature parameter.",
+    "correct_answer": "B",
+    "explanation": "Increasing the number of epochs allows the model to train for more iterations, improving its accuracy until\nthe model reaches an optimal level. The other options are either less effective or unrelated to improving\naccuracy."
+  },
+  {
+    "id": "Question 42",
+    "question": "A company is building a large language model (LLM) question answering chatbot.\nThe company wants to\ndecrease the number of actions call center employees need to take to respond to customer questions.\nWhich business objective should the company use to evaluate the effect of the LLM chatbot?",
+    "answers": "A. Website engagement rate\nB. Average call duration\nC. Corporate social responsibility\nD. Regulatory compliance",
+    "correct_answer": "B",
+    "explanation": "Reducing the average call duration directly indicates how effectively the LLM chatbot is helping call center\nemployees answer customer questions, thus reducing the number of actions needed. The other options are\nnot directly related to the performance of a call center chatbot."
+  },
+  {
+    "id": "Question 43",
+    "question": "Which functionality does Amazon SageMaker Clarify provide?",
+    "answers": "A. Integrates a Retrieval Augmented Generation (RAG) workflow\nB. Monitors the quality of ML models in production\nC. Documents critical details about ML models\nD. Identifies potential bias during data preparation",
+    "correct_answer": "D",
+    "explanation": "Amazon SageMaker Clarify helps detect potential bias in datasets and models during data preparation,\ntraining, and deployment. It also provides tools for explainability. The other options are functionalities that\ndo not directly match SageMaker Clarify's core features."
+  },
+  {
+    "id": "Question 44",
+    "question": "A company is developing a new model to predict the prices of specific items.\nThe model performed well on\nthe training dataset. When the company deployed the model to production, the model's performance\ndecreased significantly.\nWhat should the company do to mitigate this problem?",
+    "answers": "A. Reduce the volume of data that is used in training.\nB. Add hyperparameters to the model.\nC. Increase the volume of data that is used in training.\nD. Increase the model training time.",
+    "correct_answer": "C",
+    "explanation": "Increasing the volume of data used in training helps the model generalize better to new, unseen data,\nreducing overfitting and improving performance in production. The other options either do not address the\nissue of model generalization or are unlikely to effectively solve the problem."
+  },
+  {
+    "id": "Question 45",
+    "question": "An ecommerce company wants to build a solution to determine customer sentiments based on written\ncustomer reviews of products.\nWhich AWS services meet these requirements? (Choose two.)",
+    "answers": "A. Amazon Lex\nB. Amazon Comprehend\nC. Amazon Polly\nD. Amazon Bedrock\nE. Amazon Rekognition",
+    "correct_answer": "BD",
+    "explanation": "Amazon Comprehend: This service is specifically designed for natural language processing (NLP) tasks,\nincluding sentiment analysis, making it ideal for analyzing customer reviews.\nAmazon Bedrock: Bedrock can be used to leverage foundation models, which can also be employed for\nsentiment analysis tasks.\nThe other options are not suitable for sentiment analysis of written customer reviews."
+  },
+  {
+    "id": "Question 46",
+    "question": "A company wants to use large language models (LLMs) with Amazon Bedrock to develop a chat interface\nfor the company's product manuals.\nThe manuals are stored as PDF files.\nWhich solution meets these requirements MOST cost-effectively?",
+    "answers": "A. Use prompt engineering to add one PDF file as context to the user prompt when the prompt is\nsubmitted to Amazon Bedrock.\nB. Use prompt engineering to add all the PDF files as context to the user prompt when the prompt is\nsubmitted to Amazon Bedrock.\nC. Use all the PDF documents to fine-tune a model with Amazon Bedrock.\nUse the fine-tuned model to\nprocess user prompts.\nD. Upload PDF documents to an Amazon Bedrock knowledge base.\nUse the knowledge base to provide\ncontext when users submit prompts to Amazon Bedrock.",
+    "correct_answer": "D",
+    "explanation": "Using an Amazon Bedrock knowledge base allows the model to efficiently access relevant information from\nthe PDF manuals when needed, reducing the cost compared to continuously fine-tuning a model or\nproviding all PDFs as context in each prompt. This approach ensures that only necessary context is\nprovided, making it cost-effective."
+  },
+  {
+    "id": "Question 47",
+    "question": "A social media company wants to use a large language model (LLM) for content moderation.\nThe company\nwants to evaluate the LLM outputs for bias and potential discrimination against specific groups or\nindividuals.\nWhich data source should the company use to evaluate the LLM outputs with the LEAST administrative\neffort?",
+    "answers": "A. User-generated content\nB. Moderation logs\nC. Content moderation guidelines\nD. Benchmark datasets",
+    "correct_answer": "D",
+    "explanation": "Benchmark datasets are standardized datasets specifically designed for evaluating models for bias and\nfairness, allowing for efficient assessment with minimal administrative effort. The other options would\nrequire more manual processing and might not provide a consistent basis for evaluating bias and\ndiscrimination."
+  },
+  {
+    "id": "Question 48",
+    "question": "A company wants to use a pre-trained generative Al model to generate content for its marketing\ncampaigns.\nThe company needs to ensure that the generated content aligns with the company's brand\nvoice and messaging requirements.\nWhich solution meets these requirements?",
+    "answers": "A. Optimize the model's architecture and hyperparameters to improve the model's overall performance.\nB. Increase the model's complexity by adding more layers to the model's architecture.\nC. Create effective prompts that provide clear instructions and context to guide the model's generation.\nD. Select a large, diverse dataset to pre-train a new generative model.",
+    "correct_answer": "C",
+    "explanation": "Creating effective prompts helps guide the pre-trained generative Al model to produce content that aligns\nwith the company's brand voice and messaging. The other options either involve model architecture\nchanges or require extensive training, which are not necessary for aligning content generation."
+  },
+  {
+    "id": "Question 49",
+    "question": "A loan company is building a generative Al-based solution to offer new applicants discounts based on\nspecific business criteria.\nThe company wants to build and use an Al model responsibly to minimize bias\nthat could negatively affect some customers.\nWhich actions should the company take to meet these requirements? (Choose two.)",
+    "answers": "A. Detect imbalances or disparities in the data.\nB. Ensure that the model runs frequently.\nC. Evaluate the model's behavior so that the company can provide transparency to stakeholders.\nD. Use the Recall-Oriented Understudy for Gisting Evaluation (ROUGE) technique to ensure that the model\nis 100% accurate.\nE. Ensure that the model's inference time is within the accepted limits.",
+    "correct_answer": "AC",
+    "explanation": "Detect imbalances or disparities in the data: Identifying and addressing data imbalances helps minimize\nbiases that could negatively affect customers.\nEvaluate the model's behavior so that the company can provide transparency to stakeholders:\nEvaluating the model and ensuring transparency is important for responsible Al usage, as it helps\nstakeholders understand how decisions are made.\nThe other options are either not directly related to minimizing bias or do not address responsible Al\ndevelopment."
+  },
+  {
+    "id": "Question 50",
+    "question": "A company is using an Amazon Bedrock base model to summarize documents for an internal use case.\nThe company trained a custom model to improve the summarization quality.\nWhich action must the company take to use the custom model through Amazon Bedrock?",
+    "answers": "A. Purchase Provisioned Throughput for the custom model.\nB. Deploy the custom model in an Amazon SageMaker endpoint for real-time inference.\nC. Register the model with the Amazon SageMaker Model Registry.\nD. Grant access to the custom model in Amazon Bedrock.",
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "Question 51",
+    "question": "A company needs to choose a model from Amazon Bedrock to use internally.\nThe company must identify a\nmodel that generates responses in a style that the company's employees prefer.\nWhat should the company do to meet these requirements?",
+    "answers": "A. Evaluate the models by using built-in prompt datasets.\nB. Evaluate the models by using a human workforce and custom prompt datasets.\nC. Use public model leaderboards to identify the model.\nD. Use the model InvocationLatency runtime metrics in Amazon CloudWatch when trying models.",
+    "correct_answer": "B",
+    "explanation": "Evaluating models using a human workforce and custom prompt datasets ensures that the model\ngenerates responses in the style that aligns with the company's preferences. The other options either do\nnot provide direct feedback on style preferences or are not specific enough for determining suitability based\non employee preferences."
+  },
+  {
+    "id": "Question 52",
+    "question": "A student at a university is copying content from generative Al to write essays.\nWhich challenge of responsible generative Al does this scenario represent?",
+    "answers": "A. Toxicity\nB. Hallucinations\nC. Plagiarism\nD. Privacy",
+    "correct_answer": "C",
+    "explanation": "Copying content from generative Al to write essays without proper attribution constitutes plagiarism, which\nis a key challenge of responsible generative Al. The other options are unrelated to this specific issue."
+  },
+  {
+    "id": "Question 53",
+    "question": "A company needs to build its own large language model (LLM) based on only the company's private data.\nThe company is concerned about the environmental effect of the training process.\nWhich Amazon EC2 instance type has the LEAST environmental effect when training LLMs?",
+    "answers": "A. Amazon EC2 C series\nB. Amazon EC2 G series\nC. Amazon EC2 P series\nD. Amazon EC2 Trn series",
+    "correct_answer": "D",
+    "explanation": "Amazon EC2 Trn series instances (powered by AWS Trainium chips) are designed to provide efficient and\nenvironmentally friendly training of large machine learning models. They are optimized for energy efficiency,\nwhich reduces the environmental impact of the training process. The other instance types are not\nspecifically optimized for minimizing environmental effects during training."
+  },
+  {
+    "id": "Question 54",
+    "question": "A company wants to build an interactive application for children that generates new stories based on classic\nstories.\nThe company wants to use Amazon Bedrock and needs to ensure that the results and topics are\nappropriate for children.\nWhich AWS service or feature will meet these requirements?",
+    "answers": "A. Amazon Rekognition\nB. Amazon Bedrock playgrounds\nC. Guardrails for Amazon Bedrock\nD. Agents for Amazon Bedrock",
+    "correct_answer": "C",
+    "explanation": "Guardrails for Amazon Bedrock can help ensure that the output generated by Amazon Bedrock is\nappropriate for children. Guardrails are used to apply content moderation, guidelines, and ensure safety by\nfiltering potentially harmful or inappropriate content, which is essential when building an interactive\napplication for children."
+  },
+  {
+    "id": "Question 55",
+    "question": "A company is building an application that needs to generate synthetic data that is based on existing data.\nWhich type of model can the company use to meet this requirement?",
+    "answers": "A. Generative adversarial network (GAN)\nB. XGBoost\nC. Residual neural network\nD. WaveNet",
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "id": "Question 56",
+    "question": "A digital devices company wants to predict customer demand for memory hardware.\nThe company does not\nhave coding experience or knowledge of ML algorithms and needs to develop a data-driven predictive\nmodel.\nThe company needs to perform analysis on internal data and external data.\nWhich solution will meet these requirements?",
+    "answers": "A. Store the data in Amazon S3. Create ML models and demand forecast predictions by using Amazon\nSageMaker built-in algorithms that use the data from Amazon S3.\nB. Import the data into Amazon SageMaker Data Wrangler. Create ML models and demand forecast\npredictions by using SageMaker built-in algorithms.\nC. Import the data into Amazon SageMaker Data Wrangler. Build ML models and demand forecast\npredictions by using an Amazon Personalize Trending-Now recipe.\nD. Import the data into Amazon SageMaker Canvas. Build ML models and demand forecast predictions by\nselecting the values in the data from SageMaker Canvas.",
+    "correct_answer": "D",
+    "explanation": "Amazon SageMaker Canvas is a no-code tool that allows users to build ML models and make predictions\nwithout requiring programming knowledge. It is ideal for users with no coding experience, providing an easy\ninterface for importing data and generating predictive models. The other options require more technical\nexpertise or are not designed for no-code model building."
+  },
+  {
+    "id": "Question 57",
+    "question": "A company has installed a security camera. The company uses an ML model to evaluate the security\ncamera footage for potential thefts.\nThe company has discovered that the model disproportionately flags\npeople who are members of a specific ethnic group.\nWhich type of bias is affecting the model output?",
+    "answers": "A. Measurement bias\nB. Sampling bias\nC. Observer bias\nD. Confirmation bias",
+    "correct_answer": "B",
+    "explanation": "Sampling bias occurs when the training data is not representative of the overall population, leading to\ndisproportionate flagging of specific groups. In this case, the model may have been trained on biased data\nthat did not adequately represent all ethnic groups, resulting in skewed predictions. The other types of bias\ndo not directly apply to the selection of training data or its representativeness."
+  },
+  {
+    "id": "Question 58",
+    "question": "A company is building a customer service chatbot. The company wants the chatbot to improve its\nresponses by learning from past interactions and online resources.\nWhich Al learning strategy provides this self-improvement capability?",
+    "answers": "A. Supervised learning with a manually curated dataset of good responses and bad responses\nB. Reinforcement learning with rewards for positive customer feedback\nC. Unsupervised learning to find clusters of similar customer inquiries\nD. Supervised learning with a continuously updated FAQ database",
+    "correct_answer": "B",
+    "explanation": "Reinforcement learning allows the chatbot to learn from interactions by receiving rewards for positive\ncustomer feedback, which helps the model self-improve over time. The other options do not directly provide\na mechanism for continuous self-improvement based on interactions."
+  },
+  {
+    "id": "Question 59",
+    "question": "An Al practitioner has built a deep learning model to classify the types of materials in images. The Al\npractitioner now wants to measure the model performance.\nWhich metric will help the Al practitioner evaluate the performance of the model?",
+    "answers": "A. Confusion matrix\nB. Correlation matrix\nC. R2 score\nD. Mean squared error (MSE)",
+    "correct_answer": "A",
+    "explanation": "A confusion matrix provides detailed insights into the performance of a classification model by showing the\ntrue positives, false positives, true negatives, and false negatives. This metric helps evaluate how well the\nmodel classifies the different types of materials in images. The other metrics are not as suitable for\nevaluating a classification model."
+  },
+  {
+    "id": "Question 60",
+    "question": "A company has built a chatbot that can respond to natural language questions with images.\nThe company\nwants to ensure that the chatbot does not return inappropriate or unwanted images.\nWhich solution will meet these requirements?",
+    "answers": "A. Implement moderation APIs.\nB. Retrain the model with a general public dataset.\nC. Perform model validation.\nD. Automate user feedback integration.",
+    "correct_answer": "A",
+    "explanation": "Implementing moderation APIs can help filter and block inappropriate or unwanted images before they are\nreturned by the chatbot. The other options do not directly address ensuring that the chatbot avoids returning\ninappropriate images."
+  },
+  {
+    "id": "Question 61",
+    "question": "An Al practitioner is using an Amazon Bedrock base model to summarize session chats from the customer\nservice department.\nThe Al practitioner wants to store invocation logs to monitor model input and output\ndata.\nWhich strategy should the Al practitioner use?",
+    "answers": "A. Configure AWS CloudTrail as the logs destination for the model.\nB. Enable model invocation logging in Amazon Bedrock.\nC. Configure AWS Audit Manager as the logs destination for the model.\nD. Configure model invocation logging in Amazon EventBridge.",
+    "correct_answer": "B",
+    "explanation": "Enabling invocation logging in Amazon Bedrock allows the Al practitioner to monitor and store the input and\noutput data for model invocations. The other options are not directly used for logging model invocations in\nAmazon Bedrock."
+  },
+  {
+    "id": "Question 62",
+    "question": "A company is building an ML model to analyze archived data.\nThe company must perform inference on\nlarge datasets that are multiple GBs in size.\nThe company does not need to access the model predictions\nimmediately.\nWhich Amazon SageMaker inference option will meet these requirements?",
+    "answers": "A. Batch transform\nB. Real-time inference\nC. Serverless inference\nD. Asynchronous inference",
+    "correct_answer": "A",
+    "explanation": "Batch transform is ideal for processing large datasets that do not require real-time predictions. It allows the\ncompany to perform inference on multiple GBs of data efficiently without needing immediate results. The\nother options are more suitable for scenarios requiring real-time or near real-time access."
+  },
+  {
+    "id": "Question 63",
+    "question": "Which term describes the numerical representations of real-world objects and concepts that Al and natural\nlanguage processing (NLP) models use to improve understanding of textual information?",
+    "answers": "A. Embeddings\nB. Tokens\nC. Models\nD. Binaries",
+    "correct_answer": "A",
+    "explanation": "Embeddings are numerical representations of real-world objects and concepts that help Al and NLP models\nunderstand and work with textual information more effectively by capturing relationships and similarities\nbetween words or phrases. The other options do not describe this concept."
+  },
+  {
+    "id": "Question 64",
+    "question": "A research company implemented a chatbot by using a foundation model (FM) from Amazon Bedrock.\nThe\nchatbot searches for answers to questions from a large database of research papers.\nAfter multiple prompt engineering attempts, the company notices that the FM is performing poorly because\nof the complex scientific terms in the research papers.\nHow can the company improve the performance of the chatbot?",
+    "answers": "A. Use few-shot prompting to define how the FM can answer the questions.\nB. Use domain adaptation fine-tuning to adapt the FM to complex scientific terms.\nC. Change the FM inference parameters.\nD. Clean the research paper data to remove complex scientific terms.",
+    "correct_answer": "B",
+    "explanation": "Domain adaptation fine-tuning allows the FM to better understand the complex scientific terms by training it\nwith domain-specific data, improving its performance on such specialized content. The other options are\neither insufficient or not directly related to handling complex terminology effectively."
+  },
+  {
+    "id": "Question 65",
+    "question": "A company wants to use a large language model (LLM) on Amazon Bedrock for sentiment analysis.\nThe\ncompany needs the LLM to produce more consistent responses to the same input prompt.\nWhich adjustment to an inference parameter should the company make to meet these requirements?",
+    "answers": "A. Decrease the temperature value.\nB. Increase the temperature value.\nC. Decrease the length of output tokens.\nD. Increase the maximum generation length.",
+    "correct_answer": "A",
+    "explanation": "Decreasing the temperature value makes the model's output more deterministic and consistent by reducing\nrandomness in response generation. The other adjustments do not directly ensure consistent responses."
+  },
+  {
+    "id": "Question 66",
+    "question": "A company wants to develop a large language model (LLM) application by using Amazon Bedrock and\ncustomer data that is uploaded to Amazon S3.\nThe company's security policy states that each team can\naccess data for only the team's own customers.\nWhich solution will meet these requirements?",
+    "answers": "A. Create an Amazon Bedrock custom service role for each team that has access to only the team's\ncustomer data.\nB. Create a custom service role that has Amazon S3 access.\nAsk teams to specify the customer name on\neach Amazon Bedrock request.\nC. Redact personal data in Amazon S3. Update the S3 bucket policy to allow team access to customer\ndata.\nD. Create one Amazon Bedrock role that has full Amazon S3 access.\nCreate IAM roles for each team that\nhave access to only each team's customer folders.",
+    "correct_answer": "A",
+    "explanation": "Creating a custom Amazon Bedrock service role for each team with restricted access to only the team's\ncustomer data ensures compliance with the security policy, providing the necessary data segregation and\naccess control. The other options do not effectively enforce team-specific access or may pose risks of\nbroader access than allowed by the policy."
+  },
+  {
+    "id": "Question 67",
+    "question": "A medical company deployed a disease detection model on Amazon Bedrock.\nTo comply with privacy\npolicies, the company wants to prevent the model from including personal patient information in its\nresponses.\nThe company also wants to receive notification when policy violations occur.\nWhich solution meets these requirements?",
+    "answers": "A. Use Amazon Macie to scan the model's output for sensitive data and set up alerts for potential\nviolations.\nB. Configure AWS CloudTrail to monitor the model's responses and create alerts for any detected personal\ninformation.\nC. Use Guardrails for Amazon Bedrock to filter content. Set up Amazon CloudWatch alarms for notification\nof policy violations.\nD. Implement Amazon SageMaker Model Monitor to detect data drift and receive alerts when model quality\ndegrades.",
+    "correct_answer": "C",
+    "explanation": "Guardrails for Amazon Bedrock can be used to filter content and ensure that personal patient information is\nnot included in model responses. Setting up Amazon CloudWatch alarms allows the company to receive\nnotifications when policy violations occur. The other options are not specifically designed for filtering model\noutput and monitoring policy compliance."
+  },
+  {
+    "id": "Question 68",
+    "question": "A company manually reviews all submitted resumes in PDF format.\nAs the company grows, the company\nexpects the volume of resumes to exceed the company's review capacity.\nThe company needs an\nautomated system to convert the PDF resumes into plain text format for additional processing.\nWhich AWS service meets this requirement?",
+    "answers": "A. Amazon Textract\nB. Amazon Personalize\nC. Amazon Lex\nD. Amazon Transcribe",
+    "correct_answer": "A",
+    "explanation": "Amazon Textract can extract text from PDF documents, making it suitable for converting resumes into plain\ntext for further processing. The other services do not provide functionality to extract text from PDFs."
+  },
+  {
+    "id": "Question 69",
+    "question": "An education provider is building a question and answer application that uses a generative Al model to\nexplain complex concepts.\nThe education provider wants to automatically change the style of the model\nresponse depending on who is asking the question.\nThe education provider will give the model the age\nrange of the user who has asked the question.\nWhich solution meets these requirements with the LEAST implementation effort?",
+    "answers": "A. Fine-tune the model by using additional training data that is representative of the various age ranges\nthat the application will support.\nB. Add a role description to the prompt context that instructs the model of the age range that the response\nshould target.\nC. Use chain-of-thought reasoning to deduce the correct style and complexity for a response suitable for\nthat user.\nD. Summarize the response text depending on the age of the user so that younger users receive shorter\nresponses.",
+    "correct_answer": "B",
+    "explanation": "Adding a role description to the prompt is the simplest and most effective way to adjust the model's\nresponse style based on the user's age range. It requires minimal implementation effort and effectively\ntailors the output. The other options involve more complex processes, such as fine-tuning or additional\nreasoning steps."
+  },
+  {
+    "id": "Question 70",
+    "question": "Which strategy evaluates the accuracy of a foundation model (FM) that is used in image classification\ntasks?",
+    "answers": "A. Calculate the total cost of resources used by the model.\nB. Measure the model's accuracy against a predefined benchmark dataset.\nC. Count the number of layers in the neural network.\nD. Assess the color accuracy of images processed by the model.",
+    "correct_answer": "B",
+    "explanation": "Evaluating a foundation model's accuracy by measuring its performance against a predefined benchmark\ndataset is the standard approach for assessing accuracy in image classification tasks. The other options do\nnot provide an appropriate measure of classification accuracy."
+  },
+  {
+    "id": "Question 71",
+    "question": "An accounting firm wants to implement a large language model (LLM) to automate document processing.\nThe firm must proceed responsibly to avoid potential harms.\nWhat should the firm do when developing and deploying the LLM? (Choose two.)",
+    "answers": "A. Include fairness metrics for model evaluation.\nB. Adjust the temperature parameter of the model.\nC. Modify the training data to mitigate bias.\nD. Avoid overfitting on the training data.\nE. Apply prompt engineering techniques.",
+    "correct_answer": "AC",
+    "explanation": "Include fairness metrics for model evaluation: Fairness metrics help ensure that the LLM is unbiased\nand treats all cases equitably, which is essential for responsible Al use.\nModify the training data to mitigate bias: Adjusting the training data helps reduce any inherent bias that\nmight exist, contributing to a more fair and responsible LLM.\nThe other options are related to general model optimization but do not directly address responsible Al\npractices regarding potential harms like bias and fairness."
+  },
+  {
+    "id": "Question 72",
+    "question": "A company is building an ML model. The company collected new data and analyzed the data by creating a\ncorrelation matrix, calculating statistics, and visualizing the data.\nWhich stage of the ML pipeline is the company currently in?",
+    "answers": "A. Data pre-processing\nB. Feature engineering\nC. Exploratory data analysis\nD. Hyperparameter tuning",
+    "correct_answer": "C",
+    "explanation": "The company is currently in the exploratory data analysis (EDA) stage, which involves summarizing data\nthrough statistics, visualizations, and correlation matrices to understand the dataset before moving on to\nmodeling. The other options are subsequent steps in the ML pipeline."
+  },
+  {
+    "id": "Question 73",
+    "question": "A company has documents that are missing some words because of a database error.\nThe company wants\nto build an ML model that can suggest potential words to fill in the missing text.\nWhich type of model meets this requirement?",
+    "answers": "A. Topic modeling\nB. Clustering models\nC. Prescriptive ML models\nD. BERT-based models",
+    "correct_answer": "D",
+    "explanation": "BERT-based models are well-suited for natural language understanding tasks, including filling in missing\nwords, because they use contextual information to predict missing tokens in a text. The other types of\nmodels are not designed for this type of text completion task."
+  },
+  {
+    "id": "Question 74",
+    "question": "A company wants to display the total sales for its top-selling products across various retail locations in the\npast 12 months.\nWhich AWS solution should the company use to automate the generation of graphs?",
+    "answers": "A. Amazon Q in Amazon EC2\nB. Amazon Q Developer\nC. Amazon Q in Amazon QuickSight\nD. Amazon Q in AWS Chatbot",
+    "correct_answer": "C",
+    "explanation": "Amazon Q in Amazon QuickSight allows users to ask questions in natural language and automatically\ngenerate graphs and visualizations to display insights, such as total sales for top-selling products. The other\noptions do not provide the same functionality for generating visual analytics."
+  },
+  {
+    "id": "Question 75",
+    "question": "A company is building a chatbot to improve user experience.\nThe company is using a large language model\n(LLM) from Amazon Bedrock for intent detection.\nThe company wants to use few-shot learning to improve\nintent detection accuracy.\nWhich additional data does the company need to meet these requirements?",
+    "answers": "A. Pairs of chatbot responses and correct user intents\nB. Pairs of user messages and correct chatbot responses\nC. Pairs of user messages and correct user intents\nD. Pairs of user intents and correct chatbot responses",
+    "correct_answer": "C",
+    "explanation": "Few-shot learning involves providing the model with a few examples to help it understand how to perform\nthe task. For intent detection, the company needs pairs of user messages and the correct user intents,\nwhich will help the LLM improve its accuracy in detecting user intents. The other options do not provide the\nnecessary pairing for improving intent detection."
+  },
+  {
+    "id": "Question 76",
+    "question": "A company is using few-shot prompting on a base model that is hosted on Amazon Bedrock. The model\ncurrently uses 10 examples in the prompt. The model is invoked once daily and is performing well.\nThe\ncompany wants to lower the monthly cost.\nWhich solution will meet these requirements?",
+    "answers": "A. Customize the model by using fine-tuning.\nB. Decrease the number of tokens in the prompt.\nC. Increase the number of tokens in the prompt.\nD. Use Provisioned Throughput.",
+    "correct_answer": "B",
+    "explanation": "Decreasing the number of tokens in the prompt reduces the amount of data being processed, thereby\nlowering the cost of using the model. Since the model is performing well, reducing the prompt size is a cost-\neffective way to maintain performance while lowering expenses. The other options either increase costs or\nare unrelated to prompt size."
+  },
+  {
+    "id": "Question 77",
+    "question": "An Al practitioner is using a large language model (LLM) to create content for marketing campaigns.\nThe\ngenerated content sounds plausible and factual but is incorrect.\nWhich problem is the LLM having?",
+    "answers": "A. Data leakage\nB. Hallucination\nC. Overfitting\nD. Underfitting",
+    "correct_answer": "B",
+    "explanation": "Hallucination occurs when a large language model generates content that appears plausible and factual but\nis incorrect or fabricated. This is a common issue with LLMs. The other options do not describe this\nparticular behavior."
+  },
+  {
+    "id": "Question 78",
+    "question": "An Al practitioner trained a custom model on Amazon Bedrock by using a training dataset that contains\nconfidential data.\nThe Al practitioner wants to ensure that the custom model does not generate inference\nresponses based on confidential data.\nHow should the Al practitioner prevent responses based on confidential data?",
+    "answers": "A. Delete the custom model. Remove the confidential data from the training dataset. Retrain the custom\nmodel.\nB. Mask the confidential data in the inference responses by using dynamic data masking.\nC. Encrypt the confidential data in the inference responses by using Amazon SageMaker.\nD. Encrypt the confidential data in the custom model by using AWS Key Management Service (AWS KMS).",
+    "correct_answer": "A",
+    "explanation": "To ensure that the custom model does not generate responses based on confidential data, the best\napproach is to retrain the model without including the confidential data. This prevents the model from\nlearning patterns associated with that sensitive information, thereby avoiding its use in inference. The other\noptions do not address the root cause of the issue-removing confidential data from the training process."
+  },
+  {
+    "id": "Question 79",
+    "question": "A company has built a solution by using generative Al.\nThe solution uses large language models (LLMs) to\ntranslate training manuals from English into other languages.\nThe company wants to evaluate the accuracy\nof the solution by examining the text generated for the manuals.\nWhich model evaluation strategy meets these requirements?",
+    "answers": "A. Bilingual Evaluation Understudy (BLEU)\nB. Root mean squared erroг (RMSE)\nC. Recall-Oriented Understudy for Gisting Evaluation (ROUGE)\nD. F1 score",
+    "correct_answer": "A",
+    "explanation": "The BLEU (Bilingual Evaluation Understudy) score is a common metric used to evaluate the accuracy of\nmachine translation by comparing the generated translation with reference translations. It is specifically\ndesigned for translation tasks, whereas the other metrics are not suitable for evaluating translation quality."
+  },
+  {
+    "id": "Question 80",
+    "question": "A large retailer receives thousands of customer support inquiries about products every day.\nThe customer\nsupport inquiries need to be processed quickly. The company wants to implement Agents for Amazon\nBedrock.\nWhat are the key benefits of using Amazon Bedrock agents that could help this retailer?",
+    "answers": "A. Generation of custom foundation models (FMs) to predict customer needs\nB. Automation of repetitive tasks and orchestration of complex workflows\nC. Automatically calling multiple foundation models (FMs) and consolidating the results\nD. Selecting the foundation model (FM) based on predefined criteria and metrics",
+    "correct_answer": "B",
+    "explanation": "Amazon Bedrock agents help automate repetitive tasks and orchestrate complex workflows, which is ideal\nfor handling thousands of customer support inquiries efficiently. This helps reduce response times and\nimproves productivity. The other options do not directly address automation and orchestration of tasks for\ncustomer support."
+  },
+  {
+    "id": "Question 81",
+    "question": "Which option is a benefit of ongoing pre-training when fine-tuning a foundation model (FM)?",
+    "answers": "A. Helps decrease the model's complexity\nB. Improves model performance over time\nC. Decreases the training time requirement\nD. Optimizes model inference time",
+    "correct_answer": "B",
+    "explanation": "Ongoing pre-training helps enhance a foundation model's performance by continuously updating it with new\ndata, thereby improving its ability to generalize and perform well on different tasks. The other options do not\ndirectly relate to the benefits of ongoing pre-training."
+  },
+  {
+    "id": "Question 82",
+    "question": "What are tokens in the context of generative Al models?",
+    "answers": "A. Tokens are the basic units of input and output that a generative Al model operates on, representing\nwords, subwords, or other linguistic units.\nB. Tokens are the mathematical representations of words or concepts used in generative Al models.\nC. Tokens are the pre-trained weights of a generative Al model that are fine-tuned for specific tasks.\nD. Tokens are the specific prompts or instructions given to a generative Al model to generate output.",
+    "correct_answer": "A",
+    "explanation": "Tokens are the smallest units (e.g., words, subwords, or characters) that generative Al models use to\nprocess text. They form the basis of both the input given to and the output generated by the model. The\nother options do not accurately describe tokens in this context."
+  },
+  {
+    "id": "Question 83",
+    "question": "A company wants to assess the costs that are associated with using a large language model (LLM) to\ngenerate inferences.\nThe company wants to use Amazon Bedrock to build generative Al applications.\nWhich factor will drive the inference costs?",
+    "answers": "A. Number of tokens consumed\nB. Temperature value\nC. Amount of data used to train the LLM\nD. Total training time",
+    "correct_answer": "A",
+    "explanation": "Inference costs for large language models are typically driven by the number of tokens processed during\ninput and output, as each token incurs computational resources. The other factors (temperature value,\ntraining data, and training time) do not directly impact inference costs."
+  },
+  {
+    "id": "Question 84",
+    "question": "A company is using Amazon SageMaker Studio notebooks to build and train ML models.\nThe company\nstores the data in an Amazon S3 bucket.\nThe company needs to manage the flow of data from Amazon S3\nto SageMaker Studio notebooks.\nWhich solution will meet this requirement?",
+    "answers": "A. Use Amazon Inspector to monitor SageMaker Studio.\nB. Use Amazon Macie to monitor SageMaker Studio.\nC. Configure SageMaker to use a VPC with an S3 endpoint.\nD. Configure SageMaker to use S3 Glacier Deep Archive.",
+    "correct_answer": "C",
+    "explanation": "Configuring Amazon SageMaker to use a VPC with an S3 endpoint ensures secure, direct, and managed\ndata flow between Amazon S3 and SageMaker Studio notebooks. This setup avoids public internet\nexposure and maintains data integrity during transfers. The other options do not provide a solution for\nmanaging the data flow in this context."
+  },
+  {
+    "id": "Question 85",
+    "question": "A company has a foundation model (FM) that was customized by using Amazon Bedrock to answer\ncustomer queries about products.\nThe company wants to validate the model's responses to new types of\nqueries.\nThe company needs to upload a new dataset that Amazon Bedrock can use for validation.\nWhich AWS service meets these requirements?",
+    "answers": "A. Amazon S3\nB. Amazon Elastic Block Store (Amazon EBS)\nC. Amazon Elastic File System (Amazon EFS)\nD. AWS Snowcone",
+    "correct_answer": "A",
+    "explanation": "Amazon S3 is the most suitable AWS service for uploading and storing datasets used for validation\npurposes. It is highly scalable and integrated with Amazon Bedrock, allowing easy access to data for model\nvalidation. The other options do not provide the same level of integration or suitability for managing datasets\nin this context."
+  },
+  {
+    "id": "Question 86",
+    "question": "Which prompting attack directly exposes the configured behavior of a large language model (LLM)?",
+    "answers": "A. Prompted persona switches\nB. Exploiting friendliness and trust\nC. Ignoring the prompt template\nD. Extracting the prompt template",
+    "correct_answer": "D",
+    "explanation": "\"Extracting the prompt template\" is a type of prompting attack that involves directly exposing the configured\nbehavior or the underlying system prompt of a large language model (LLM). This attack can reveal sensitive\ndetails about how the model operates, including its internal instructions or restrictions, which are typically\nnot intended to be disclosed to the user. Such an exposure can compromise the security and reliability of\nthe LLM by making it vulnerable to further exploitation or misuse."
+  },
+  {
+    "id": "Question 87",
+    "question": "A company wants to use Amazon Bedrock. The company needs to review which security aspects the\ncompany is responsible for when using Amazon Bedrock.\nWhich security aspect will the company be responsible for?",
+    "answers": "A. Patching and updating the versions of Amazon Bedrock\nB. Protecting the infrastructure that hosts Amazon Bedrock\nC. Securing the company's data in transit and at rest\nD. Provisioning Amazon Bedrock within the company network",
+    "correct_answer": "C",
+    "explanation": "According to the AWS Shared Responsibility Model, AWS manages the security of the cloud, including the\ninfrastructure and services like Amazon Bedrock. Customers are responsible for security in the cloud,\nwhich encompasses protecting their data, managing access controls, and configuring security settings for\ntheir applications."
+  },
+  {
+    "id": "Question 88",
+    "question": "A social media company wants to use a large language model (LLM) to summarize messages.\nThe\ncompany has chosen a few LLMs that are available on Amazon SageMaker JumpStart.\nThe company\nwants to compare the generated output toxicity of these models.\nWhich strategy gives the company the ability to evaluate the LLMs with the LEAST operational overhead?",
+    "answers": "A. Crowd-sourced evaluation\nB. Automatic model evaluation\nC. Model evaluation with human workers\nD. Reinforcement learning from human feedback (RLHF)",
+    "correct_answer": "B",
+    "explanation": "Automatic model evaluation is the strategy that allows the company to evaluate the LLMs with the least\noperational overhead. This method leverages automated tools and processes to assess the toxicity or\nquality of the generated output without the need for manual intervention or crowd-sourced input. By using\npre-built evaluation metrics or toxicity detection models, the company can quickly and efficiently evaluate\nmultiple models without the complexity and time required for human evaluations."
+  },
+  {
+    "id": "Question 89",
+    "question": "A company is testing the security of a foundation model (FM).\nDuring testing, the company wants to get\naround the safety features and make harmful content.\nWhich security technique is this an example of?",
+    "answers": "A. Fuzzing training data to find vulnerabilities\nB. Denial of service (DoS)\nC. Penetration testing with authorization\nD. Jailbreak",
+    "correct_answer": "D",
+    "explanation": "\"Jailbreaking\" refers to attempts to bypass or disable the built-in safety features and restrictions of a\nsystem, in this case, a foundation model (FM). This technique involves trying to circumvent the safeguards\nthat prevent the model from generating harmful or unsafe content. Jailbreaking is often performed to exploit\nvulnerabilities in a model's filtering or safety protocols, making it a direct attempt to undermine its\nprotections."
+  },
+  {
+    "id": "Question 90",
+    "question": "A company needs to use Amazon SageMaker for model training and inference.\nThe company must comply\nwith regulatory requirements to run SageMaker jobs in an isolated environment without internet access.\nWhich solution will meet these requirements?",
+    "answers": "A. Run SageMaker training and inference by using SageMaker Experiments.\nB. Run SageMaker training and inference by using network isolation.\nC. Encrypt the data at rest by using encryption for SageMaker geospatial capabilities.\nD. Associate appropriate AWS Identity and Access Management (IAM) roles with the SageMaker jobs.",
+    "correct_answer": "B",
+    "explanation": "Network isolation in Amazon SageMaker allows you to run training and inference jobs in an environment\nthat does not have access to the internet. This helps ensure that the data and the model do not\ninadvertently access external resources, meeting regulatory compliance requirements for isolated\nenvironments."
+  },
+  {
+    "id": "Question 91",
+    "question": "An ML research team develops custom ML models. The model artifacts are shared with other teams for\nintegration into products and services.\nThe ML team retains the model training code and data.\nThe ML team\nwants to build a mechanism that the ML team can use to audit models.\nWhich solution should the ML team use when publishing the custom ML models?",
+    "answers": "A. Create documents with the relevant information. Store the documents in Amazon S3.\nB. Use AWS AI Service Cards for transparency and understanding models.\nC. Create Amazon SageMaker Model Cards with intended uses and training and inference details.\nD. Create model training scripts.\nCommit the model training scripts to a Git repository.",
+    "correct_answer": "C",
+    "explanation": "Amazon SageMaker Model Cards are designed to document the essential details about machine learning\nmodels, including their intended uses, training datasets, training parameters, evaluation metrics, and\ninference environment. This provides a centralized mechanism to store and audit the metadata of the\nmodels, which is ideal for the ML team's need to share and audit models effectively.\nKey benefits of Amazon SageMaker Model Cards:\nStandardized documentation of models' characteristics and intended use cases.\nTransparency and traceability for auditing purposes.\nIntegration with other AWS services for lifecycle management."
+  },
+  {
+    "id": "Question 92",
+    "question": "A software company builds tools for customers. The company wants to use Al to increase software\ndevelopment productivity.\nWhich solution will meet these requirements?",
+    "answers": "A. Use a binary classification model to generate code reviews.\nB. Install code recommendation software in the company's developer tools.\nC. Install a code forecasting tool to predict potential code issues.\nD. Use a natural language processing (NLP) tool to generate code.",
+    "correct_answer": "D",
+    "explanation": "Natural language processing (NLP) tools can be used to generate code from high-level descriptions or\nsuggestions, which can greatly enhance software development productivity. By leveraging NLP models,\ndevelopers can automate repetitive coding tasks, generate code snippets, or even complete blocks of code\nbased on natural language inputs. This can speed up development and reduce errors."
+  },
+  {
+    "id": "Question 93",
+    "question": "A retail store wants to predict the demand for a specific product for the next few weeks by using the\nAmazon SageMaker DeepAR forecasting algorithm.\nWhich type of data will meet this requirement?",
+    "answers": "A. Text data\nB. Image data\nC. Time series data\nD. Binary data",
+    "correct_answer": "C",
+    "explanation": "The Amazon SageMaker DeepAR forecasting algorithm is specifically designed for forecasting scalar (one-\ndimensional) time series data using recurrent neural networks (RNNs). It excels when trained on datasets\ncontaining hundreds of related time series, enabling it to learn patterns across multiple series and provide\naccurate forecasts."
+  },
+  {
+    "id": "Question 94",
+    "question": "A large retail bank wants to develop an ML system to help the risk management team decide on loan\nallocations for different demographics.\nWhat must the bank do to develop an unbiased ML model?",
+    "answers": "A. Reduce the size of the training dataset.\nB. Ensure that the ML model predictions are consistent with historical results.\nC. Create a different ML model for each demographic group.\nD. Measure class imbalance on the training dataset. Adapt the training process accordingly.",
+    "correct_answer": "D",
+    "explanation": "In machine learning, class imbalance occurs when certain classes are underrepresented in the training\ndataset, leading to biased model predictions. To develop an unbiased model, it's crucial to assess the class\ndistribution and adjust the training process to address any imbalances. This can be achieved through\ntechniques such as oversampling the minority class, undersampling the majority class, or applying class\nweights to ensure the model treats all classes equitably."
+  },
+  {
+    "id": "Question 95",
+    "question": "Which prompting technique can protect against prompt injection attacks?",
+    "answers": "A. Adversarial prompting\nB. Zero-shot prompting\nC. Least-to-most prompting\nD. Chain-of-thought prompting",
+    "correct_answer": "A",
+    "explanation": "Adversarial prompting is a technique used to defend against prompt injection attacks by crafting inputs that\nare specifically designed to identify and neutralize malicious prompts. This approach involves generating\nprompts that can detect and mitigate adversarial inputs, thereby enhancing the robustness of language\nmodels against such attacks."
+  },
+  {
+    "id": "Question 96",
+    "question": "A company has fine-tuned a large language model (LLM) to answer questions for a help desk.\nThe\ncompany wants to determine if the fine-tuning has enhanced the model's accuracy.\nWhich metric should the company use for the evaluation?",
+    "answers": "A. Precision\nB. Time to first token\nC. F1 score\nD. Word error rate",
+    "correct_answer": "C",
+    "explanation": "The F1 score is a metric that combines precision and recall into a single value, providing a balance between\nthe two. It is particularly useful in evaluating models where there is an uneven class distribution, as it\nconsiders both false positives and false negatives. The F1 score is calculated as the harmonic mean of\nprecision and recall:\n$F1 = 2 × (\\frac{Precision \\cdot Recall}{Precision + Recall})$\nThis metric ranges from 0 to 1, with 1 indicating perfect precision and recall.\nIn the context of evaluating a\nfine-tuned large language model (LLM) for a help desk application, the F1 score is appropriate because it\nassesses the model's ability to provide accurate and relevant responses, balancing the trade-off between\nprecision (correctness of responses) and recall (completeness of relevant responses)."
+  },
+  {
+    "id": "Question 97",
+    "question": "A company is using Retrieval Augmented Generation (RAG) with Amazon Bedrock and Stable Diffusion to\ngenerate product images based on text descriptions.\nThe results are often random and lack specific details.\nThe company wants to increase the specificity of the generated images.\nWhich solution meets these requirements?",
+    "answers": "A. Increase the number of generation steps.\nB. Use the MASK_IMAGE_BLACK mask source option.\nC. Increase the classifier-free guidance (CFG) scale.\nD. Increase the prompt strength.",
+    "correct_answer": "C",
+    "explanation": "In Stable Diffusion, the classifier-free guidance (CFG) scale parameter controls how closely the\ngenerated image adheres to the provided text prompt. By increasing the CFG scale, the model places more\nemphasis on the prompt, leading to images that more accurately reflect the specified details. However, it's\nimportant to balance this setting, as excessively high values can result in less diverse and potentially lower-\nquality images."
+  },
+  {
+    "id": "Question 98",
+    "question": "A company wants to implement a large language model (LLM) based chatbot to provide customer service\nagents with real-time contextual responses to customers' inquiries.\nThe company will use the company's\npolicies as the knowledge base.\nWhich solution will meet these requirements MOST cost-effectively?",
+    "answers": "A. Retrain the LLM on the company policy data.\nB. Fine-tune the LLM on the company policy data.\nC. Implement Retrieval Augmented Generation (RAG) for in-context responses.\nD. Use pre-training and data augmentation on the company policy data.",
+    "correct_answer": "C",
+    "explanation": "Retrieval Augmented Generation (RAG) integrates external data sources with LLMs to produce accurate\nand contextually relevant outputs without the need for extensive retraining. By connecting the chatbot to the\ncompany's policy documents, RAG enables the model to retrieve pertinent information in real-time, ensuring\nresponses are both accurate and up-to-date. This approach is cost-effective as it leverages existing data\nwithout the computational expenses associated with retraining or fine-tuning large models."
+  },
+  {
+    "id": "Question 99",
+    "question": "A company wants to create a new solution by using AWS Glue.\nThe company has minimal programming\nexperience with AWS Glue.\nWhich AWS service can help the company use AWS Glue?",
+    "answers": "A. Amazon Q Developer\nB. AWS Config\nC. Amazon Personalize\nD. Amazon Comprehend",
+    "correct_answer": "A",
+    "explanation": "Amazon Q Developer is a tool designed to help users with minimal programming experience to work with\nAWS Glue. It provides a graphical user interface and simplifies the creation of data transformation and\nextraction workflows, allowing users to perform tasks like querying and working with data without needing\ndeep coding skills."
+  },
+  {
+    "id": "Question 100",
+    "question": "A company is developing a mobile ML app that uses a phone's camera to diagnose and treat insect bites.\nThe company wants to train an image classification model by using a diverse dataset of insect bite photos\nfrom different genders, ethnicities, and geographic locations around the world.\nWhich principle of responsible Al does the company demonstrate in this scenario?",
+    "answers": "A. Fairness\nB. Explainability\nC. Governance\nD. Transparency",
+    "correct_answer": "A",
+    "explanation": "The company is actively seeking to ensure that the image classification model is trained on a diverse\ndataset that includes insect bite photos from various genders, ethnicities, and geographic locations. This\nreflects the fairness principle of responsible Al, which emphasizes creating models that make unbiased\ndecisions across all demographic groups. By including a diverse range of data, the company is aiming to\nprevent biases that could lead to inaccurate diagnoses or treatments for certain groups of people.\nFairness ensures that Al systems do not discriminate based on race, gender, geography, or other\ncharacteristics."
+  },
+  {
+    "id": "Question 101",
+    "question": "A company is developing an ML model to make loan approvals.\nThe company must implement a solution to\ndetect bias in the model.\nThe company must also be able to explain the model's predictions.\nWhich solution will meet these requirements?",
+    "answers": "A. Amazon SageMaker Clarify\nB. Amazon SageMaker Data Wrangler\nC. Amazon SageMaker Model Cards\nD. AWS Al Service Cards",
+    "correct_answer": "A",
+    "explanation": "Amazon SageMaker Clarify is a tool that helps detect bias in machine learning models and provides\nexplainability for model predictions. It allows users to understand the factors influencing a model's\npredictions and assess whether the model is fair across different demographic groups. This is exactly what\nthe company needs for detecting bias and explaining model decisions, especially for high-stakes\napplications like loan approvals.\nBias detection: SageMaker Clarify can analyze the training data and the model's predictions to identify\nand mitigate bias.\nExplainability: It provides features for explaining the predictions made by the model, which helps users\nunderstand the reasons behind the model's decisions."
+  },
+  {
+    "id": "Question 102",
+    "question": "A company has developed a generative text summarization model by using Amazon Bedrock.\nThe\ncompany will use Amazon Bedrock automatic model evaluation capabilities.\nWhich metric should the company use to evaluate the accuracy of the model?",
+    "answers": "A. Area Under the ROC Curve (AUC) score\nB. F1 score\nC. BERTScore\nD. Real world knowledge (RWK) score",
+    "correct_answer": "C",
+    "explanation": "BERTScore is a metric specifically designed for evaluating the quality of text generated by models,\nparticularly in tasks like text summarization and machine translation. It uses contextual embeddings from a\npre-trained BERT model to compare generated text with reference text at the word level, making it well-\nsuited for evaluating the accuracy of generative text summarization models.\nBERTScore assesses the semantic similarity between the generated text and the reference text, providing\na more nuanced evaluation compared to traditional methods that focus on exact matches."
+  },
+  {
+    "id": "Question 103",
+    "question": "An Al practitioner wants to predict the classification of flowers based on petal length, petal width, sepal\nlength, and sepal width.\nWhich algorithm meets these requirements?",
+    "answers": "A. K-nearest neighbors (k-NN)\nB. K-mean\nC. Autoregressive Integrated Moving Average (ARIMA)\nD. Linear regression",
+    "correct_answer": "A",
+    "explanation": "K-nearest neighbors (k-NN) is a supervised learning algorithm used for classification tasks. It works by\nclassifying a data point based on how its features (such as petal length, petal width, sepal length, and sepal\nwidth in this case) are similar to the data points in the training set. For this problem, where the task is to\nclassify flowers based on their features, k-NN is an appropriate choice.\nk-NN is simple and effective for classification problems where the decision boundary is not necessarily\nlinear, as it looks at the closest neighbors to make predictions."
+  },
+  {
+    "id": "Question 104",
+    "question": "A company is using custom models in Amazon Bedrock for a generative Al application.\nThe company wants\nto use a company managed encryption key to encrypt the model artifacts that the model customization jobs\ncreate.\nWhich AWS service meets these requirements?",
+    "answers": "A. AWS Key Management Service (AWS KMS)\nB. Amazon Inspector\nC. Amazon Macie\nD. AWS Secrets Manager",
+    "correct_answer": "A",
+    "explanation": "AWS Key Management Service (AWS KMS) is a fully managed service that allows you to create and\ncontrol encryption keys used to encrypt your data. It is ideal for scenarios like this, where a company wants\nto use a custom, company-managed encryption key to protect model artifacts. AWS KMS allows you to\nsecurely manage keys for encrypting and decrypting data, and it integrates with various AWS services,\nincluding Amazon Bedrock.\nAWS KMS provides centralized key management, and it is designed for use cases that involve encrypting\nboth data and artifacts, such as model customization jobs."
+  },
+  {
+    "id": "Question 105",
+    "question": "A company wants to use large language models (LLMs) to produce code from natural language code\ncomments.\nWhich LLM feature meets these requirements?",
+    "answers": "A. Text summarization\nB. Text generation\nC. Text completion\nD. Text classification",
+    "correct_answer": "B",
+    "explanation": "Text generation is the feature of large language models (LLMs) that enables them to produce text based\non a given prompt or input. In this scenario, the input would be natural language code comments, and the\nLLM would generate code based on those comments. This process involves understanding the context of\nthe comment and generating corresponding code, which is the core functionality of text generation."
+  },
+  {
+    "id": "Question 106",
+    "question": "A company is introducing a mobile app that helps users learn foreign languages.\nThe app makes text more\ncoherent by calling a large language model (LLM).\nThe company collected a diverse dataset of text and\nsupplemented the dataset with examples of more readable versions.\nThe company wants the LLM output to\nresemble the provided examples.\nWhich metric should the company use to assess whether the LLM meets these requirements?",
+    "answers": "A. Value of the loss function\nB. Semantic robustness\nC. Recall-Oriented Understudy for Gisting Evaluation (ROUGE) score\nD. Latency of the text generation",
+    "correct_answer": "C",
+    "explanation": "ROUGE is a set of metrics that evaluates the quality of summaries by comparing the overlap of n-grams,\nword sequences, and word pairs between the model output and reference examples. Since the company is\nworking on a language model that improves the coherence of text and wants the output to resemble the\nprovided examples (which are more readable versions of the original text), ROUGE is the most appropriate\nmetric. It assesses how closely the generated text matches the reference text in terms of content and\nreadability.\nROUGE score is commonly used to evaluate the performance of models in tasks like summarization,\nwhere the goal is to ensure the generated text aligns closely with human-provided examples."
+  },
+  {
+    "id": "Question 107",
+    "question": "A company notices that its foundation model (FM) generates images that are unrelated to the prompts.\nThe\ncompany wants to modify the prompt techniques to decrease unrelated images.\nWhich solution meets these requirements?",
+    "answers": "A. Use zero-shot prompts.\nB. Use negative prompts.\nC. Use positive prompts.\nD. Use ambiguous prompts.",
+    "correct_answer": "B",
+    "explanation": "Negative prompts are used to explicitly instruct the model about what to avoid or not generate. By\nproviding the model with specific guidance on what is not desired (e.g., by including terms or concepts that\nshould not appear in the image), the model can better focus on generating relevant and related content.\nThis technique can help reduce unrelated or irrelevant images by constraining the model's creative\ngeneration process."
+  },
+  {
+    "id": "Question 108",
+    "question": "A company wants to use a large language model (LLM) to generate concise, feature-specific descriptions\nfor the company's products.\nWhich prompt engineering technique meets these requirements?",
+    "answers": "A. Create one prompt that covers all products. Edit the responses to make the responses more specific,\nconcise, and tailored to each product.\nB. Create prompts for each product category that highlight the key features.\nInclude the desired output\nformat and length for each prompt response.\nC. Include a diverse range of product features in each prompt to generate creative and unique\ndescriptions.\nD. Provide detailed, product-specific prompts to ensure precise and customized descriptions.",
+    "correct_answer": "B",
+    "explanation": "To generate concise, feature-specific descriptions for each product, the company should create prompts\ntailored to specific product categories. By highlighting the key features of each product category in the\nprompt, the model can focus on generating descriptions that are relevant and aligned with the unique\nattributes of each product. Additionally, specifying the desired output format and length ensures that the\nresponses meet the company's requirements for conciseness and clarity.\nTailored prompts help ensure the model generates relevant and accurate descriptions by focusing on the\nmost important features of each product category.\nDesired output format and length ensure the responses are consistent and concise, as required."
+  },
+  {
+    "id": "Question 109",
+    "question": "A company is developing an ML model to predict customer churn.\nThe model performs well on the training\ndataset but does not accurately predict churn for new data.\nWhich solution will resolve this issue?",
+    "answers": "A. Decrease the regularization parameter to increase model complexity.\nB. Increase the regularization parameter to decrease model complexity.\nC. Add more features to the input data.\nD. Train the model for more epochs.",
+    "correct_answer": "B",
+    "explanation": "The issue described is a common case of overfitting, where the model performs well on the training data\nbut fails to generalize to new, unseen data. This suggests that the model is too complex and has learned to\nmemorize the training data rather than identifying generalizable patterns.\nIncreasing the regularization parameter helps to reduce model complexity by penalizing large weights,\nthereby encouraging simpler models that are less likely to overfit. This will improve the model's ability to\ngeneralize to new data, potentially improving performance on unseen customer data."
+  },
+  {
+    "id": "Question 110",
+    "question": "A company is implementing intelligent agents to provide conversational search experiences for its\ncustomers.\nThe company needs a database service that will support storage and queries of embeddings\nfrom a generative Al model as vectors in the database.\nWhich AWS service will meet these requirements?",
+    "answers": "A. Amazon Athena\nB. Amazon Aurora PostgreSQL\nC. Amazon Redshift\nD. Amazon EMR",
+    "correct_answer": "B",
+    "explanation": "Amazon Aurora PostgreSQL is a relational database service that supports a wide range of applications,\nincluding those that require vector-based operations. Specifically, Aurora PostgreSQL can be extended with\nvector search capabilities using extensions like pgvector. This extension allows you to store, index, and\nquery vector embeddings from generative Al models, making it well-suited for the company's needs to store\nand query embeddings as vectors.\npgvector is an extension for PostgreSQL that provides efficient similarity search for vector data, which is\nideal for storing and querying embeddings."
+  },
+  {
+    "id": "Question 111",
+    "question": "A financial institution is building an Al solution to make loan approval decisions by using a foundation model\n(FM).\nFor security and audit purposes, the company needs the Al solution's decisions to be explainable.\nWhich factor relates to the explainability of the Al solution's decisions?",
+    "answers": "A. Model complexity\nB. Training time\nC. Number of hyperparameters\nD. Deployment time",
+    "correct_answer": "A",
+    "explanation": "Model complexity plays a significant role in the explainability of an Al solution. Simpler models tend to be\nmore explainable because it is easier to understand how they make decisions. For example, linear\nregression or decision trees are generally easier to interpret compared to more complex models like deep\nneural networks.\nIn contrast, highly complex models, such as deep learning models, may provide very accurate results but\nare often considered \"black boxes,\" meaning their decision-making process is not easily interpretable. This\nlack of transparency makes it difficult to explain their decisions in a way that satisfies regulatory\nrequirements or customer understanding."
+  },
+  {
+    "id": "Question 112",
+    "question": "A pharmaceutical company wants to analyze user reviews of new medications and provide a concise\noverview for each medication.\nWhich solution meets these requirements?",
+    "answers": "A. Create a time-series forecasting model to analyze the medication reviews by using Amazon Personalize.\nB. Create medication review summaries by using Amazon Bedrock large language models (LLMs).\nC. Create a classification model that categorizes medications into different groups by using Amazon\nSageMaker.\nD. Create medication review summaries by using Amazon Rekognition.",
+    "correct_answer": "B",
+    "explanation": "Amazon Bedrock provides access to a variety of large language models (LLMs), which are well-suited for\ntasks such as text summarization. By using LLMs, the pharmaceutical company can automatically generate\nconcise and coherent summaries of user reviews for each medication. These models are designed to\nunderstand and process large amounts of text, making them ideal for summarizing user reviews in a clear\nand efficient manner.\nAmazon Bedrock allows the company to utilize LLMs that can generate summaries, which is exactly what\nis needed in this case."
+  },
+  {
+    "id": "Question 113",
+    "question": "A company wants to build a lead prioritization application for its employees to contact potential customers.\nThe application must give employees the ability to view and adjust the weights assigned to different\nvariables in the model based on domain knowledge and expertise.\nWhich ML model type meets these requirements?",
+    "answers": "A. Logistic regression model\nB. Deep learning model built on principal components\nC. K-nearest neighbors (k-NN) model\nD. Neural network",
+    "correct_answer": "A",
+    "explanation": "A logistic regression model is a simple, interpretable machine learning model that allows users to adjust\nthe weights of different variables based on domain knowledge and expertise. Since logistic regression is\nbased on a linear relationship between the input features and the predicted outcome, each feature has a\ncorresponding weight (coefficient) that can be easily viewed and adjusted. This makes it a suitable choice\nfor a lead prioritization application where domain experts need the ability to modify the model based on their\nknowledge."
+  },
+  {
+    "id": "Question 114",
+    "question": "",
+    "answers": "",
+    "correct_answer": "",
+    "explanation": ""
+  },
+  {
+    "id": "Question 115",
+    "question": "Which strategy will determine if a foundation model (FM) effectively meets business objectives?",
+    "answers": "A. Evaluate the model's performance on benchmark datasets.\nB. Analyze the model's architecture and hyperparameters.\nC. Assess the model's alignment with specific use cases.\nD. Measure the computational resources required for model deployment.",
+    "correct_answer": "C",
+    "explanation": "To determine if a foundation model (FM) effectively meets business objectives, the key is to assess how\nwell the model aligns with the specific use cases or business goals it is intended to address. This involves\nevaluating whether the model can provide meaningful and accurate outputs relevant to the business's\nneeds, ensuring that it solves the real-world problems the company aims to tackle.\nAligning with specific use cases ensures that the model's capabilities are tailored to the tasks at hand,\nsuch as improving customer support, enhancing decision-making, or automating certain processes."
+  },
+  {
+    "id": "Question 116",
+    "question": "A company needs to train an ML model to classify images of different types of animals.\nThe company has a\nlarge dataset of labeled images and will not label more data.\nWhich type of learning should the company use to train the model?",
+    "answers": "A. Supervised learning\nB. Unsupervised learning\nC. Reinforcement learning\nD. Active learning",
+    "correct_answer": "A",
+    "explanation": "In supervised learning, the model is trained using a labeled dataset, where each image (input) has a\ncorresponding label (the type of animal, in this case). Since the company already has a large dataset of\nlabeled images, supervised learning is the most appropriate approach. The model learns to classify the\nimages based on the features and labels in the training data."
+  },
+  {
+    "id": "Question 117",
+    "question": "Which phase of the ML lifecycle determines compliance and regulatory requirements?",
+    "answers": "A. Feature engineering\nB. Model training\nC. Data collection\nD. Business goal identification",
+    "correct_answer": "C",
+    "explanation": "The data collection phase of the ML lifecycle is the most relevant for determining compliance and\nregulatory requirements. During this phase, organizations must ensure that the data being collected and\nused for training the model complies with legal and regulatory standards, such as data privacy laws (e.g.,\nGDPR, HIPAA), industry-specific regulations, and ethical considerations. The organization must also verify\nthat they have the proper consent to use the data and that the data does not contain any biases or violate\nany regulations."
+  },
+  {
+    "id": "Question 118",
+    "question": "A food service company wants to develop an ML model to help decrease daily food waste and increase\nsales revenue.\nThe company needs to continuously improve the model's accuracy.\nWhich solution meets these requirements?",
+    "answers": "A. Use Amazon SageMaker and iterate with newer data.\nB. Use Amazon Personalize and iterate with historical data.\nC. Use Amazon CloudWatch to analyze customer orders.\nD. Use Amazon Rekognition to optimize the model.",
+    "correct_answer": "A",
+    "explanation": "To continuously improve the accuracy of the machine learning model, Amazon SageMaker is the\nappropriate solution. SageMaker allows for efficient model training, deployment, and iteration. The company\ncan use SageMaker to retrain the model regularly with newer data to account for changes in customer\nbehavior, market trends, and other dynamic factors that may affect food waste and sales revenue. Iterating\nwith newer data helps improve the model's performance over time, ensuring it remains accurate and\nrelevant."
+  },
+  {
+    "id": "Question 119",
+    "question": "A company has developed an ML model to predict real estate sale prices.\nThe company wants to deploy the\nmodel to make predictions without managing servers or infrastructure.\nWhich solution meets these requirements?",
+    "answers": "A. Deploy the model on an Amazon EC2 instance.\nB. Deploy the model on an Amazon Elastic Kubernetes Service (Amazon EKS) cluster.\nC. Deploy the model by using Amazon CloudFront with an Amazon S3 integration.\nD. Deploy the model by using an Amazon SageMaker endpoint.",
+    "correct_answer": "D",
+    "explanation": "Amazon SageMaker provides a fully managed service for deploying machine learning models at scale\nwithout needing to manage servers or infrastructure. When you deploy a model using Amazon SageMaker\nendpoints, it handles all the infrastructure, scaling, and maintenance aspects. This allows the company to\nfocus solely on making predictions and integrating the model into their application, without worrying about\nmanaging servers or clusters.\nAmazon SageMaker simplifies the deployment of ML models by providing scalable, secure, and serverless\nendpoints, which are ideal for serving predictions in real-time."
+  },
+  {
+    "id": "Question 120",
+    "question": "A company wants to develop an Al application to help its employees check open customer claims, identify\ndetails for a specific claim, and access documents for a claim.\nWhich solution meets these requirements?",
+    "answers": "A. Use Agents for Amazon Bedrock with Amazon Fraud Detector to build the application.\nB. Use Agents for Amazon Bedrock with Amazon Bedrock knowledge bases to build the application.\nC. Use Amazon Personalize with Amazon Bedrock knowledge bases to build the application.\nD. Use Amazon SageMaker to build the application by training a new ML model.",
+    "correct_answer": "B",
+    "explanation": "Amazon Bedrock is a service that allows you to build Al-powered applications using foundation models\n(FMs) without managing infrastructure. Agents for Amazon Bedrock allows you to create intelligent agents\nthat can help users interact with data and perform tasks such as checking open customer claims, identifying\nclaim details, and accessing relevant documents.\nBy using Amazon Bedrock knowledge bases, the Al agent can access relevant information (e.g., details\nabout claims, documents, or customer data) in real time, and provide precise, context-driven answers\nbased on the claim-related data stored in the knowledge base.\n. Agents for Amazon Bedrock can help automate interactions by understanding and responding to\nnatural language queries, making it a good fit for this use case.\n. Amazon Bedrock knowledge bases enable the system to access stored information, documents, and\ndetails for specific claims efficiently."
+  },
+  {
+    "id": "Question 121",
+    "question": "A manufacturing company uses Al to inspect products and find any damages or defects.\nWhich type of Al application is the company using?",
+    "answers": "A. Recommendation system\nB. Natural language processing (NLP)\nC. Computer vision\nD. Image processing",
+    "correct_answer": "C",
+    "explanation": "Computer vision is a field of Al that enables machines to interpret and understand visual information from\nthe world, such as images and videos. In the case of the manufacturing company, the Al is used to inspect\nproducts for damages or defects, which involves analyzing visual data (e.g., product images or videos).\nThis\nis a classic application of computer vision, where the Al system identifies and classifies objects or defects\nwithin images."
+  },
+  {
+    "id": "Question 122",
+    "question": "A company wants to create an ML model to predict customer satisfaction. The company needs fully\nautomated model tuning.\nWhich AWS service meets these requirements?",
+    "answers": "A. Amazon Personalize\nB. Amazon SageMaker\nC. Amazon Athena\nD. Amazon Comprehend",
+    "correct_answer": "B",
+    "explanation": "Amazon SageMaker provides a fully managed environment for building, training, and deploying machine\nlearning models, including automatic model tuning. Specifically, SageMaker includes a feature called\nAutomatic Model Tuning (or Hyperparameter Optimization), which automates the process of finding the\nbest hyperparameters for your machine learning model. This is essential when you want to optimize the\nmodel's performance without manual intervention.\nAmazon SageMaker allows you to automate the training process and hyperparameter tuning, which aligns\nperfectly with the company's need for fully automated model tuning."
+  },
+  {
+    "id": "Question 123",
+    "question": "Which technique can a company use to lower bias and toxicity in generative Al applications during the post-\nprocessing ML lifecycle?",
+    "answers": "A. Human-in-the-loop\nB. Data augmentation\nC. Feature engineering\nD. Adversarial training",
+    "correct_answer": "A",
+    "explanation": "Human-in-the-loop (HITL) is a technique where human oversight is involved in the decision-making\nprocess of Al systems. In the context of generative Al applications, HITL can be used during the post-\nprocessing phase to identify and mitigate biases or toxic outputs. Humans can review and intervene when\nthe model generates inappropriate or biased content, providing corrections or adjustments that help reduce\nthe likelihood of toxicity and bias. This feedback loop helps refine and improve the model's outputs over\ntime."
+  },
+  {
+    "id": "Question 124",
+    "question": "A bank has fine-tuned a large language model (LLM) to expedite the loan approval process.\nDuring an\nexternal audit of the model, the company discovered that the model was approving loans at a faster pace\nfor a specific demographic than for other demographics.\nHow should the bank fix this issue MOST cost-effectively?",
+    "answers": "A. Include more diverse training data. Fine-tune the model again by using the new data.\nB. Use Retrieval Augmented Generation (RAG) with the fine-tuned model.\nC. Use AWS Trusted Advisor checks to eliminate bias.\nD. Pre-train a new LLM with more diverse training data.",
+    "correct_answer": "A",
+    "explanation": "The issue described is a case of bias in the model's decision-making process, where the model is showing\na preference for a specific demographic. The most cost-effective way to address this is to include more\ndiverse training data that better represents all demographics. By fine-tuning the model with this more\ndiverse data, you can help ensure that the model treats all demographic groups fairly and does not exhibit\nbiased behavior.\nFine-tuning the model with updated data ensures that the model learns from a more representative\nsample, improving fairness in its predictions without needing to completely retrain the model from scratch."
+  },
+  {
+    "id": "Question 125",
+    "question": "",
+    "answers": "",
+    "correct_answer": "",
+    "explanation": ""
+  },
+  {
+    "id": "Question 126",
+    "question": "A company needs to log all requests made to its Amazon Bedrock API.\nThe company must retain the logs\nsecurely for 5 years at the lowest possible cost.\nWhich combination of AWS service and storage class meets these requirements? (Choose two.)",
+    "answers": "A. AWS CloudTrail\nB. Amazon CloudWatch\nC. AWS Audit Manager\nD. Amazon S3 Intelligent-Tiering\nE. Amazon S3 Standard",
+    "correct_answer": "AD",
+    "explanation": "AWS CloudTrail is the AWS service designed for logging and monitoring API calls made to AWS services,\nincluding Amazon Bedrock. CloudTrail records detailed information about the API requests, including the\nidentity of the requester, the time of the request, and the source IP address. This service is ideal for logging\nall requests made to the Amazon Bedrock API and meets the logging requirement.\nAmazon S3 Intelligent-Tiering is a storage class designed for storing data that has unpredictable access\npatterns. It automatically moves data between two access tiers (frequent and infrequent) based on usage,\nwhich helps reduce costs while ensuring data is still available when needed. For retaining logs securely over\n5 years at the lowest possible cost, this storage class provides an efficient way to handle long-term storage\nrequirements without incurring unnecessary costs."
+  },
+  {
+    "id": "Question 127",
+    "question": "An ecommerce company wants to improve search engine recommendations by customizing the results for\neach user of the company's ecommerce platform.\nWhich AWS service meets these requirements?",
+    "answers": "A. Amazon Personalize\nB. Amazon Kendra\nC. Amazon Rekognition\nD. Amazon Transcribe",
+    "correct_answer": "A",
+    "explanation": "Amazon Personalize is an AWS service specifically designed to build and deploy personalized\nrecommendations for users. It allows you to create custom machine learning models for personalized user\nexperiences, such as product recommendations, search results, or content suggestions. For an\necommerce company aiming to improve search engine recommendations tailored to each user, Amazon\nPersonalize is the ideal choice as it leverages user behavior data and machine learning to deliver highly\nrelevant recommendations."
+  },
+  {
+    "id": "Question 128",
+    "question": "A hospital is developing an Al system to assist doctors in diagnosing diseases based on patient records and\nmedical images.\nTo comply with regulations, the sensitive patient data must not leave the country the data\nis located in.\nWhich data governance strategy will ensure compliance and protect patient privacy?",
+    "answers": "A. Data residency\nB. Data quality\nC. Data discoverability\nD. Data enrichment",
+    "correct_answer": "A",
+    "explanation": "Data residency refers to the practice of ensuring that data is stored and processed within a specific\ngeographical location to comply with regulations or policies. In this scenario, where sensitive patient data\nmust not leave the country it originates from, implementing a data residency strategy ensures compliance\nwith legal and regulatory requirements while protecting patient privacy. This approach is crucial for\norganizations like hospitals operating under strict data governance frameworks such as HIPAA or GDPR."
+  },
+  {
+    "id": "Question 129",
+    "question": "A company needs to monitor the performance of its ML systems by using a highly scalable AWS service.\nWhich AWS service meets these requirements?",
+    "answers": "A. Amazon CloudWatch\nB. AWS CloudTrail\nC. AWS Trusted Advisor\nD. AWS Config",
+    "correct_answer": "A",
+    "explanation": "Amazon CloudWatch is a highly scalable AWS service designed for monitoring and observability. It\nprovides real-time monitoring of system metrics, including performance data for ML systems, such as\nresource utilization (CPU, memory, etc.), model inference latency, request counts, and errors. CloudWatch\nenables users to set up alarms, visualize metrics, and automate actions based on performance thresholds,\nmaking it ideal for monitoring the performance of ML systems."
+  },
+  {
+    "id": "Question 130",
+    "question": "An Al practitioner is developing a prompt for an Amazon Titan model. The model is hosted on Amazon\nBedrock.\nThe Al practitioner is using the model to solve numerical reasoning challenges.\nThe Al practitioner\nadds the following phrase to the end of the prompt: \"Ask the model to show its work by explaining its\nreasoning step by step.\"\nWhich prompt engineering technique is the Al practitioner using?",
+    "answers": "A. Chain-of-thought prompting\nB. Prompt injection\nC. Few-shot prompting\nD. Prompt templating",
+    "correct_answer": "A",
+    "explanation": "Chain-of-thought prompting is a technique in prompt engineering where the Al model is encouraged to\nbreak down its reasoning process step by step to solve a problem, such as numerical reasoning challenges.\nBy explicitly instructing the model to \"show its work by explaining its reasoning step by step,\" the practitioner\nensures the model provides a logical sequence of intermediate steps leading to the solution. This improves\nthe accuracy and transparency of the model's outputs, particularly for complex reasoning tasks."
+  },
+  {
+    "id": "Question 131",
+    "question": "Which AWS service makes foundation models (FMs) available to help users build and scale generative Al\napplications?",
+    "answers": "A. Amazon Q Developer\nB. Amazon Bedrock\nC. Amazon Kendra\nD. Amazon Comprehend",
+    "correct_answer": "B",
+    "explanation": "Amazon Bedrock is an AWS service that allows users to build and scale generative Al applications using\nfoundation models (FMs) without the need to manage infrastructure. It provides access to pre-trained\nmodels from AWS and third-party providers, enabling developers to integrate generative Al capabilities like\ntext generation, summarization, and question-answering into their applications. This makes Amazon\nBedrock the ideal choice for building and scaling generative Al solutions."
+  },
+  {
+    "id": "Question 132",
+    "question": "A company is building a mobile app for users who have a visual impairment.\nThe app must be able to hear\nwhat users say and provide voice responses.\nWhich solution will meet these requirements?",
+    "answers": "A. Use a deep learning neural network to perform speech recognition.\nB. Build ML models to search for patterns in numeric data.\nC. Use generative Al summarization to generate human-like text.\nD. Build custom models for image classification and recognition.",
+    "correct_answer": "A",
+    "explanation": "To meet the requirements of enabling the app to \"hear what users say and provide voice responses,\" the\nsolution must include speech recognition and text-to-speech capabilities. Using a deep learning neural\nnetwork for speech recognition allows the app to convert spoken words into text. Once the input is\nunderstood, text-to-speech systems can provide voice responses back to users. This approach is\nfundamental in applications that assist users with visual impairments by enabling interaction through spoken\nlanguage."
+  },
+  {
+    "id": "Question 133",
+    "question": "A company wants to enhance response quality for a large language model (LLM) for complex problem-\nsolving tasks.\nThe tasks require detailed reasoning and a step-by-step explanation process.\nWhich prompt engineering technique meets these requirements?",
+    "answers": "A. Few-shot prompting\nB. Zero-shot prompting\nC. Directional stimulus prompting\nD. Chain-of-thought prompting",
+    "correct_answer": "D",
+    "explanation": "Chain-of-thought prompting is specifically designed to enhance the reasoning capabilities of a large\nlanguage model (LLM) by encouraging it to provide step-by-step explanations for complex problem-solving\ntasks. This approach helps the model break down a problem into smaller, logical steps, ensuring that the\nresponse is detailed, accurate, and easy to follow."
+  },
+  {
+    "id": "Question 134",
+    "question": "A company wants to keep its foundation model (FM) relevant by using the most recent data.\nThe company\nwants to implement a model training strategy that includes regular updates to the FM.\nWhich solution meets these requirements?",
+    "answers": "A. Batch learning\nB. Continuous pre-training\nC. Static training\nD. Latent training",
+    "correct_answer": "B",
+    "explanation": "Continuous pre-training involves regularly updating a foundation model (FM) by training it on new data as it\nbecomes available. This approach ensures that the model remains relevant and accurate by incorporating\nthe most recent information. It is especially important for applications where up-to-date knowledge is\ncrucial, such as news aggregation, customer behavior analysis, or real-time market trends."
+  },
+  {
+    "id": "Question 135",
+    "question": "",
+    "answers": "",
+    "correct_answer": "",
+    "explanation": ""
+  },
+  {
+    "id": "Question 136",
+    "question": "Which option is a characteristic of Al governance frameworks for building trust and deploying human-\ncentered Al technologies?",
+    "answers": "A. Expanding initiatives across business units to create long-term business value\nB. Ensuring alignment with business standards, revenue goals, and stakeholder expectations\nC. Overcoming challenges to drive business transformation and growth\nD. Developing policies and guidelines for data, transparency, responsible Al, and compliance",
+    "correct_answer": "D",
+    "explanation": "Al governance frameworks focus on building trust and ensuring the responsible deployment of Al\ntechnologies. They establish clear policies and guidelines to address critical aspects such as data\nmanagement, transparency, ethical considerations, responsible Al practices, and regulatory compliance.\nThese frameworks help organizations mitigate risks, promote fairness, and foster public trust in Al systems,\nmaking them essential for creating human-centered Al technologies."
+  },
+  {
+    "id": "Question 137",
+    "question": "An ecommerce company is using a generative Al chatbot to respond to customer inquiries.\nThe company\nwants to measure the financial effect of the chatbot on the company's operations.\nWhich metric should the company use?",
+    "answers": "A. Number of customer inquiries handled\nB. Cost of training Al models\nC. Cost for each customer conversation\nD. Average handled time (AHT)",
+    "correct_answer": "C",
+    "explanation": "To measure the financial effect of a generative Al chatbot on the company's operations, the cost for each\ncustomer conversation is the most relevant metric. It directly quantifies the operational expense\nassociated with using the chatbot to handle customer inquiries. By analyzing this metric, the company can\nevaluate how much it spends per conversation and compare it to the cost of alternative methods (e.g.,\nhuman agents), providing insight into the chatbot's financial efficiency and ROI."
+  },
+  {
+    "id": "Question 138",
+    "question": "A company wants to find groups for its customers based on the customers' demographics and buying\npatterns.\nWhich algorithm should the company use to meet this requirement?",
+    "answers": "A. K-nearest neighbors (k-NN)\nB. K-means\nC. Decision tree\nD. Support vector machine",
+    "correct_answer": "B",
+    "explanation": "K-means is a clustering algorithm used in unsupervised learning to group data points into clusters based\non their similarities. It is well-suited for finding patterns in customer demographics and buying behavior. The\nalgorithm identifies groups (clusters) of customers with similar characteristics, which can then be used for\ntargeted marketing, personalized recommendations, or segmentation."
+  },
+  {
+    "id": "Question 139",
+    "question": "A company's large language model (LLM) is experiencing hallucinations.\nHow can the company decrease hallucinations?",
+    "answers": "A. Set up Agents for Amazon Bedrock to supervise the model training.\nB. Use data pre-processing and remove any data that causes hallucinations.\nC. Decrease the temperature inference parameter for the model.\nD. Use a foundation model (FM) that is trained to not hallucinate.",
+    "correct_answer": "C",
+    "explanation": "In the context of large language models (LLMs), the temperature inference parameter controls the\nrandomness of the model's output. Lowering the temperature reduces randomness and makes the model's\nresponses more deterministic and focused on the most likely predictions. By decreasing the temperature,\nthe likelihood of hallucinations (when the model generates incorrect or nonsensical information) is reduced,\nas the model relies more on high-probability outputs rather than exploring less likely possibilities."
+  },
+  {
+    "id": "Question 140",
+    "question": "A company is using a large language model (LLM) on Amazon Bedrock to build a chatbot.\nThe chatbot\nprocesses customer support requests. To resolve a request, the customer and the chatbot must interact a\nfew times.\nWhich solution gives the LLM the ability to use content from previous customer messages?",
+    "answers": "A. Turn on model invocation logging to collect messages.\nB. Add messages to the model prompt.\nC. Use Amazon Personalize to save conversation history.\nD. Use Provisioned Throughput for the LLM.",
+    "correct_answer": "B",
+    "explanation": "To give a large language model (LLM) the ability to use content from previous customer messages in a\nconversation, the previous messages must be included in the model prompt. This technique is known as\nprompt engineering and allows the LLM to retain context by incorporating a history of the interaction within\nthe prompt. By appending prior exchanges to the prompt, the model can generate contextually relevant and\ncoherent responses throughout the multi-turn conversation."
+  },
+  {
+    "id": "Question 141",
+    "question": "A company's employees provide product descriptions and recommendations to customers when customers\ncall the customer service center.\nThese recommendations are based on where the customers are located.\nThe company wants to use foundation models (FMs) to automate this process.\nWhich AWS service meets these requirements?",
+    "answers": "A. Amazon Macie\nB. Amazon Transcribe\nC. Amazon Bedrock\nD. Amazon Textract",
+    "correct_answer": "C",
+    "explanation": "Amazon Bedrock enables companies to use foundation models (FMs) to build and automate tasks like\ngenerating product descriptions and recommendations. It allows the integration of pre-trained FMs into\napplications without managing infrastructure, making it an ideal choice for automating customer service\ntasks. With Amazon Bedrock, the company can leverage FMs to generate tailored recommendations based\non customer locations, enabling dynamic and efficient customer interactions."
+  },
+  {
+    "id": "Question 142",
+    "question": "A company wants to upload customer service email messages to Amazon S3 to develop a business\nanalysis application.\nThe messages sometimes contain sensitive data. The company wants to receive an\nalert every time sensitive information is found.\nWhich solution fully automates the sensitive information detection process with the LEAST development\neffort?",
+    "answers": "A. Configure Amazon Macie to detect sensitive information in the documents that are uploaded to Amazon\nS3.\nB. Use Amazon SageMaker endpoints to deploy a large language model (LLM) to redact sensitive data.\nC. Develop multiple regex patterns to detect sensitive data. Expose the regex patterns on an Amazon\nSageMaker notebook.\nD. Ask the customers to avoid sharing sensitive information in their email messages.",
+    "correct_answer": "A",
+    "explanation": "Amazon Macie is a fully managed data security and privacy service that uses machine learning to discover\nand protect sensitive data in Amazon S3. It can automatically detect sensitive information, such as\npersonally identifiable information (PII) or financial data, and send alerts when such data is found. This\napproach minimizes development effort, as it does not require custom regex patterns or model\ndevelopment, and it is specifically designed to handle the scenario described."
+  },
+  {
+    "id": "Question 143",
+    "question": "",
+    "answers": "",
+    "correct_answer": "",
+    "explanation": ""
+  },
+  {
+    "id": "Question 144",
+    "question": "",
+    "answers": "",
+    "correct_answer": "",
+    "explanation": ""
+  },
+  {
+    "id": "Question 145",
+    "question": "Which option is a benefit of using Amazon SageMaker Model Cards to document Al models?",
+    "answers": "A. Providing a visually appealing summary of a mode's capabilities.\nB. Standardizing information about a model's purpose, performance, and limitations.\nC. Reducing the overall computational requirements of a model.\nD. Physically storing models for archival purposes.",
+    "correct_answer": "B",
+    "explanation": "Amazon SageMaker Model Cards provide a structured way to document key details about Al models,\nincluding their intended use, performance metrics, and limitations. This helps organizations maintain\ntransparency, compliance, and governance in Al model development, making it easier to track and manage\nmodels over time."
+  },
+  {
+    "id": "Question 146",
+    "question": "What does an F1 score measure in the context of foundation model (FM) performance?",
+    "answers": "A. Model precision and recall\nB. Model speed in generating responses\nC. Financial cost of operating the model\nD. Energy efficiency of the model's computations",
+    "correct_answer": "A",
+    "explanation": "The F1 score is a metric used to evaluate the performance of a classification model by considering both\nprecision (the proportion of correctly predicted positive cases out of all predicted positives) and recall (the\nproportion of correctly predicted positive cases out of all actual positives). It is the harmonic mean of\nprecision and recall, ensuring a balance between them, especially when dealing with imbalanced datasets."
+  },
+  {
+    "id": "Question 147",
+    "question": "A company deployed an AI/ML solution to help customer service agents respond to frequently asked\nquestions.\nThe questions can change over time. The company wants to give customer service agents the\nability to ask questions and receive automatically generated answers to common customer questions.\nWhich strategy will meet these requirements MOST cost-effectively?",
+    "answers": "A. Fine-tune the model regularly.\nB. Train the model by using context data.\nC. Pre-train and benchmark the model by using context data.\nD. Use Retrieval Augmented Generation (RAG) with prompt engineering techniques.",
+    "correct_answer": "D",
+    "explanation": "Retrieval Augmented Generation (RAG) is a cost-effective approach that enhances Al-generated responses\nby retrieving relevant information from external knowledge sources. Instead of fine-tuning or re-training a\nmodel, RAG dynamically pulls the most recent and relevant data at query time. This is particularly useful in\nscenarios where questions change over time, ensuring that the AI/ML solution provides accurate and up-to-\ndate responses without requiring expensive and time-consuming model retraining. Prompt engineering\ntechniques further optimize how the model processes and generates responses, improving accuracy and\nrelevance."
+  },
+  {
+    "id": "Question 148",
+    "question": "A company built an Al-powered resume screening system. The company used a large dataset to train the\nmodel.\nThe dataset contained resumes that were not representative of all demographics.\nWhich core dimension of responsible Al does this scenario present?",
+    "answers": "A. Fairness\nB. Explainability\nC. Privacy and security\nD. Transparency",
+    "correct_answer": "A",
+    "explanation": "The scenario describes a dataset that is not representative of all demographics, which can lead to\nbiased model predictions. This directly relates to fairness, a core dimension of responsible Al that ensures\nAl systems make unbiased and equitable decisions across different demographic groups. Addressing\nfairness involves techniques such as balanced dataset curation, bias detection, and mitigation strategies to\nensure that the Al system does not discriminate against any group."
+  },
+  {
+    "id": "Question 149",
+    "question": "A global financial company has developed an ML application to analyze stock market data and provide\nstock market trends.\nThe company wants to continuously monitor the application development phases and\nto ensure that company policies and industry regulations are followed.\nWhich AWS services will help the company assess compliance requirements? (Choose two.)",
+    "answers": "A. AWS Audit Manager\nB. AWS Config\nC. Amazon Inspector\nD. Amazon CloudWatch\nE. AWS CloudTrail",
+    "correct_answer": "AB",
+    "explanation": "AWS Audit Manager helps organizations continuously assess and audit compliance with industry\nregulations and internal policies by automating evidence collection and generating audit reports. This is\nessential for ensuring that the ML application meets regulatory requirements.\nAWS Config enables continuous monitoring and compliance checks by tracking configuration changes\nin AWS resources. It helps the company ensure that infrastructure settings align with security policies and\nindustry standards."
+  },
+  {
+    "id": "Question 150",
+    "question": "A company wants to improve the accuracy of the responses from a generative Al application.\nThe\napplication uses a foundation model (FM) on Amazon Bedrock.\nWhich solution meets these requirements MOST cost-effectively?",
+    "answers": "A. Fine-tune the FM.\nB. Retrain the FM.\nC. Train a new FM.\nD. Use prompt engineering.",
+    "correct_answer": "D",
+    "explanation": "Using prompt engineering is the most cost-effective way to improve the accuracy of responses from a\ngenerative Al application without retraining or fine-tuning the foundation model (FM). Prompt engineering\ninvolves carefully designing the input prompts to guide the model toward producing better responses,\nimproving relevance and accuracy."
+  },
+  {
+    "id": "Question 151",
+    "question": "A company wants to identify harmful language in the comments section of social media posts by using an\nML model.\nThe company will not use labeled data to train the model.\nWhich strategy should the company use to identify harmful language?",
+    "answers": "A. Use Amazon Rekognition moderation.\nB. Use Amazon Comprehend toxicity detection.\nC. Use Amazon SageMaker built-in algorithms to train the model.\nD. Use Amazon Polly to monitor comments.",
+    "correct_answer": "B",
+    "explanation": "Amazon Comprehend provides pre-trained NLP models, including toxicity detection, to analyze text for\nharmful language. Since the company does not plan to use labeled data for training, Amazon Comprehend\nis a suitable choice because it does not require custom training and can automatically detect toxic or\nharmful content in comments."
+  },
+  {
+    "id": "Question 152",
+    "question": "A media company wants to analyze viewer behavior and demographics to recommend personalized\ncontent.\nThe company wants to deploy a customized ML model in its production environment.\nThe company\nalso wants to observe if the model quality drifts over time.\nWhich AWS service or feature meets these requirements?",
+    "answers": "A. Amazon Rekognition\nB. Amazon SageMaker Clarify\nC. Amazon Comprehend\nD. Amazon SageMaker Model Monitor",
+    "correct_answer": "D",
+    "explanation": "Amazon SageMaker Model Monitor continuously tracks deployed ML models in production to detect\ndata drift, model drift, and quality degradation over time. This is essential for ensuring that the\nrecommendation model remains accurate as viewer behavior and demographics change. Model Monitor\nhelps detect anomalies and provides alerts when model performance deviates from expected trends,\nallowing the company to take corrective action."
+  },
+  {
+    "id": "Question 153",
+    "question": "A company is deploying AI/ML models by using AWS services.\nThe company wants to offer transparency\ninto the models' decision-making processes and provide explanations for the model outputs.\nWhich AWS service or feature meets these requirements?",
+    "answers": "A. Amazon SageMaker Model Cards\nB. Amazon Rekognition\nC. Amazon Comprehend\nD. Amazon Lex",
+    "correct_answer": "A",
+    "explanation": "Amazon SageMaker Model Cards help provide transparency into Al/ML models by documenting key\ndetails such as model purpose, training data, performance metrics, and limitations. This documentation\nenables organizations to explain model outputs and decision-making processes, ensuring\naccountability and compliance with responsible Al principles."
+  },
+  {
+    "id": "Question 154",
+    "question": "A manufacturing company wants to create product descriptions in multiple languages.\nWhich AWS service will automate this task?",
+    "answers": "A. Amazon Translate\nB. Amazon Transcribe\nC. Amazon Kendra\nD. Amazon Polly",
+    "correct_answer": "A",
+    "explanation": "Amazon Translate is an AWS service that automates language translation using neural machine\ntranslation (NMT). It enables businesses to generate product descriptions in multiple languages quickly\nand accurately, making it the best choice for this task."
+  },
+  {
+    "id": "Question 155",
+    "question": "",
+    "answers": "",
+    "correct_answer": "",
+    "explanation": ""
+  },
+  {
+    "id": "Question 156",
+    "question": "Which AWS feature records details about ML instance data for governance and reporting?",
+    "answers": "A. Amazon SageMaker Model Cards\nB. Amazon SageMaker Debugger\nC. Amazon SageMaker Model Monitor\nD. Amazon SageMaker JumpStart",
+    "correct_answer": "A",
+    "explanation": "Amazon SageMaker Model Cards record key details about machine learning models, including intended\nuse, training data, evaluation metrics, and compliance information. They support governance and reporting\nby providing a standardized way to document model information throughout its lifecycle."
+  },
+  {
+    "id": "Question 157",
+    "question": "A financial company is using ML to help with some of the company's tasks.\nWhich option is a use of generative Al models?",
+    "answers": "A. Summarizing customer complaints\nB. Classifying customers based on product usage\nC. Segmenting customers based on type of investments\nD. Forecasting revenue for certain products",
+    "correct_answer": "A",
+    "explanation": "Generative Al models are designed to generate new content such as text, images, or audio. Summarizing\ncustomer complaints involves generating concise versions of longer texts, which is a task well-suited for\ngenerative Al models like large language models."
+  },
+  {
+    "id": "Question 158",
+    "question": "A medical company wants to develop an Al application that can access structured patient records, extract\nrelevant information, and generate concise summaries.\nWhich solution will meet these requirements?",
+    "answers": "A. Use Amazon Comprehend Medical to extract relevant medical entities and relationships.\nApply rule-\nbased logic to structure and format summaries.\nB. Use Amazon Personalize to analyze patient engagement patterns. Integrate the output with a general\npurpose text summarization tool.\nC. Use Amazon Textract to convert scanned documents into digital text. Design a keyword extraction\nsystem to generate summaries.\nD. Implement Amazon Kendra to provide a searchable index for medical records. Use a template-based\nsystem to format summaries.",
+    "correct_answer": "A",
+    "explanation": "Amazon Comprehend Medical is specifically designed to extract structured medical information (such as\nmedication, condition, test results) from unstructured text. By applying rule-based logic afterward, relevant\ndata can be formatted into concise summaries, meeting both the extraction and summarization needs."
+  },
+  {
+    "id": "Question 159",
+    "question": "Which option describes embeddings in the context of Al?",
+    "answers": "A. A method for compressing large datasets\nB. An encryption method for securing sensitive data\nC. A method for visualizing high-dimensional data\nD. A numerical method for data representation in a reduced dimensionality space",
+    "correct_answer": "D",
+    "explanation": "Embeddings are numerical representations of data, such as words, images, or items, in a lower-\ndimensional vector space. They capture semantic relationships and patterns in the data, enabling models to\nprocess and compare inputs efficiently."
+  },
+  {
+    "id": "Question 160",
+    "question": "A company is building an Al application to summarize books of varying lengths.\nDuring testing, the\napplication fails to summarize some books.\nWhy does the application fail to summarize some books?",
+    "answers": "A. The temperature is set too high.\nB. The selected model does not support fine-tuning.\nC. The Top P value is too high.\nD. The input tokens exceed the model's context size.",
+    "correct_answer": "D",
+    "explanation": "Language models have a maximum context size, which limits the number of input tokens they can process\nat once. If a book's length exceeds this limit, the model cannot handle the full input, leading to failure in\nsummarization."
+  },
+  {
+    "id": "Question 161",
+    "question": "An airline company wants to build a conversational Al assistant to answer customer questions about flight\nschedules, booking, and payments.\nThe company wants to use large language models (LLMs) and a\nknowledge base to create a text-based chatbot interface.\nWhich solution will meet these requirements with the LEAST development effort?",
+    "answers": "A. Train models on Amazon SageMaker Autopilot.\nB. Develop a Retrieval Augmented Generation (RAG) agent by using Amazon Bedrock.\nC. Create a Python application by using Amazon Q Developer.\nD. Fine-tune models on Amazon SageMaker Jumpstart.",
+    "correct_answer": "B",
+    "explanation": "Amazon Bedrock allows quick integration of large language models with a knowledge base using RAG\narchitecture, enabling accurate and dynamic responses based on up-to-date information. This approach\nrequires minimal development effort while leveraging powerful generative capabilities."
+  },
+  {
+    "id": "Question 162",
+    "question": "What is tokenization used for in natural language processing (NLP)?",
+    "answers": "A. To encrypt text data\nB. To compress text files\nC. To break text into smaller units for processing\nD. To translate text between languages",
+    "correct_answer": "C",
+    "explanation": "Tokenization is the process of dividing text into smaller units, such as words, subwords, or characters,\nwhich can then be analyzed or processed by NLP models. It is a foundational step in preparing text data for\nmachine learning."
+  },
+  {
+    "id": "Question 163",
+    "question": "Which option is a characteristic of transformer-based language models?",
+    "answers": "A. Transformer-based language models use convolutional layers to apply filters across an input to capture\nlocal patterns through filtered views.\nB. Transformer-based language models can process only text data.\nC. Transformer-based language models use self-attention mechanisms to capture contextual relationships.\nD. Transformer-based language models process data sequences one element at a time in cyclic iterations.",
+    "correct_answer": "C",
+    "explanation": "A key characteristic of transformer models is their use of self-attention mechanisms, which allow the model\nto weigh the importance of different words in a sequence relative to each other, enabling a deep\nunderstanding of context and meaning across the entire input."
+  },
+  {
+    "id": "Question 164",
+    "question": "A financial company is using Al systems to obtain customer credit scores as part of the loan application\nprocess.\nThe company wants to expand to a new market in a different geographic area.\nThe company must\nensure that it can operate in that geographic area.\nWhich compliance laws should the company review?",
+    "answers": "A. Local health data protection laws\nB. Local payment card data protection laws\nC. Local education privacy laws\nD. Local algorithm accountability laws",
+    "correct_answer": "D",
+    "explanation": "When deploying Al systems that affect individuals, such as credit scoring, companies must comply with\nlocal algorithm accountability laws. These laws regulate the fairness, transparency, and impact of\nautomated decision-making, ensuring ethical use of Al in new geographic regions."
+  },
+  {
+    "id": "Question 165",
+    "question": "A company uses Amazon Bedrock for its generative Al application.\nThe company wants to use Amazon\nBedrock Guardrails to detect and filter harmful user inputs and model-generated outputs.\nWhich content categories can the guardrails filter? (Choose two.)",
+    "answers": "A. Hate\nB. Politics\nC. Violence\nD. Gambling\nE. Religion",
+    "correct_answer": "AC",
+    "explanation": "Amazon Bedrock Guardrails provide configurable content filters to detect and block harmful content in\ngenerative Al applications. Specifically, they include filters for categories such as Hate and Violence, among\nothers. These filters can be applied to both user inputs and model-generated outputs to ensure that the Al\napplication adheres to responsible Al practices and organizational policies."
+  },
+  {
+    "id": "Question 166",
+    "question": "Which scenario describes a potential risk and limitation of prompt engineering in the context of a generative\nAl model?",
+    "answers": "A. Prompt engineering does not ensure that the model always produces consistent and deterministic\noutputs, eliminating the need for validation.\nB. Prompt engineering could expose the model to vulnerabilities such as prompt injection attacks.\nC. Properly designed prompts reduce but do not eliminate the risk of data poisoning or model hijacking.\nD. Prompt engineering does not ensure that the model will consistently generate highly reliable outputs\nwhen working with real-world data.",
+    "correct_answer": "B",
+    "explanation": "A key risk in prompt engineering is prompt injection, where attackers manipulate input prompts to alter a\nmodel's behavior or produce unintended outputs. This vulnerability arises from the model's sensitivity to\ninput structure and content, making it a critical limitation in secure prompt design."
+  },
+  {
+    "id": "Question 167",
+    "question": "A publishing company built a Retrieval Augmented Generation (RAG) based solution to give its users the\nability to interact with published content.\nNew content is published daily. The company wants to provide a\nnear real-time experience to users.\nWhich steps in the RAG pipeline should the company implement by using offline batch processing to meet\nthese requirements?\n(Choose two.)",
+    "answers": "A. Generation of content embeddings\nB. Generation of embeddings for user queries\nC. Creation of the search index\nD. Retrieval of relevant content\nE. Response generation for the user",
+    "correct_answer": "A,C",
+    "explanation": "In a RAG pipeline, generating content embeddings and creating the search index can be done offline in\nbatch processes because they involve static published content. This enables the system to be updated\nperiodically without affecting real-time user interactions. User queries and response generation, on the\nother hand, must occur in real time."
+  },
+  {
+    "id": "Question 168",
+    "question": "Which technique breaks a complex task into smaller subtasks that are sent sequentially to a large language\nmodel (LLM)?",
+    "answers": "A. One-shot prompting\nB. Prompt chaining\nC. Tree of thoughts\nD. Retrieval Augmented Generation (RAG)",
+    "correct_answer": "B",
+    "explanation": "Prompt chaining involves breaking a complex task into smaller, manageable subtasks and passing them\nsequentially to a large language model. Each step builds upon the previous one, enabling more structured\nreasoning and improved task execution."
+  },
+  {
+    "id": "Question 169",
+    "question": "An Al practitioner needs to improve the accuracy of a natural language generation model.\nThe model uses\nrapidly changing inventory data.\nWhich technique will improve the model's accuracy?",
+    "answers": "A. Transfer learning\nB. Federated learning\nC. Retrieval Augmented Generation (RAG)\nD. One-shot prompting",
+    "correct_answer": "C",
+    "explanation": "RAG enhances a language model by fetching up-to-date, domain-specific data (e.g., current inventory) at\ninference time and conditioning the generation on those facts, ensuring the output reflects the latest\ninformation and improving accuracy without retraining the core model."
+  },
+  {
+    "id": "Question 170",
+    "question": "A company wants to collaborate with several research institutes to develop an Al model.\nThe company\nneeds standardized documentation of model version tracking and a record of model development.\nWhich solution meets these requirements?",
+    "answers": "A. Track the model changes by using Git.\nB. Track the model changes by using Amazon Fraud Detector.\nC. Track the model changes by using Amazon SageMaker Model Cards.\nD. Track the model changes by using Amazon Comprehend.",
+    "correct_answer": "C",
+    "explanation": "SageMaker Model Cards provide a built-in framework for capturing and versioning key metadata, such as\ntraining data details, performance metrics, lineage, and intended use, for each model iteration. This\nstandardized documentation and history of development fulfills requirements for model version tracking and\nauditable records."
+  },
+  {
+    "id": "Question 171",
+    "question": "A company that uses multiple ML models wants to identify changes in original model quality so that the\ncompany can resolve any issues.\nWhich AWS service or feature meets these requirements?",
+    "answers": "A. Amazon SageMaker JumpStart\nB. Amazon SageMaker HyperPod\nC. Amazon SageMaker Data Wrangler\nD. Amazon SageMaker Model Monitor",
+    "correct_answer": "D",
+    "explanation": "SageMaker Model Monitor continuously measures data and prediction quality in production, detects\ndeviations from your model's baseline (such as data drift or accuracy degradation), and alerts you so you\ncan investigate and resolve issues promptly."
+  },
+  {
+    "id": "Question 172",
+    "question": "What is the purpose of chunking in Retrieval Augmented Generation (RAG)?",
+    "answers": "A. To avoid database storage limitations for large text documents by storing parts or chunks of the text\nB. To improve efficiency by avoiding the need to convert large text into vector embeddings\nC. To improve the contextual relevancy of results retrieved from the vector index\nD. To decrease the cost of storage by storing parts or chunks of the text",
+    "correct_answer": "C",
+    "explanation": "By splitting large documents into smaller, semantically coherent chunks, the retrieval system can match and\nreturn only the most context-relevant segments for a given query, enhancing the precision and accuracy of\nthe generated responses."
+  },
+  {
+    "id": "Question 173",
+    "question": "A company is developing an editorial assistant application that uses generative Al.\nDuring the pilot phase,\nusage is low and application performance is not a concern.\nThe company cannot predict application usage\nafter the application is fully deployed and wants to minimize application costs.\nWhich solution will meet these requirements?",
+    "answers": "A. Use GPU-powered Amazon EC2 instances.\nB. Use Amazon Bedrock with Provisioned Throughput.\nC. Use Amazon Bedrock with On-Demand Throughput.\nD. Use Amazon SageMaker JumpStart.",
+    "correct_answer": "C",
+    "explanation": "On-Demand Throughput in Bedrock charges only for the inference calls you actually make, with no upfront\ncapacity commitment. This lets you start with minimal pilot usage and elastically handle unpredictable future\nload while keeping costs as low as possible."
+  },
+  {
+    "id": "Question 174",
+    "question": "A company deployed a Retrieval Augmented Generation (RAG) application on Amazon Bedrock that\ngathers financial news to distribute in daily newsletters.\nUsers have recently reported politically influenced\nideas in the newsletters.\nWhich Amazon Bedrock guardrail can identify and filter this content?",
+    "answers": "A. Word filters\nB. Denied topics\nC. Sensitive information filters\nD. Content filters",
+    "correct_answer": "B",
+    "explanation": "The Denied topics guardrail lets you define high-level categories (such as politics) that the model must\navoid. Bedrock enforces these rules during generation, filtering out any content related to politically\ninfluenced ideas."
+  },
+  {
+    "id": "Question 175",
+    "question": "A financial company is developing a fraud detection system that flags potential fraud cases in credit card\ntransactions.\nEmployees will evaluate the flagged fraud cases. The company wants to minimize the amount\nof time the employees spend reviewing flagged fraud cases that are not actually fraudulent.\nWhich evaluation metric meets these requirements?",
+    "answers": "A. Recall\nB. Accuracy\nC. Precision\nD. Lift chart",
+    "correct_answer": "C",
+    "explanation": "Precision measures the proportion of flagged cases that are truly fraudulent $(TP/[TP+FP]).$ Maximizing\nprecision reduces the number of false positives employees must review, cutting down wasted effort on non-\nfraudulent cases."
+  },
+  {
+    "id": "Question 176",
+    "question": "A company designed an Al-powered agent to answer customer inquiries based on product manuals.\nWhich strategy can improve customer confidence levels in the Al-powered agent's responses?",
+    "answers": "A. Writing the confidence level in the response\nB. Including referenced product manual links in the response\nC. Designing an agent avatar that looks like a computer\nD. Training the agent to respond in the company's language style",
+    "correct_answer": "B",
+    "explanation": "Providing direct links to the exact sections of the product manual that support each answer lets customers\nverify and trust the information, boosting confidence in the Al agent's responses."
+  },
+  {
+    "id": "Question 177",
+    "question": "A hospital developed an Al system to provide personalized treatment recommendations for patients.\nThe Al\nsystem must provide the rationale behind the recommendations and make the insights accessible to\ndoctors and patients.\nWhich human-centered design principle does this scenario present?",
+    "answers": "A. Explainability\nB. Privacy and security\nC. Fairness\nD. Data governance",
+    "correct_answer": "A",
+    "explanation": "Explainability ensures that the Al system reveals the reasoning behind its recommendations in an\nunderstandable way, making insights transparent and accessible to both doctors and patients."
+  },
+  {
+    "id": "Question 178",
+    "question": "Which statement presents an advantage of using Retrieval Augmented Generation (RAG) for natural\nlanguage processing (NLP) tasks?",
+    "answers": "A. RAG can use external knowledge sources to generate more accurate and informative responses.\nB. RAG is designed to improve the speed of language model training.\nC. RAG is primarily used for speech recognition tasks.\nD. RAG is a technique for data augmentation in computer vision tasks.",
+    "correct_answer": "A",
+    "explanation": "By retrieving relevant documents or data at inference time and conditioning the generation on that external\nknowledge, RAG enriches model outputs with up-to-date, domain-specific information, boosting accuracy\nand informativeness without retraining the core model."
+  },
+  {
+    "id": "Question 179",
+    "question": "A company has created a custom model by fine-tuning an existing large language model (LLM) from\nAmazon Bedrock.\nThe company wants to deploy the model to production and use the model to handle a\nsteady rate of requests each minute.\nWhich solution meets these requirements MOST cost-effectively?",
+    "answers": "A. Deploy the model by using an Amazon EC2 compute optimized instance.\nB. Use the model with on-demand throughput on Amazon Bedrock.\nC. Store the model in Amazon S3 and host the model by using AWS Lambda.\nD. Purchase Provisioned Throughput for the model on Amazon Bedrock.",
+    "correct_answer": "D",
+    "explanation": "Provisioned Throughput is priced lower per request when you have a predictable, steady volume of calls.\nBy\ncommitting to a fixed throughput level, you secure the necessary capacity at a reduced unit cost compared\nto on-demand, making it the most cost-effective choice for steady-minute usage."
+  },
+  {
+    "id": "Question 180",
+    "question": "Which technique involves training Al models on labeled datasets to adapt the models to specific industry\nterminology and requirements?",
+    "answers": "A. Data augmentation\nB. Fine-tuning\nC. Model quantization\nD. Continuous pre-training",
+    "correct_answer": "B",
+    "explanation": "Fine-tuning takes a pre-trained model and continues training it on a labeled, domain-specific dataset so the\nmodel learns industry terminology and task nuances directly from that specialized data."
+  },
+  {
+    "id": "Question 181",
+    "question": "A company is creating an agent for its application by using Amazon Bedrock Agents.\nThe agent is\nperforming well, but the company wants to improve the agent's accuracy by providing some specific\nexamples.\nWhich solution meets these requirements?",
+    "answers": "A. Modify the advanced prompts for the agent to include the examples.\nB. Create a guardrail for the agent that includes the examples.\nC. Use Amazon SageMaker Ground Truth to label the examples.\nD. Run a script in AWS Lambda that adds the examples to the training dataset.",
+    "correct_answer": "A",
+    "explanation": "Embedding specific input-output examples directly into the agent's advanced prompt (few-shot prompting)\nguides the model toward more accurate behavior without retraining or additional tooling."
+  },
+  {
+    "id": "Question 182",
+    "question": "Which option is a benefit of using infrastructure as code (laC) in machine learning operations (MLOps)?",
+    "answers": "A. laC eliminates the need for hyperparameter tuning.\nB. laC always provisions powerful compute instances, contributing to the training of more accurate models.\nC. laC streamlines the deployment of scalable and consistent ML workloads in cloud environments.\nD. laC minimizes overall expenses by deploying only low-cost instances.",
+    "correct_answer": "C",
+    "explanation": "By describing infrastructure in code, teams can version, automate, and repeatably provision resources,\nensuring that ML training and inference environments are consistent, scalable, and easy to reproduce\nacross development, testing, and production."
+  },
+  {
+    "id": "Question 183",
+    "question": "A company wants to fine-tune a foundation model (FM) to answer questions for a specific domain.\nThe\ncompany wants to use instruction-based fine-tuning.\nHow should the company prepare the training data?",
+    "answers": "A. Gather company internal documents and industry-specific materials. Merge the documents and\nmaterials into a single file.\nB. Collect external company reviews from various online sources. Manually label each review as either\npositive or negative.\nC. Create pairs of questions and answers that specifically address topics related to the company's industry\ndomain.\nD. Create few-shot prompts to instruct the model to answer only domain knowledge.",
+    "correct_answer": "C",
+    "explanation": "Instruction-based fine-tuning requires a dataset of instruction-response examples. By curating question-\nanswer pairs focused on the company's domain, you teach the model exactly how to interpret domain-\nspecific queries and generate the correct responses during inference."
+  },
+  {
+    "id": "Question 184",
+    "question": "Which ML technique ensures data compliance and privacy when training Al models on AWS?",
+    "answers": "A. Reinforcement learning\nB. Transfer learning\nC. Federated learning\nD. Unsupervised learning",
+    "correct_answer": "C",
+    "explanation": "Federated learning lets you train a global model across multiple data holders (for example, different AWS\naccounts or edge devices) without moving raw data to a central location. Each participant trains locally on\nits own private dataset and only shares model updates, preserving data privacy and ensuring compliance."
+  },
+  {
+    "id": "Question 185",
+    "question": "",
+    "answers": "",
+    "correct_answer": "",
+    "explanation": ""
+  },
+  {
+    "id": "Question 186",
+    "question": "A manufacturing company has an application that ingests consumer complaints from publicly available\nsources.\nThe application uses complex hard-coded logic to process the complaints.\nThe company wants to\nscale this logic across markets and product lines.\nWhich advantage do generative Al models offer for this scenario?",
+    "answers": "A. Predictability of outputs\nB. Adaptability\nC. Less sensitivity to changes in inputs\nD. Explainability",
+    "correct_answer": "B",
+    "explanation": "Generative Al models can generalize learned patterns to new domains and formats with minimal manual\nreconfiguration. This adaptability lets you extend complaint-processing logic across different markets and\nproduct lines without rewriting complex hard-coded rules."
+  },
+  {
+    "id": "Question 187",
+    "question": "A financial company wants to flag all credit card activity as possibly fraudulent or non-fraudulent based on\ntransaction data.\nWhich type of ML model meets these requirements?",
+    "answers": "A. Regression\nB. Diffusion\nC. Binary classification\nD. Multi-class classification",
+    "correct_answer": "C",
+    "explanation": "Binary classification models are designed to distinguish between two classes - fraudulent versus non-\nfraudulent transactions - making them the appropriate choice for this use case."
+  },
+  {
+    "id": "Question 188",
+    "question": "A company is designing a customer service chatbot by using a fine-tuned large language model (LLM).\nThe\ncompany wants to ensure that the chatbot uses responsible Al characteristics.\nSelect the correct responsible Al characteristic from the following list for each application design action.\nEach responsible Al characteristic should be selected one time or not at all.",
+    "answers": "Anonymize personal information during training data preparation: Privacy and security\nDesign the customer service chatbot to provide explainable decisions: Transparency\nUse Amazon Bedrock Guardrails to prevent harmful output and misuse of the chatbot: Safety",
+    "correct_answer": "Anonymize personal information during training data preparation - Privacy and security\nDesign the customer service chatbot to provide explainable decisions - Transparency\nUse Amazon Bedrock Guardrails to prevent harmful output and misuse of the chatbot - Safety",
+    "explanation": ""
+  },
+  {
+    "id": "Question 189",
+    "question": "A hospital wants to use a generative Al solution with speech-to-text functionality to help improve employee\nskills in dictating clinical notes.\nWhich AWS service meets these requirements?",
+    "answers": "A. Amazon Q Developer\nB. Amazon Polly\nC. Amazon Rekognition\nD. AWS Health Scribe",
+    "correct_answer": "D",
+    "explanation": "AWS HealthScribe is specifically designed for healthcare workflows, providing accurate speech-to-text\ntranscription of clinical conversations and generating structured clinical notes, meeting the hospital's need\nto improve employee dictation of clinical documentation."
+  },
+  {
+    "id": "Question 190",
+    "question": "Which type of Al model makes numeric predictions?",
+    "answers": "A. Diffusion\nB. Regression\nC. Transformer\nD. Multi-modal",
+    "correct_answer": "B",
+    "explanation": "Regression models are designed to predict continuous numerical values (for example, forecasting sales\nfigures or estimating house prices), making them the appropriate choice for numeric predictions."
+  },
+  {
+    "id": "Question 191",
+    "question": "",
+    "answers": "",
+    "correct_answer": "",
+    "explanation": ""
+  },
+  {
+    "id": "Question 192",
+    "question": "What is the purpose of vector embeddings in a large language model (LLM)?",
+    "answers": "A. Splitting text into manageable pieces of data\nB. Grouping a set of characters to be treated as a single unit\nC. Providing the ability to mathematically compare texts\nD. Providing the count of every word in the input",
+    "correct_answer": "C",
+    "explanation": "Embeddings convert text into high-dimensional vectors that capture semantic relationships, allowing you to\ncompute distances or similarities between pieces of text for tasks like retrieval or clustering."
+  },
+  {
+    "id": "Question 193",
+    "question": "A company wants to fine-tune a foundation model (FM) by using AWS services.\nThe company needs to\nensure that its data stays private, safe, and secure in the source AWS Region where the data is stored.\nWhich combination of steps will meet these requirements MOST cost-effectively? (Choose two.)",
+    "answers": "A. Host the model on premises by using AWS Outposts.\nB. Use the Amazon Bedrock API.\nC. Use AWS PrivateLink and a VPC.\nD. Host the Amazon Bedrock API on premises.\nE. Use Amazon CloudWatch logs and metrics.",
+    "correct_answer": "B,C",
+    "explanation": "Use the Amazon Bedrock API: You'll call Bedrock's managed fine-tuning endpoints directly in your AWS\nRegion, so your data never leaves that region.\nUse AWS PrivateLink and a VPC: Front Bedrock API traffic through a VPC endpoint via PrivateLink to keep\nall network traffic on the AWS backbone and within your account's private network."
+  },
+  {
+    "id": "Question 194",
+    "question": "A financial company uses AWS to host its generative Al models.\nThe company must generate reports to\nshow adherence to international regulations for handling sensitive customer data.\nWhich AWS service meets these requirements?",
+    "answers": "A. Amazon Macie\nB. AWS Artifact\nC. AWS Secrets Manager\nD. AWS Config",
+    "correct_answer": "B",
+    "explanation": "AWS Artifact provides on-demand access to AWS's compliance reports and certifications (for example,\nISO, SOC, GDPR), enabling the company to demonstrate its generative Al workloads and data handling\npractices adhere to international regulatory requirements."
+  }
+]

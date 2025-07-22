@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI认证问答系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 6px;
+            border-radius: 3px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #4CAF50;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .question-container {
+            margin-bottom: 30px;
+        }
+
+        .question-number {
+            color: #667eea;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #333;
+            white-space: pre-line;
+        }
+
+        .answers-container {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .answer-option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            line-height: 1.4;
+        }
+
+        .answer-option:hover {
+            background: #e3f2fd;
+            border-color: #2196F3;
+            transform: translateY(-2px);
+        }
+
+        .answer-option.selected {
+            background: #2196F3;
+            border-color: #2196F3;
+            color: white;
+        }
+
+        .answer-option.correct {
+            background: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+        }
+
+        .answer-option.incorrect {
+            background: #f44336;
+            border-color: #f44336;
+            color: white;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .next-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .next-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .result {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .result.incorrect {
+            border-left-color: #f44336;
+        }
+
+        .explanation {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .explanation h4 {
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .start-screen {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .question-navigator {
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #e9ecef;
+            cursor: pointer;
+            font-weight: bold;
+            color: #495057;
+            transition: all 0.3s ease;
+            user-select: none;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+        }
+
+        .nav-header:hover {
+            background: #dee2e6;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-header:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-toggle {
+            font-size: 1.2em;
+            color: #495057;
+            transition: transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .nav-toggle.rotated {
+            transform: rotate(180deg);
+        }
+
+        .nav-content {
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 10px;
+        }
+
+        .nav-item {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .nav-item:hover {
+            border-color: #2196F3;
+            background: #e3f2fd;
+        }
+
+        .nav-item.current {
+            border-color: #2196F3;
+            background: #2196F3;
+            color: white;
+        }
+
+        .nav-item.answered {
+            border-color: #4CAF50;
+            background: #4CAF50;
+            color: white;
+        }
+
+        .nav-item.answered.incorrect {
+            border-color: #f44336;
+            background: #f44336;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .question-text {
+                font-size: 1em;
+            }
+
+            .answer-option {
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI认证问答系统</h1>
+            <p>测试你的AI知识，提升专业技能</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- 开始界面 -->
+            <div id="startScreen" class="start-screen">
+                <h2>欢迎来到AI认证问答系统</h2>
+                <p>本系统包含多个AI相关的专业问题，帮助你测试和提升AI知识水平。</p>
+                <p>每个问题都有详细的解释，帮助你更好地理解相关概念。</p>
+                <button class="start-btn" onclick="startQuiz()">开始答题</button>
+            </div>
+
+            <!-- 问题界面 -->
+            <div id="questionScreen" class="hidden">
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="currentQuestion">1</div>
+                        <div class="stat-label">当前题目</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalQuestions">0</div>
+                        <div class="stat-label">总题目</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="correctAnswers">0</div>
+                        <div class="stat-label">正确</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="incorrectAnswers">0</div>
+                        <div class="stat-label">错误</div>
+                    </div>
+                </div>
+
+                <div class="question-navigator">
+                    <div class="nav-header" onclick="toggleNavigator()">
+                        <span>题目导航</span>
+                        <span class="nav-toggle">▼</span>
+                    </div>
+                    <div class="nav-content hidden" id="navContent">
+                        <div class="nav-grid" id="navGrid"></div>
+                    </div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number" id="questionNumber"></div>
+                    <div class="question-text" id="questionText"></div>
+                    <div class="answers-container" id="answersContainer"></div>
+                </div>
+
+                <button class="submit-btn" id="submitBtn" onclick="submitAnswer()" disabled>提交答案</button>
+                <button class="next-btn hidden" id="nextBtn" onclick="nextQuestion()">下一题</button>
+
+                <div class="result hidden" id="result"></div>
+                <div class="explanation hidden" id="explanation"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let questions = [];
+        let currentQuestionIndex = 0;
+        let selectedAnswer = null;
+        let answered = false;
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let answeredQuestions = new Set(); // 记录已答题目
+        let questionResults = new Map(); // 记录题目结果
+
+        // 加载问题数据
+        async function loadQuestions() {
+            try {
+                const response = await fetch('questions.jsonc');
+                questions = await response.json();
+                document.getElementById('totalQuestions').textContent = questions.length;
+            } catch (error) {
+                console.error('加载问题失败:', error);
+                alert('加载问题数据失败，请检查questions.jsonc文件是否存在。');
+            }
+        }
+
+        // 开始答题
+        function startQuiz() {
+            document.getElementById('startScreen').classList.add('hidden');
+            document.getElementById('questionScreen').classList.remove('hidden');
+            showQuestion();
+            createNavigator();
+        }
+
+        // 显示当前问题
+        function showQuestion() {
+            if (currentQuestionIndex >= questions.length) {
+                showFinalResults();
+                return;
+            }
+
+            const question = questions[currentQuestionIndex];
+            document.getElementById('questionNumber').textContent = question.id;
+            document.getElementById('questionText').textContent = question.question;
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+
+            // 解析答案选项
+            const answers = question.answers.split('\n');
+            const answersContainer = document.getElementById('answersContainer');
+            answersContainer.innerHTML = '';
+
+            answers.forEach((answer, index) => {
+                const option = document.createElement('div');
+                option.className = 'answer-option';
+                option.textContent = answer;
+                option.onclick = () => selectAnswer(index);
+                answersContainer.appendChild(option);
+            });
+
+            // 重置状态
+            selectedAnswer = null;
+            answered = false;
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('submitBtn').classList.remove('hidden');
+            document.getElementById('nextBtn').classList.add('hidden');
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('explanation').classList.add('hidden');
+
+            // 更新进度条和导航器
+            updateProgress();
+            updateNavigator();
+        }
+
+        // 选择答案
+        function selectAnswer(index) {
+            if (answered) return;
+
+            // 移除之前的选择
+            const options = document.querySelectorAll('.answer-option');
+            options.forEach(option => option.classList.remove('selected'));
+
+            // 选择当前答案
+            options[index].classList.add('selected');
+            selectedAnswer = index;
+            document.getElementById('submitBtn').disabled = false;
+        }
+
+        // 提交答案
+        function submitAnswer() {
+            if (selectedAnswer === null || answered) return;
+
+            const question = questions[currentQuestionIndex];
+            const options = document.querySelectorAll('.answer-option');
+            const isCorrect = selectedAnswer === getCorrectAnswerIndex(question.correct_answer);
+
+            // 显示结果
+            const resultDiv = document.getElementById('result');
+            resultDiv.classList.remove('hidden');
+            
+            if (isCorrect) {
+                resultDiv.textContent = '✅ 回答正确！';
+                resultDiv.className = 'result';
+                correctCount++;
+            } else {
+                resultDiv.textContent = '❌ 回答错误！';
+                resultDiv.className = 'result incorrect';
+                incorrectCount++;
+            }
+
+            // 显示正确答案
+            const correctIndex = getCorrectAnswerIndex(question.correct_answer);
+            options.forEach((option, index) => {
+                if (index === correctIndex) {
+                    option.classList.add('correct');
+                } else if (index === selectedAnswer && !isCorrect) {
+                    option.classList.add('incorrect');
+                }
+            });
+
+            // 显示解释
+            const explanationDiv = document.getElementById('explanation');
+            explanationDiv.classList.remove('hidden');
+            explanationDiv.innerHTML = `
+                <h4>解释：</h4>
+                <p>${question.explanation}</p>
+            `;
+
+            // 记录答题结果
+            answeredQuestions.add(currentQuestionIndex);
+            questionResults.set(currentQuestionIndex, isCorrect);
+
+            // 更新统计
+            document.getElementById('correctAnswers').textContent = correctCount;
+            document.getElementById('incorrectAnswers').textContent = incorrectCount;
+
+            // 显示下一题按钮
+            document.getElementById('submitBtn').classList.add('hidden');
+            document.getElementById('nextBtn').classList.remove('hidden');
+
+            answered = true;
+            
+            // 更新导航器
+            updateNavigator();
+        }
+
+        // 下一题
+        function nextQuestion() {
+            currentQuestionIndex++;
+            showQuestion();
+        }
+
+        // 获取正确答案的索引
+        function getCorrectAnswerIndex(correctAnswer) {
+            const answerLetter = correctAnswer.trim();
+            const answerMap = { 'A': 0, 'B': 1, 'C': 2, 'D': 3 };
+            return answerMap[answerLetter] || 0;
+        }
+
+        // 创建题目导航器
+        function createNavigator() {
+            const navGrid = document.getElementById('navGrid');
+            navGrid.innerHTML = '';
+            
+            for (let i = 0; i < questions.length; i++) {
+                const navItem = document.createElement('div');
+                navItem.className = 'nav-item';
+                navItem.textContent = i + 1;
+                navItem.onclick = () => jumpToQuestion(i);
+                navGrid.appendChild(navItem);
+            }
+            updateNavigator();
+        }
+
+        // 更新导航器状态
+        function updateNavigator() {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach((item, index) => {
+                item.classList.remove('current', 'answered', 'incorrect');
+                
+                if (index === currentQuestionIndex) {
+                    item.classList.add('current');
+                } else if (answeredQuestions.has(index)) {
+                    item.classList.add('answered');
+                    if (questionResults.get(index) === false) {
+                        item.classList.add('incorrect');
+                    }
+                }
+            });
+        }
+
+        // 跳转到指定题目
+        function jumpToQuestion(index) {
+            if (index < 0 || index >= questions.length) return;
+            
+            // 如果当前题目已选择答案但未提交，提示用户
+            if (selectedAnswer !== null && !answered) {
+                if (!confirm('当前题目已选择答案但未提交，确定要跳转吗？')) {
+                    return;
+                }
+            }
+            
+            currentQuestionIndex = index;
+            showQuestion();
+            updateNavigator();
+        }
+
+        // 切换导航器显示/隐藏
+        function toggleNavigator() {
+            const navContent = document.getElementById('navContent');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            navContent.classList.toggle('hidden');
+            navToggle.classList.toggle('rotated');
+        }
+
+        // 更新进度条
+        function updateProgress() {
+            const progress = (currentQuestionIndex / questions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        // 显示最终结果
+        function showFinalResults() {
+            const accuracy = ((correctCount / questions.length) * 100).toFixed(1);
+            const content = document.querySelector('.content');
+            content.innerHTML = `
+                <div class="start-screen">
+                    <h2>答题完成！</h2>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">${questions.length}</div>
+                            <div class="stat-label">总题目</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">${correctCount}</div>
+                            <div class="stat-label">正确</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">${incorrectCount}</div>
+                            <div class="stat-label">错误</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">${accuracy}%</div>
+                            <div class="stat-label">正确率</div>
+                        </div>
+                    </div>
+                    <p>恭喜你完成了所有题目！</p>
+                    <button class="start-btn" onclick="restartQuiz()">重新开始</button>
+                </div>
+            `;
+        }
+
+        // 重新开始
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            correctCount = 0;
+            incorrectCount = 0;
+            selectedAnswer = null;
+            answered = false;
+            answeredQuestions.clear();
+            questionResults.clear();
+            startQuiz();
+        }
+
+        // 页面加载时加载问题
+        window.onload = loadQuestions;
+    </script>
+</body>
+</html> 
