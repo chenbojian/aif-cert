@@ -58,14 +58,14 @@
   {
     "id": "Question 9",
     "question": "A company wants to create a chatbot by using a foundation model (FM) on Amazon Bedrock.\nThe FM\nneeds to access encrypted data that is stored in an Amazon S3 bucket.\nThe data is encrypted with Amazon\nS3 managed keys (SSE-S3).\nThe FM encounters a failure when attempting to access the S3 bucket data.\nWhich solution will meet these requirements?",
-    "answers": "A. Ensure that the role that Amazon Bedrock assumes has permission to decrypt data with the correct\nencryption key.\nB. Set the access permissions for the S3 buckets to allow public access to enable access over the internet.\nC. Use prompt engineering techniques to tell the model to look for information in Amazon S3.\nD. Ensure that the S3 data does not contain sensitive information.",
+    "answers": "A. Ensure that the role that Amazon Bedrock assumes has permission to decrypt data with the correct encryption key.\nB. Set the access permissions for the S3 buckets to allow public access to enable access over the internet.\nC. Use prompt engineering techniques to tell the model to look for information in Amazon S3.\nD. Ensure that the S3 data does not contain sensitive information.",
     "correct_answer": "A",
     "explanation": "The foundation model needs the appropriate permissions to decrypt the encrypted data in the S3 bucket.\nEnsuring that the role used by Amazon Bedrock has permission to access and decrypt the data will resolve\nthe access failure. The other options are not suitable for addressing the encryption and permission issue."
   },
   {
     "id": "Question 10",
     "question": "A company wants to use language models to create an application for inference on edge devices.\nThe\ninference must have the lowest latency possible.\nWhich solution will meet these requirements?",
-    "answers": "A. Deploy optimized small language models (SLMs) on edge devices.\nB. Deploy optimized large language models (LLMs) on edge devices.\nC. Incorporate a centralized small language model (SLM) API for asynchronous communication with edge\ndevices.\nD. Incorporate a centralized large language model (LLM) API for asynchronous communication with edge\ndevices.",
+    "answers": "A. Deploy optimized small language models (SLMs) on edge devices.\nB. Deploy optimized large language models (LLMs) on edge devices.\nC. Incorporate a centralized small language model (SLM) API for asynchronous communication with edge devices.\nD. Incorporate a centralized large language model (LLM) API for asynchronous communication with edge devices.",
     "correct_answer": "A",
     "explanation": "Deploying optimized small language models (SLMs) directly on edge devices provides low latency for\ninference since the computation happens locally, avoiding the delays associated with network\ncommunication. The other options either increase latency or are less suitable for edge deployment."
   },
@@ -170,7 +170,7 @@
   {
     "id": "Question 25",
     "question": "A company wants to use a large language model (LLM) on Amazon Bedrock for sentiment analysis.\nThe\ncompany wants to classify the sentiment of text passages as positive or negative.\nWhich prompt engineering strategy meets these requirements?",
-    "answers": "A. Provide examples of text passages with corresponding positive or negative labels in the prompt followed\nby the new text passage to be classified.\nB. Provide a detailed explanation of sentiment analysis and how LLMs work in the prompt.\nC. Provide the new text passage to be classified without any additional context or examples.\nD. Provide the new text passage with a few examples of unrelated tasks, such as text summarization or\nquestion answering.",
+    "answers": "A. Provide examples of text passages with corresponding positive or negative labels in the prompt followed by the new text passage to be classified.\nB. Provide a detailed explanation of sentiment analysis and how LLMs work in the prompt.\nC. Provide the new text passage to be classified without any additional context or examples.\nD. Provide the new text passage with a few examples of unrelated tasks, such as text summarization or question answering.",
     "correct_answer": "A",
     "explanation": "Providing examples with labels in the prompt helps the LLM understand the context of sentiment analysis,\nimproving its accuracy in classifying the new text passage as positive or negative. The other options do not\neffectively guide the LLM for sentiment analysis."
   },
@@ -205,7 +205,7 @@
   {
     "id": "Question 30",
     "question": "A company is using the Generative Al Security Scoping Matrix to assess security responsibilities for its\nsolutions.\nThe company has identified four different solution scopes based on the matrix.\nWhich solution scope gives the company the MOST ownership of security responsibilities?",
-    "answers": "A. Using a third-party enterprise application that has embedded generative Al features.\nB. Building an application by using an existing third-party generative Al foundation model (FM).\nC. Refining an existing third-party generative Al foundation model (FM) by fine-tuning the model by using\ndata specific to the business.\nD. Building and training a generative Al model from scratch by using specific data that a customer owns.",
+    "answers": "A. Using a third-party enterprise application that has embedded generative Al features.\nB. Building an application by using an existing third-party generative Al foundation model (FM).\nC. Refining an existing third-party generative Al foundation model (FM) by fine-tuning the model by using data specific to the business.\nD. Building and training a generative Al model from scratch by using specific data that a customer owns.",
     "correct_answer": "D",
     "explanation": "Building and training a generative Al model from scratch gives the company the most ownership of security\nresponsibilities, as it involves full control over data, training, deployment, and security measures. The other\noptions involve varying levels of dependency on third-party tools and services, which reduces the\ncompany's ownership of security."
   },
@@ -233,7 +233,7 @@
   {
     "id": "Question 34",
     "question": "How can companies use large language models (LLMs) securely on Amazon Bedrock?",
-    "answers": "A. Configure AWS Identity and Access Management (IAM) roles and policies by using least privilege\naccess.\nB. Enable AWS Audit Manager for automatic model evaluation jobs.\nC. Enable Amazon Bedrock automatic model evaluation jobs.\nD. Use Amazon CloudWatch Logs to make models explainable and to monitor for bias.",
+    "answers": "A. Configure AWS Identity and Access Management (IAM) roles and policies by using least privilege access.\nB. Enable AWS Audit Manager for automatic model evaluation jobs.\nC. Enable Amazon Bedrock automatic model evaluation jobs.\nD. Use Amazon CloudWatch Logs to make models explainable and to monitor for bias.",
     "correct_answer": "A",
     "explanation": "Designing clear prompts and using IAM roles with least privilege access ensures secure use of LLMs on\nAmazon Bedrock by minimizing access risks and preventing misuse. The other options do not directly\naddress securing the use of LLMs."
   },
@@ -317,7 +317,7 @@
   {
     "id": "Question 46",
     "question": "A company wants to use large language models (LLMs) with Amazon Bedrock to develop a chat interface\nfor the company's product manuals.\nThe manuals are stored as PDF files.\nWhich solution meets these requirements MOST cost-effectively?",
-    "answers": "A. Use prompt engineering to add one PDF file as context to the user prompt when the prompt is\nsubmitted to Amazon Bedrock.\nB. Use prompt engineering to add all the PDF files as context to the user prompt when the prompt is\nsubmitted to Amazon Bedrock.\nC. Use all the PDF documents to fine-tune a model with Amazon Bedrock.\nUse the fine-tuned model to\nprocess user prompts.\nD. Upload PDF documents to an Amazon Bedrock knowledge base.\nUse the knowledge base to provide\ncontext when users submit prompts to Amazon Bedrock.",
+    "answers": "A. Use prompt engineering to add one PDF file as context to the user prompt when the prompt is submitted to Amazon Bedrock.\nB. Use prompt engineering to add all the PDF files as context to the user prompt when the prompt is submitted to Amazon Bedrock.\nC. Use all the PDF documents to fine-tune a model with Amazon Bedrock. Use the fine-tuned model to process user prompts.\nD. Upload PDF documents to an Amazon Bedrock knowledge base. Use the knowledge base to provide context when users submit prompts to Amazon Bedrock.",
     "correct_answer": "D",
     "explanation": "Using an Amazon Bedrock knowledge base allows the model to efficiently access relevant information from\nthe PDF manuals when needed, reducing the cost compared to continuously fine-tuning a model or\nproviding all PDFs as context in each prompt. This approach ensures that only necessary context is\nprovided, making it cost-effective."
   },
@@ -338,7 +338,7 @@
   {
     "id": "Question 49",
     "question": "A loan company is building a generative Al-based solution to offer new applicants discounts based on\nspecific business criteria.\nThe company wants to build and use an Al model responsibly to minimize bias\nthat could negatively affect some customers.\nWhich actions should the company take to meet these requirements? (Choose two.)",
-    "answers": "A. Detect imbalances or disparities in the data.\nB. Ensure that the model runs frequently.\nC. Evaluate the model's behavior so that the company can provide transparency to stakeholders.\nD. Use the Recall-Oriented Understudy for Gisting Evaluation (ROUGE) technique to ensure that the model\nis 100% accurate.\nE. Ensure that the model's inference time is within the accepted limits.",
+    "answers": "A. Detect imbalances or disparities in the data.\nB. Ensure that the model runs frequently.\nC. Evaluate the model's behavior so that the company can provide transparency to stakeholders.\nD. Use the Recall-Oriented Understudy for Gisting Evaluation (ROUGE) technique to ensure that the model is 100% accurate.\nE. Ensure that the model's inference time is within the accepted limits.",
     "correct_answer": "AC",
     "explanation": "Detect imbalances or disparities in the data: Identifying and addressing data imbalances helps minimize\nbiases that could negatively affect customers.\nEvaluate the model's behavior so that the company can provide transparency to stakeholders:\nEvaluating the model and ensuring transparency is important for responsible Al usage, as it helps\nstakeholders understand how decisions are made.\nThe other options are either not directly related to minimizing bias or do not address responsible Al\ndevelopment."
   },
@@ -387,7 +387,7 @@
   {
     "id": "Question 56",
     "question": "A digital devices company wants to predict customer demand for memory hardware.\nThe company does not\nhave coding experience or knowledge of ML algorithms and needs to develop a data-driven predictive\nmodel.\nThe company needs to perform analysis on internal data and external data.\nWhich solution will meet these requirements?",
-    "answers": "A. Store the data in Amazon S3. Create ML models and demand forecast predictions by using Amazon\nSageMaker built-in algorithms that use the data from Amazon S3.\nB. Import the data into Amazon SageMaker Data Wrangler. Create ML models and demand forecast\npredictions by using SageMaker built-in algorithms.\nC. Import the data into Amazon SageMaker Data Wrangler. Build ML models and demand forecast\npredictions by using an Amazon Personalize Trending-Now recipe.\nD. Import the data into Amazon SageMaker Canvas. Build ML models and demand forecast predictions by\nselecting the values in the data from SageMaker Canvas.",
+    "answers": "A. Store the data in Amazon S3. Create ML models and demand forecast predictions by using Amazon SageMaker built-in algorithms that use the data from Amazon S3.\nB. Import the data into Amazon SageMaker Data Wrangler. Create ML models and demand forecast predictions by using SageMaker built-in algorithms.\nC. Import the data into Amazon SageMaker Data Wrangler. Build ML models and demand forecast predictions by using an Amazon Personalize Trending-Now recipe.\nD. Import the data into Amazon SageMaker Canvas. Build ML models and demand forecast predictions by selecting the values in the data from SageMaker Canvas.",
     "correct_answer": "D",
     "explanation": "Amazon SageMaker Canvas is a no-code tool that allows users to build ML models and make predictions\nwithout requiring programming knowledge. It is ideal for users with no coding experience, providing an easy\ninterface for importing data and generating predictive models. The other options require more technical\nexpertise or are not designed for no-code model building."
   },
@@ -457,14 +457,14 @@
   {
     "id": "Question 66",
     "question": "A company wants to develop a large language model (LLM) application by using Amazon Bedrock and\ncustomer data that is uploaded to Amazon S3.\nThe company's security policy states that each team can\naccess data for only the team's own customers.\nWhich solution will meet these requirements?",
-    "answers": "A. Create an Amazon Bedrock custom service role for each team that has access to only the team's\ncustomer data.\nB. Create a custom service role that has Amazon S3 access.\nAsk teams to specify the customer name on\neach Amazon Bedrock request.\nC. Redact personal data in Amazon S3. Update the S3 bucket policy to allow team access to customer\ndata.\nD. Create one Amazon Bedrock role that has full Amazon S3 access.\nCreate IAM roles for each team that\nhave access to only each team's customer folders.",
+    "answers": "A. Create an Amazon Bedrock custom service role for each team that has access to only the team's customer data.\nB. Create a custom service role that has Amazon S3 access. Ask teams to specify the customer name on each Amazon Bedrock request.\nC. Redact personal data in Amazon S3. Update the S3 bucket policy to allow team access to customer data.\nD. Create one Amazon Bedrock role that has full Amazon S3 access. Create IAM roles for each team that have access to only each team's customer folders.",
     "correct_answer": "A",
     "explanation": "Creating a custom Amazon Bedrock service role for each team with restricted access to only the team's\ncustomer data ensures compliance with the security policy, providing the necessary data segregation and\naccess control. The other options do not effectively enforce team-specific access or may pose risks of\nbroader access than allowed by the policy."
   },
   {
     "id": "Question 67",
     "question": "A medical company deployed a disease detection model on Amazon Bedrock.\nTo comply with privacy\npolicies, the company wants to prevent the model from including personal patient information in its\nresponses.\nThe company also wants to receive notification when policy violations occur.\nWhich solution meets these requirements?",
-    "answers": "A. Use Amazon Macie to scan the model's output for sensitive data and set up alerts for potential\nviolations.\nB. Configure AWS CloudTrail to monitor the model's responses and create alerts for any detected personal\ninformation.\nC. Use Guardrails for Amazon Bedrock to filter content. Set up Amazon CloudWatch alarms for notification\nof policy violations.\nD. Implement Amazon SageMaker Model Monitor to detect data drift and receive alerts when model quality\ndegrades.",
+    "answers": "A. Use Amazon Macie to scan the model's output for sensitive data and set up alerts for potential violations.\nB. Configure AWS CloudTrail to monitor the model's responses and create alerts for any detected personal information.\nC. Use Guardrails for Amazon Bedrock to filter content. Set up Amazon CloudWatch alarms for notification of policy violations.\nD. Implement Amazon SageMaker Model Monitor to detect data drift and receive alerts when model quality degrades.",
     "correct_answer": "C",
     "explanation": "Guardrails for Amazon Bedrock can be used to filter content and ensure that personal patient information is\nnot included in model responses. Setting up Amazon CloudWatch alarms allows the company to receive\nnotifications when policy violations occur. The other options are not specifically designed for filtering model\noutput and monitoring policy compliance."
   },
@@ -478,7 +478,7 @@
   {
     "id": "Question 69",
     "question": "An education provider is building a question and answer application that uses a generative Al model to\nexplain complex concepts.\nThe education provider wants to automatically change the style of the model\nresponse depending on who is asking the question.\nThe education provider will give the model the age\nrange of the user who has asked the question.\nWhich solution meets these requirements with the LEAST implementation effort?",
-    "answers": "A. Fine-tune the model by using additional training data that is representative of the various age ranges\nthat the application will support.\nB. Add a role description to the prompt context that instructs the model of the age range that the response\nshould target.\nC. Use chain-of-thought reasoning to deduce the correct style and complexity for a response suitable for\nthat user.\nD. Summarize the response text depending on the age of the user so that younger users receive shorter\nresponses.",
+    "answers": "A. Fine-tune the model by using additional training data that is representative of the various age ranges that the application will support.\nB. Add a role description to the prompt context that instructs the model of the age range that the response should target.\nC. Use chain-of-thought reasoning to deduce the correct style and complexity for a response suitable for that user.\nD. Summarize the response text depending on the age of the user so that younger users receive shorter responses.",
     "correct_answer": "B",
     "explanation": "Adding a role description to the prompt is the simplest and most effective way to adjust the model's\nresponse style based on the user's age range. It requires minimal implementation effort and effectively\ntailors the output. The other options involve more complex processes, such as fine-tuning or additional\nreasoning steps."
   },
@@ -541,7 +541,7 @@
   {
     "id": "Question 78",
     "question": "An Al practitioner trained a custom model on Amazon Bedrock by using a training dataset that contains\nconfidential data.\nThe Al practitioner wants to ensure that the custom model does not generate inference\nresponses based on confidential data.\nHow should the Al practitioner prevent responses based on confidential data?",
-    "answers": "A. Delete the custom model. Remove the confidential data from the training dataset. Retrain the custom\nmodel.\nB. Mask the confidential data in the inference responses by using dynamic data masking.\nC. Encrypt the confidential data in the inference responses by using Amazon SageMaker.\nD. Encrypt the confidential data in the custom model by using AWS Key Management Service (AWS KMS).",
+    "answers": "A. Delete the custom model. Remove the confidential data from the training dataset. Retrain the custom model.\nB. Mask the confidential data in the inference responses by using dynamic data masking.\nC. Encrypt the confidential data in the inference responses by using Amazon SageMaker.\nD. Encrypt the confidential data in the custom model by using AWS Key Management Service (AWS KMS).",
     "correct_answer": "A",
     "explanation": "To ensure that the custom model does not generate responses based on confidential data, the best\napproach is to retrain the model without including the confidential data. This prevents the model from\nlearning patterns associated with that sensitive information, thereby avoiding its use in inference. The other\noptions do not address the root cause of the issue-removing confidential data from the training process."
   },
@@ -569,7 +569,7 @@
   {
     "id": "Question 82",
     "question": "What are tokens in the context of generative Al models?",
-    "answers": "A. Tokens are the basic units of input and output that a generative Al model operates on, representing\nwords, subwords, or other linguistic units.\nB. Tokens are the mathematical representations of words or concepts used in generative Al models.\nC. Tokens are the pre-trained weights of a generative Al model that are fine-tuned for specific tasks.\nD. Tokens are the specific prompts or instructions given to a generative Al model to generate output.",
+    "answers": "A. Tokens are the basic units of input and output that a generative Al model operates on, representing words, subwords, or other linguistic units.\nB. Tokens are the mathematical representations of words or concepts used in generative Al models.\nC. Tokens are the pre-trained weights of a generative Al model that are fine-tuned for specific tasks.\nD. Tokens are the specific prompts or instructions given to a generative Al model to generate output.",
     "correct_answer": "A",
     "explanation": "Tokens are the smallest units (e.g., words, subwords, or characters) that generative Al models use to\nprocess text. They form the basis of both the input given to and the output generated by the model. The\nother options do not accurately describe tokens in this context."
   },
@@ -632,7 +632,7 @@
   {
     "id": "Question 91",
     "question": "An ML research team develops custom ML models. The model artifacts are shared with other teams for\nintegration into products and services.\nThe ML team retains the model training code and data.\nThe ML team\nwants to build a mechanism that the ML team can use to audit models.\nWhich solution should the ML team use when publishing the custom ML models?",
-    "answers": "A. Create documents with the relevant information. Store the documents in Amazon S3.\nB. Use AWS AI Service Cards for transparency and understanding models.\nC. Create Amazon SageMaker Model Cards with intended uses and training and inference details.\nD. Create model training scripts.\nCommit the model training scripts to a Git repository.",
+    "answers": "A. Create documents with the relevant information. Store the documents in Amazon S3.\nB. Use AWS AI Service Cards for transparency and understanding models.\nC. Create Amazon SageMaker Model Cards with intended uses and training and inference details.\nD. Create model training scripts. Commit the model training scripts to a Git repository.",
     "correct_answer": "C",
     "explanation": "Amazon SageMaker Model Cards are designed to document the essential details about machine learning\nmodels, including their intended uses, training datasets, training parameters, evaluation metrics, and\ninference environment. This provides a centralized mechanism to store and audit the metadata of the\nmodels, which is ideal for the ML team's need to share and audit models effectively.\nKey benefits of Amazon SageMaker Model Cards:\nStandardized documentation of models' characteristics and intended use cases.\nTransparency and traceability for auditing purposes.\nIntegration with other AWS services for lifecycle management."
   },
@@ -779,7 +779,7 @@
   {
     "id": "Question 112",
     "question": "A pharmaceutical company wants to analyze user reviews of new medications and provide a concise\noverview for each medication.\nWhich solution meets these requirements?",
-    "answers": "A. Create a time-series forecasting model to analyze the medication reviews by using Amazon Personalize.\nB. Create medication review summaries by using Amazon Bedrock large language models (LLMs).\nC. Create a classification model that categorizes medications into different groups by using Amazon\nSageMaker.\nD. Create medication review summaries by using Amazon Rekognition.",
+    "answers": "A. Create a time-series forecasting model to analyze the medication reviews by using Amazon Personalize.\nB. Create medication review summaries by using Amazon Bedrock large language models (LLMs).\nC. Create a classification model that categorizes medications into different groups by using Amazon SageMaker.\nD. Create medication review summaries by using Amazon Rekognition.",
     "correct_answer": "B",
     "explanation": "Amazon Bedrock provides access to a variety of large language models (LLMs), which are well-suited for\ntasks such as text summarization. By using LLMs, the pharmaceutical company can automatically generate\nconcise and coherent summaries of user reviews for each medication. These models are designed to\nunderstand and process large amounts of text, making them ideal for summarizing user reviews in a clear\nand efficient manner.\nAmazon Bedrock allows the company to utilize LLMs that can generate summaries, which is exactly what\nis needed in this case."
   },
@@ -989,7 +989,7 @@
   {
     "id": "Question 142",
     "question": "A company wants to upload customer service email messages to Amazon S3 to develop a business\nanalysis application.\nThe messages sometimes contain sensitive data. The company wants to receive an\nalert every time sensitive information is found.\nWhich solution fully automates the sensitive information detection process with the LEAST development\neffort?",
-    "answers": "A. Configure Amazon Macie to detect sensitive information in the documents that are uploaded to Amazon\nS3.\nB. Use Amazon SageMaker endpoints to deploy a large language model (LLM) to redact sensitive data.\nC. Develop multiple regex patterns to detect sensitive data. Expose the regex patterns on an Amazon\nSageMaker notebook.\nD. Ask the customers to avoid sharing sensitive information in their email messages.",
+    "answers": "A. Configure Amazon Macie to detect sensitive information in the documents that are uploaded to Amazon S3.\nB. Use Amazon SageMaker endpoints to deploy a large language model (LLM) to redact sensitive data.\nC. Develop multiple regex patterns to detect sensitive data. Expose the regex patterns on an Amazon SageMaker notebook.\nD. Ask the customers to avoid sharing sensitive information in their email messages.",
     "correct_answer": "A",
     "explanation": "Amazon Macie is a fully managed data security and privacy service that uses machine learning to discover\nand protect sensitive data in Amazon S3. It can automatically detect sensitive information, such as\npersonally identifiable information (PII) or financial data, and send alerts when such data is found. This\napproach minimizes development effort, as it does not require custom regex patterns or model\ndevelopment, and it is specifically designed to handle the scenario described."
   },
@@ -1101,7 +1101,7 @@
   {
     "id": "Question 158",
     "question": "A medical company wants to develop an Al application that can access structured patient records, extract\nrelevant information, and generate concise summaries.\nWhich solution will meet these requirements?",
-    "answers": "A. Use Amazon Comprehend Medical to extract relevant medical entities and relationships.\nApply rule-\nbased logic to structure and format summaries.\nB. Use Amazon Personalize to analyze patient engagement patterns. Integrate the output with a general\npurpose text summarization tool.\nC. Use Amazon Textract to convert scanned documents into digital text. Design a keyword extraction\nsystem to generate summaries.\nD. Implement Amazon Kendra to provide a searchable index for medical records. Use a template-based\nsystem to format summaries.",
+    "answers": "A. Use Amazon Comprehend Medical to extract relevant medical entities and relationships. Apply rule- based logic to structure and format summaries.\nB. Use Amazon Personalize to analyze patient engagement patterns. Integrate the output with a general purpose text summarization tool.\nC. Use Amazon Textract to convert scanned documents into digital text. Design a keyword extraction system to generate summaries.\nD. Implement Amazon Kendra to provide a searchable index for medical records. Use a template-based system to format summaries.",
     "correct_answer": "A",
     "explanation": "Amazon Comprehend Medical is specifically designed to extract structured medical information (such as\nmedication, condition, test results) from unstructured text. By applying rule-based logic afterward, relevant\ndata can be formatted into concise summaries, meeting both the extraction and summarization needs."
   },
@@ -1136,7 +1136,7 @@
   {
     "id": "Question 163",
     "question": "Which option is a characteristic of transformer-based language models?",
-    "answers": "A. Transformer-based language models use convolutional layers to apply filters across an input to capture\nlocal patterns through filtered views.\nB. Transformer-based language models can process only text data.\nC. Transformer-based language models use self-attention mechanisms to capture contextual relationships.\nD. Transformer-based language models process data sequences one element at a time in cyclic iterations.",
+    "answers": "A. Transformer-based language models use convolutional layers to apply filters across an input to capture local patterns through filtered views.\nB. Transformer-based language models can process only text data.\nC. Transformer-based language models use self-attention mechanisms to capture contextual relationships.\nD. Transformer-based language models process data sequences one element at a time in cyclic iterations.",
     "correct_answer": "C",
     "explanation": "A key characteristic of transformer models is their use of self-attention mechanisms, which allow the model\nto weigh the importance of different words in a sequence relative to each other, enabling a deep\nunderstanding of context and meaning across the entire input."
   },
@@ -1157,7 +1157,7 @@
   {
     "id": "Question 166",
     "question": "Which scenario describes a potential risk and limitation of prompt engineering in the context of a generative\nAl model?",
-    "answers": "A. Prompt engineering does not ensure that the model always produces consistent and deterministic\noutputs, eliminating the need for validation.\nB. Prompt engineering could expose the model to vulnerabilities such as prompt injection attacks.\nC. Properly designed prompts reduce but do not eliminate the risk of data poisoning or model hijacking.\nD. Prompt engineering does not ensure that the model will consistently generate highly reliable outputs\nwhen working with real-world data.",
+    "answers": "A. Prompt engineering does not ensure that the model always produces consistent and deterministic outputs, eliminating the need for validation.\nB. Prompt engineering could expose the model to vulnerabilities such as prompt injection attacks.\nC. Properly designed prompts reduce but do not eliminate the risk of data poisoning or model hijacking.\nD. Prompt engineering does not ensure that the model will consistently generate highly reliable outputs when working with real-world data.",
     "correct_answer": "B",
     "explanation": "A key risk in prompt engineering is prompt injection, where attackers manipulate input prompts to alter a\nmodel's behavior or produce unintended outputs. This vulnerability arises from the model's sensitivity to\ninput structure and content, making it a critical limitation in secure prompt design."
   },
@@ -1276,7 +1276,7 @@
   {
     "id": "Question 183",
     "question": "A company wants to fine-tune a foundation model (FM) to answer questions for a specific domain.\nThe\ncompany wants to use instruction-based fine-tuning.\nHow should the company prepare the training data?",
-    "answers": "A. Gather company internal documents and industry-specific materials. Merge the documents and\nmaterials into a single file.\nB. Collect external company reviews from various online sources. Manually label each review as either\npositive or negative.\nC. Create pairs of questions and answers that specifically address topics related to the company's industry\ndomain.\nD. Create few-shot prompts to instruct the model to answer only domain knowledge.",
+    "answers": "A. Gather company internal documents and industry-specific materials. Merge the documents and materials into a single file.\nB. Collect external company reviews from various online sources. Manually label each review as either positive or negative.\nC. Create pairs of questions and answers that specifically address topics related to the company's industry domain.\nD. Create few-shot prompts to instruct the model to answer only domain knowledge.",
     "correct_answer": "C",
     "explanation": "Instruction-based fine-tuning requires a dataset of instruction-response examples. By curating question-\nanswer pairs focused on the company's domain, you teach the model exactly how to interpret domain-\nspecific queries and generate the correct responses during inference."
   },
@@ -1311,7 +1311,7 @@
   {
     "id": "Question 188",
     "question": "A company is designing a customer service chatbot by using a fine-tuned large language model (LLM).\nThe\ncompany wants to ensure that the chatbot uses responsible Al characteristics.\nSelect the correct responsible Al characteristic from the following list for each application design action.\nEach responsible Al characteristic should be selected one time or not at all.",
-    "answers": "Anonymize personal information during training data preparation: Privacy and security\nDesign the customer service chatbot to provide explainable decisions: Transparency\nUse Amazon Bedrock Guardrails to prevent harmful output and misuse of the chatbot: Safety",
+    "answers": "Anonymize personal information during training data preparation: Privacy and security Design the customer service chatbot to provide explainable decisions: Transparency Use Amazon Bedrock Guardrails to prevent harmful output and misuse of the chatbot: Safety",
     "correct_answer": "Anonymize personal information during training data preparation - Privacy and security\nDesign the customer service chatbot to provide explainable decisions - Transparency\nUse Amazon Bedrock Guardrails to prevent harmful output and misuse of the chatbot - Safety",
     "explanation": ""
   },
