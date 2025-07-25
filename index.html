@@ -436,12 +436,12 @@
         // 加载问题数据
         async function loadQuestions() {
             try {
-                const response = await fetch('questions.jsonc');
+                const response = await fetch('questions.json');
                 questions = await response.json();
                 document.getElementById('totalQuestions').textContent = questions.length;
             } catch (error) {
                 console.error('加载问题失败:', error);
-                alert('加载问题数据失败，请检查questions.jsonc文件是否存在。');
+                alert('加载问题数据失败，请检查questions.json文件是否存在。');
             }
         }
 
