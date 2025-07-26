@@ -426,7 +426,7 @@
     <script>
         let questions = [];
         let currentQuestionIndex = 0;
-        let selectedAnswer = null;
+        let selectedAnswers = []; // 改为数组支持多选
         let answered = false;
         let correctCount = 0;
         let incorrectCount = 0;
@@ -479,7 +479,7 @@
             });
 
             // 重置状态
-            selectedAnswer = null;
+            selectedAnswers = [];
             answered = false;
             document.getElementById('submitBtn').disabled = true;
             document.getElementById('submitBtn').classList.remove('hidden');
@@ -496,23 +496,41 @@
         function selectAnswer(index) {
             if (answered) return;
 
-            // 移除之前的选择
+            const question = questions[currentQuestionIndex];
+            const isMultipleChoice = question.correct_answer.length > 1;
             const options = document.querySelectorAll('.answer-option');
-            options.forEach(option => option.classList.remove('selected'));
 
-            // 选择当前答案
-            options[index].classList.add('selected');
-            selectedAnswer = index;
-            document.getElementById('submitBtn').disabled = false;
+            if (isMultipleChoice) {
+                // 多选题：切换选择状态
+                const option = options[index];
+                if (selectedAnswers.includes(index)) {
+                    // 取消选择
+                    selectedAnswers = selectedAnswers.filter(i => i !== index);
+                    option.classList.remove('selected');
+                } else {
+                    // 添加选择
+                    selectedAnswers.push(index);
+                    option.classList.add('selected');
+                }
+            } else {
+                // 单选题：清除之前的选择，选择当前答案
+                options.forEach(option => option.classList.remove('selected'));
+                options[index].classList.add('selected');
+                selectedAnswers = [index];
+            }
+
+            // 启用提交按钮
+            document.getElementById('submitBtn').disabled = selectedAnswers.length === 0;
         }
 
         // 提交答案
         function submitAnswer() {
-            if (selectedAnswer === null || answered) return;
+            if (selectedAnswers.length === 0 || answered) return;
 
             const question = questions[currentQuestionIndex];
             const options = document.querySelectorAll('.answer-option');
-            const isCorrect = selectedAnswer === getCorrectAnswerIndex(question.correct_answer);
+            const correctAnswerIndices = getCorrectAnswerIndices(question.correct_answer);
+            const isCorrect = checkAnswer(selectedAnswers, correctAnswerIndices);
 
             // 显示结果
             const resultDiv = document.getElementById('result');
@@ -529,11 +547,10 @@
             }
 
             // 显示正确答案
-            const correctIndex = getCorrectAnswerIndex(question.correct_answer);
             options.forEach((option, index) => {
-                if (index === correctIndex) {
+                if (correctAnswerIndices.includes(index)) {
                     option.classList.add('correct');
-                } else if (index === selectedAnswer && !isCorrect) {
+                } else if (selectedAnswers.includes(index) && !isCorrect) {
                     option.classList.add('incorrect');
                 }
             });
@@ -570,11 +587,17 @@
             showQuestion();
         }
 
-        // 获取正确答案的索引
-        function getCorrectAnswerIndex(correctAnswer) {
-            const answerLetter = correctAnswer.trim();
-            const answerMap = { 'A': 0, 'B': 1, 'C': 2, 'D': 3 };
-            return answerMap[answerLetter] || 0;
+        // 获取正确答案的索引数组
+        function getCorrectAnswerIndices(correctAnswer) {
+            const answerLetters = correctAnswer.trim().split('');
+            const answerMap = { 'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4 };
+            return answerLetters.map(letter => answerMap[letter]).filter(index => index !== undefined);
+        }
+
+        // 检查答案是否正确
+        function checkAnswer(selectedIndices, correctIndices) {
+            if (selectedIndices.length !== correctIndices.length) return false;
+            return selectedIndices.every(index => correctIndices.includes(index));
         }
 
         // 创建题目导航器
@@ -614,7 +637,7 @@
             if (index < 0 || index >= questions.length) return;
             
             // 如果当前题目已选择答案但未提交，提示用户
-            if (selectedAnswer !== null && !answered) {
+            if (selectedAnswers.length > 0 && !answered) {
                 if (!confirm('当前题目已选择答案但未提交，确定要跳转吗？')) {
                     return;
                 }
@@ -676,7 +699,7 @@
             currentQuestionIndex = 0;
             correctCount = 0;
             incorrectCount = 0;
-            selectedAnswer = null;
+            selectedAnswers = [];
             answered = false;
             answeredQuestions.clear();
             questionResults.clear();
