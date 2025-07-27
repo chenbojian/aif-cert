@@ -407,12 +407,12 @@
 
         .nav-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
             gap: 10px;
         }
 
         .nav-item {
-            width: 50px;
+            width: 60px;
             height: 50px;
             border: 2px solid #dee2e6;
             border-radius: 8px;
@@ -421,6 +421,7 @@
             justify-content: center;
             cursor: pointer;
             font-weight: bold;
+            font-size: 0.9em;
             transition: all 0.3s ease;
             background: white;
         }
@@ -853,11 +854,27 @@
             for (let i = 0; i < filteredQuestions.length; i++) {
                 const navItem = document.createElement('div');
                 navItem.className = 'nav-item';
-                navItem.textContent = i + 1;
+                
+                // 提取题目ID中的数字
+                const questionId = filteredQuestions[i].id;
+                const questionNumber = extractQuestionNumber(questionId);
+                navItem.textContent = questionNumber;
+                
                 navItem.onclick = () => jumpToQuestion(i);
                 navGrid.appendChild(navItem);
             }
             updateNavigator();
+        }
+
+        // 提取题目ID中的数字
+        function extractQuestionNumber(questionId) {
+            // 匹配 "Question N" 中的数字
+            const match = questionId.match(/Question\s+(\d+)/i);
+            if (match) {
+                return match[1]; // 返回数字部分
+            }
+            // 如果没有匹配到，返回原始ID
+            return questionId;
         }
 
         // 更新导航器状态
