@@ -1310,9 +1310,9 @@
   },
   {
     "id": "Question 188",
-    "question": "A company is designing a customer service chatbot by using a fine-tuned large language model (LLM).\nThe\ncompany wants to ensure that the chatbot uses responsible Al characteristics.\nSelect the correct responsible Al characteristic from the following list for each application design action.\nEach responsible Al characteristic should be selected one time or not at all.",
-    "answers": "Anonymize personal information during training data preparation: Privacy and security Design the customer service chatbot to provide explainable decisions: Transparency Use Amazon Bedrock Guardrails to prevent harmful output and misuse of the chatbot: Safety",
-    "correct_answer": "Anonymize personal information during training data preparation - Privacy and security\nDesign the customer service chatbot to provide explainable decisions - Transparency\nUse Amazon Bedrock Guardrails to prevent harmful output and misuse of the chatbot - Safety",
+    "question": "不支持该题型",
+    "answers": "",
+    "correct_answer": "",
     "explanation": ""
   },
   {

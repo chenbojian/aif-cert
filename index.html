@@ -234,6 +234,123 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
+        .mode-selection {
+            margin: 30px 0;
+        }
+
+        .mode-selection h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .mode-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .mode-btn {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .mode-btn:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mode-btn.active {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .mode-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .mode-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .mode-desc {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .wrong-questions-input {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+
+        .wrong-questions-input h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .wrong-questions-input p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .wrong-questions-input textarea {
+            width: 100%;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 0.95em;
+            resize: vertical;
+            min-height: 120px;
+            transition: border-color 0.3s ease;
+        }
+
+        .wrong-questions-input textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .input-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .secondary-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-btn:hover {
+            background: #5a6268;
+            transform: translateY(-1px);
+        }
+
         .hidden {
             display: none;
         }
@@ -355,6 +472,28 @@
             .answer-option {
                 padding: 12px 15px;
             }
+
+            .mode-options {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .mode-btn {
+                padding: 15px;
+            }
+
+            .wrong-questions-input {
+                padding: 20px;
+            }
+
+            .input-actions {
+                flex-direction: column;
+            }
+
+            .secondary-btn {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -374,6 +513,33 @@
                 <h2>欢迎来到AI认证问答系统</h2>
                 <p>本系统包含多个AI相关的专业问题，帮助你测试和提升AI知识水平。</p>
                 <p>每个问题都有详细的解释，帮助你更好地理解相关概念。</p>
+                
+                <div class="mode-selection">
+                    <h3>选择答题模式：</h3>
+                    <div class="mode-options">
+                        <button class="mode-btn active" onclick="selectMode('all')" id="allModeBtn">
+                            <span class="mode-icon">📚</span>
+                            <span class="mode-title">全部题目</span>
+                            <span class="mode-desc">练习所有题目</span>
+                        </button>
+                        <button class="mode-btn" onclick="selectMode('wrong')" id="wrongModeBtn">
+                            <span class="mode-icon">❌</span>
+                            <span class="mode-title">错题练习</span>
+                            <span class="mode-desc">只练习错题</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="wrongQuestionsInput" class="wrong-questions-input hidden">
+                    <h3>输入错题列表</h3>
+                    <p>请输入错题ID，每行一个（例如：Question 1, Question 5, Question 10）</p>
+                    <textarea id="wrongQuestionsText" placeholder="Question 1&#10;Question 5&#10;Question 10" rows="6"></textarea>
+                    <div class="input-actions">
+                        <button class="secondary-btn" onclick="loadSampleWrongQuestions()">加载示例</button>
+                        <button class="secondary-btn" onclick="clearWrongQuestions()">清空</button>
+                    </div>
+                </div>
+
                 <button class="start-btn" onclick="startQuiz()">开始答题</button>
             </div>
 
@@ -386,7 +552,7 @@
                     </div>
                     <div class="stat-item">
                         <div class="stat-number" id="totalQuestions">0</div>
-                        <div class="stat-label">总题目</div>
+                        <div class="stat-label">总题目数</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number" id="correctAnswers">0</div>
@@ -425,6 +591,7 @@
 
     <script>
         let questions = [];
+        let filteredQuestions = []; // 筛选后的题目
         let currentQuestionIndex = 0;
         let selectedAnswers = []; // 改为数组支持多选
         let answered = false;
@@ -432,6 +599,7 @@
         let incorrectCount = 0;
         let answeredQuestions = new Set(); // 记录已答题目
         let questionResults = new Map(); // 记录题目结果
+        let currentMode = 'all'; // 当前模式：'all' 或 'wrong'
 
         // 加载问题数据
         async function loadQuestions() {
@@ -445,25 +613,102 @@
             }
         }
 
+        // 选择模式
+        function selectMode(mode) {
+            currentMode = mode;
+            
+            // 更新按钮状态
+            document.getElementById('allModeBtn').classList.toggle('active', mode === 'all');
+            document.getElementById('wrongModeBtn').classList.toggle('active', mode === 'wrong');
+            
+            // 显示/隐藏错题输入框
+            const wrongQuestionsInput = document.getElementById('wrongQuestionsInput');
+            wrongQuestionsInput.classList.toggle('hidden', mode === 'all');
+        }
+
+        // 加载示例错题
+        function loadSampleWrongQuestions() {
+            document.getElementById('wrongQuestionsText').value = 'Question 1\nQuestion 5\nQuestion 10';
+        }
+
+        // 清空错题输入
+        function clearWrongQuestions() {
+            document.getElementById('wrongQuestionsText').value = '';
+        }
+
+        // 筛选错题
+        function filterWrongQuestions() {
+            if (currentMode === 'all') {
+                filteredQuestions = [...questions];
+                return;
+            }
+
+            const wrongQuestionsText = document.getElementById('wrongQuestionsText').value.trim();
+            if (!wrongQuestionsText) {
+                alert('请输入错题列表！');
+                return false;
+            }
+
+            const wrongQuestionIds = wrongQuestionsText.split('\n')
+                .map(line => line.trim())
+                .filter(line => line.length > 0);
+
+            if (wrongQuestionIds.length === 0) {
+                alert('请输入有效的错题ID！');
+                return false;
+            }
+
+            // 筛选题目
+            filteredQuestions = questions.filter(question => 
+                wrongQuestionIds.includes(question.id)
+            );
+
+            if (filteredQuestions.length === 0) {
+                alert('未找到匹配的题目，请检查错题ID是否正确！');
+                return false;
+            }
+
+            // 显示筛选结果
+            const foundCount = filteredQuestions.length;
+            const totalCount = wrongQuestionIds.length;
+            alert(`找到 ${foundCount} 道题目（共输入 ${totalCount} 个ID）`);
+            
+            return true;
+        }
+
         // 开始答题
         function startQuiz() {
+            if (currentMode === 'wrong') {
+                if (!filterWrongQuestions()) {
+                    return;
+                }
+            } else {
+                filteredQuestions = [...questions];
+            }
+
             document.getElementById('startScreen').classList.add('hidden');
             document.getElementById('questionScreen').classList.remove('hidden');
+            currentQuestionIndex = 0;
+            correctCount = 0;
+            incorrectCount = 0;
+            answeredQuestions.clear();
+            questionResults.clear();
             showQuestion();
             createNavigator();
         }
 
         // 显示当前问题
         function showQuestion() {
-            if (currentQuestionIndex >= questions.length) {
+            if (currentQuestionIndex >= filteredQuestions.length) {
                 showFinalResults();
                 return;
             }
 
-            const question = questions[currentQuestionIndex];
+            const question = filteredQuestions[currentQuestionIndex];
             document.getElementById('questionNumber').textContent = question.id;
             document.getElementById('questionText').textContent = question.question;
             document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('totalQuestions').textContent = filteredQuestions.length;
 
             // 解析答案选项
             const answers = question.answers.split('\n');
@@ -496,7 +741,7 @@
         function selectAnswer(index) {
             if (answered) return;
 
-            const question = questions[currentQuestionIndex];
+            const question = filteredQuestions[currentQuestionIndex];
             const isMultipleChoice = question.correct_answer.length > 1;
             const options = document.querySelectorAll('.answer-option');
 
@@ -527,7 +772,7 @@
         function submitAnswer() {
             if (selectedAnswers.length === 0 || answered) return;
 
-            const question = questions[currentQuestionIndex];
+            const question = filteredQuestions[currentQuestionIndex];
             const options = document.querySelectorAll('.answer-option');
             const correctAnswerIndices = getCorrectAnswerIndices(question.correct_answer);
             const isCorrect = checkAnswer(selectedAnswers, correctAnswerIndices);
@@ -605,7 +850,7 @@
             const navGrid = document.getElementById('navGrid');
             navGrid.innerHTML = '';
             
-            for (let i = 0; i < questions.length; i++) {
+            for (let i = 0; i < filteredQuestions.length; i++) {
                 const navItem = document.createElement('div');
                 navItem.className = 'nav-item';
                 navItem.textContent = i + 1;
@@ -634,7 +879,7 @@
 
         // 跳转到指定题目
         function jumpToQuestion(index) {
-            if (index < 0 || index >= questions.length) return;
+            if (index < 0 || index >= filteredQuestions.length) return;
             
             // 如果当前题目已选择答案但未提交，提示用户
             if (selectedAnswers.length > 0 && !answered) {
@@ -659,27 +904,27 @@
 
         // 更新进度条
         function updateProgress() {
-            const progress = (currentQuestionIndex / questions.length) * 100;
+            const progress = (currentQuestionIndex / filteredQuestions.length) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
         }
 
         // 显示最终结果
         function showFinalResults() {
-            const accuracy = ((correctCount / questions.length) * 100).toFixed(1);
+            const accuracy = ((correctCount / filteredQuestions.length) * 100).toFixed(1);
             const content = document.querySelector('.content');
             content.innerHTML = `
                 <div class="start-screen">
                     <h2>答题完成！</h2>
                     <div class="stats">
                         <div class="stat-item">
-                            <div class="stat-number">${questions.length}</div>
+                            <div class="stat-number">${filteredQuestions.length}</div>
                             <div class="stat-label">总题目</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-number">${correctCount}</div>
                             <div class="stat-label">正确</div>
                         </div>
-                        <div class="stat-item">
+                                                <div class="stat-item">
                             <div class="stat-number">${incorrectCount}</div>
                             <div class="stat-label">错误</div>
                         </div>
@@ -696,6 +941,11 @@
 
         // 重新开始
         function restartQuiz() {
+            // 回到开始界面
+            document.getElementById('questionScreen').classList.add('hidden');
+            document.getElementById('startScreen').classList.remove('hidden');
+            
+            // 重置状态
             currentQuestionIndex = 0;
             correctCount = 0;
             incorrectCount = 0;
@@ -703,7 +953,7 @@
             answered = false;
             answeredQuestions.clear();
             questionResults.clear();
-            startQuiz();
+            filteredQuestions = [];
         }
 
         // 页面加载时加载问题
