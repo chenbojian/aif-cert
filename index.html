@@ -516,6 +516,22 @@
                 <p>每个问题都有详细的解释，帮助你更好地理解相关概念。</p>
                 
                 <div class="mode-selection">
+                    <h3>选择题库：</h3>
+                    <div class="mode-options">
+                        <button class="mode-btn active" onclick="selectQuestionBank('AIF.json')" id="aifBankBtn">
+                            <span class="mode-icon">🤖</span>
+                            <span class="mode-title">AI认证题库</span>
+                            <span class="mode-desc">AI相关专业问题</span>
+                        </button>
+                        <button class="mode-btn" onclick="selectQuestionBank('SAA-C03.json')" id="saaBankBtn">
+                            <span class="mode-icon">☁️</span>
+                            <span class="mode-title">AWS SAA-C03</span>
+                            <span class="mode-desc">AWS解决方案架构师</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mode-selection">
                     <h3>选择答题模式：</h3>
                     <div class="mode-options">
                         <button class="mode-btn active" onclick="selectMode('all')" id="allModeBtn">
@@ -601,17 +617,44 @@
         let answeredQuestions = new Set(); // 记录已答题目
         let questionResults = new Map(); // 记录题目结果
         let currentMode = 'all'; // 当前模式：'all' 或 'wrong'
+        let currentQuestionBank = 'AIF.json'; // 当前题库：'AIF.json' 或 'SAA-C03.json'
 
         // 加载问题数据
         async function loadQuestions() {
             try {
-                const response = await fetch('questions.json');
+                const response = await fetch(currentQuestionBank);
                 questions = await response.json();
                 document.getElementById('totalQuestions').textContent = questions.length;
             } catch (error) {
                 console.error('加载问题失败:', error);
-                alert('加载问题数据失败，请检查questions.json文件是否存在。');
+                alert(`加载问题数据失败，请检查${currentQuestionBank}文件是否存在。`);
             }
+        }
+
+        // 选择题库
+        async function selectQuestionBank(questionBank) {
+            currentQuestionBank = questionBank;
+            
+            // 更新按钮状态
+            document.getElementById('aifBankBtn').classList.toggle('active', questionBank === 'AIF.json');
+            document.getElementById('saaBankBtn').classList.toggle('active', questionBank === 'SAA-C03.json');
+            
+            // 重新加载问题数据
+            await loadQuestions();
+            
+            // 重置状态
+            currentQuestionIndex = 0;
+            correctCount = 0;
+            incorrectCount = 0;
+            answeredQuestions.clear();
+            questionResults.clear();
+            filteredQuestions = [];
+            
+            // 更新统计显示
+            document.getElementById('totalQuestions').textContent = questions.length;
+            document.getElementById('currentQuestion').textContent = '1';
+            document.getElementById('correctAnswers').textContent = '0';
+            document.getElementById('incorrectAnswers').textContent = '0';
         }
 
         // 选择模式
@@ -974,7 +1017,9 @@
         }
 
         // 页面加载时加载问题
-        window.onload = loadQuestions;
+        window.onload = async function() {
+            await loadQuestions();
+        };
     </script>
 </body>
 </html> 
