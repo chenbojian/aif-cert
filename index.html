@@ -558,6 +558,7 @@
                 </div>
 
                 <button class="start-btn" onclick="startQuiz()">开始答题</button>
+                <button class="secondary-btn" onclick="clearAllProgress()" style="margin-top: 15px;">清除答题记录</button>
             </div>
 
             <!-- 问题界面 -->
@@ -618,6 +619,25 @@
         let questionResults = new Map(); // 记录题目结果
         let currentMode = 'all'; // 当前模式：'all' 或 'wrong'
         let currentQuestionBank = 'AIF.json'; // 当前题库：'AIF.json' 或 'SAA-C03.json'
+        
+        // 获取当前存储键名
+        function getStorageKey(dataType) {
+            const bankName = currentQuestionBank.replace('.json', '');
+            const modeName = currentMode;
+            return `${bankName}_${modeName}_${dataType}`;
+        }
+
+        // localStorage 键名类型
+        const STORAGE_KEY_TYPES = {
+            QUESTION_BANK: 'questionBank',
+            MODE: 'mode',
+            ANSWERED_QUESTIONS: 'answeredQuestions',
+            QUESTION_RESULTS: 'questionResults',
+            CORRECT_COUNT: 'correctCount',
+            INCORRECT_COUNT: 'incorrectCount',
+            CURRENT_INDEX: 'currentIndex',
+            FILTERED_QUESTIONS: 'filteredQuestions'
+        };
 
         // 加载问题数据
         async function loadQuestions() {
@@ -628,6 +648,130 @@
             } catch (error) {
                 console.error('加载问题失败:', error);
                 alert(`加载问题数据失败，请检查${currentQuestionBank}文件是否存在。`);
+            }
+        }
+
+        // 保存答题记录到localStorage
+        function saveProgress() {
+            try {
+                localStorage.setItem(getStorageKey(STORAGE_KEY_TYPES.QUESTION_BANK), currentQuestionBank);
+                localStorage.setItem(getStorageKey(STORAGE_KEY_TYPES.MODE), currentMode);
+                localStorage.setItem(getStorageKey(STORAGE_KEY_TYPES.CORRECT_COUNT), correctCount.toString());
+                localStorage.setItem(getStorageKey(STORAGE_KEY_TYPES.INCORRECT_COUNT), incorrectCount.toString());
+                localStorage.setItem(getStorageKey(STORAGE_KEY_TYPES.CURRENT_INDEX), currentQuestionIndex.toString());
+                
+                // 保存已答题目集合
+                localStorage.setItem(getStorageKey(STORAGE_KEY_TYPES.ANSWERED_QUESTIONS), JSON.stringify(Array.from(answeredQuestions)));
+                
+                // 保存题目结果
+                const resultsObj = {};
+                questionResults.forEach((value, key) => {
+                    resultsObj[key] = value;
+                });
+                localStorage.setItem(getStorageKey(STORAGE_KEY_TYPES.QUESTION_RESULTS), JSON.stringify(resultsObj));
+                
+                // 保存筛选后的题目ID列表
+                const filteredIds = filteredQuestions.map(q => q.id);
+                localStorage.setItem(getStorageKey(STORAGE_KEY_TYPES.FILTERED_QUESTIONS), JSON.stringify(filteredIds));
+                
+            } catch (error) {
+                console.error('保存进度失败:', error);
+            }
+        }
+
+        // 从localStorage加载答题记录
+        function loadProgress() {
+            try {
+                // 加载统计
+                const savedCorrect = localStorage.getItem(getStorageKey(STORAGE_KEY_TYPES.CORRECT_COUNT));
+                if (savedCorrect) {
+                    correctCount = parseInt(savedCorrect);
+                }
+                
+                const savedIncorrect = localStorage.getItem(getStorageKey(STORAGE_KEY_TYPES.INCORRECT_COUNT));
+                if (savedIncorrect) {
+                    incorrectCount = parseInt(savedIncorrect);
+                }
+                
+                // 加载已答题目
+                const savedAnswered = localStorage.getItem(getStorageKey(STORAGE_KEY_TYPES.ANSWERED_QUESTIONS));
+                if (savedAnswered) {
+                    answeredQuestions = new Set(JSON.parse(savedAnswered));
+                }
+                
+                // 加载题目结果
+                const savedResults = localStorage.getItem(getStorageKey(STORAGE_KEY_TYPES.QUESTION_RESULTS));
+                if (savedResults) {
+                    const resultsObj = JSON.parse(savedResults);
+                    questionResults = new Map();
+                    Object.keys(resultsObj).forEach(key => {
+                        questionResults.set(parseInt(key), resultsObj[key]);
+                    });
+                }
+                
+                // 加载当前题目索引
+                const savedIndex = localStorage.getItem(getStorageKey(STORAGE_KEY_TYPES.CURRENT_INDEX));
+                if (savedIndex) {
+                    currentQuestionIndex = parseInt(savedIndex);
+                }
+                
+            } catch (error) {
+                console.error('加载进度失败:', error);
+            }
+        }
+
+        // 清除localStorage中的答题记录
+        function clearProgress() {
+            try {
+                Object.values(STORAGE_KEY_TYPES).forEach(keyType => {
+                    localStorage.removeItem(getStorageKey(keyType));
+                });
+            } catch (error) {
+                console.error('清除进度失败:', error);
+            }
+        }
+
+        // 根据localStorage更新UI显示
+        function updateUIFromStorage() {
+            // 更新题库选择按钮
+            document.getElementById('aifBankBtn').classList.toggle('active', currentQuestionBank === 'AIF.json');
+            document.getElementById('saaBankBtn').classList.toggle('active', currentQuestionBank === 'SAA-C03.json');
+            
+            // 更新模式选择按钮
+            document.getElementById('allModeBtn').classList.toggle('active', currentMode === 'all');
+            document.getElementById('wrongModeBtn').classList.toggle('active', currentMode === 'wrong');
+            
+            // 显示/隐藏错题输入框
+            const wrongQuestionsInput = document.getElementById('wrongQuestionsInput');
+            wrongQuestionsInput.classList.toggle('hidden', currentMode === 'all');
+        }
+
+        // 清除所有答题记录
+        function clearAllProgress() {
+            if (confirm('确定要清除所有题库和模式的答题记录吗？此操作不可恢复。')) {
+                // 清除所有可能的存储键
+                const banks = ['AIF', 'SAA-C03'];
+                const modes = ['all', 'wrong'];
+                const keyTypes = Object.values(STORAGE_KEY_TYPES);
+                
+                banks.forEach(bank => {
+                    modes.forEach(mode => {
+                        keyTypes.forEach(keyType => {
+                            const key = `${bank}_${mode}_${keyType}`;
+                            localStorage.removeItem(key);
+                        });
+                    });
+                });
+                
+                // 重置状态
+                currentQuestionIndex = 0;
+                correctCount = 0;
+                incorrectCount = 0;
+                answeredQuestions.clear();
+                questionResults.clear();
+                filteredQuestions = [];
+                
+                alert('所有答题记录已清除！');
             }
         }
 
@@ -642,7 +786,7 @@
             // 重新加载问题数据
             await loadQuestions();
             
-            // 重置状态
+            // 重置状态（但不清除localStorage，因为现在是分离存储）
             currentQuestionIndex = 0;
             correctCount = 0;
             incorrectCount = 0;
@@ -668,6 +812,9 @@
             // 显示/隐藏错题输入框
             const wrongQuestionsInput = document.getElementById('wrongQuestionsInput');
             wrongQuestionsInput.classList.toggle('hidden', mode === 'all');
+            
+            // 保存模式选择
+            saveProgress();
         }
 
         // 加载示例错题
@@ -732,11 +879,25 @@
 
             document.getElementById('startScreen').classList.add('hidden');
             document.getElementById('questionScreen').classList.remove('hidden');
-            currentQuestionIndex = 0;
-            correctCount = 0;
-            incorrectCount = 0;
-            answeredQuestions.clear();
-            questionResults.clear();
+            
+            // 加载之前的答题记录
+            loadProgress();
+            
+            // 恢复筛选后的题目
+            if (filteredQuestions.length === 0) {
+                if (currentMode === 'wrong') {
+                    if (!filterWrongQuestions()) {
+                        return;
+                    }
+                } else {
+                    filteredQuestions = [...questions];
+                }
+            }
+            
+            // 更新统计显示
+            document.getElementById('correctAnswers').textContent = correctCount;
+            document.getElementById('incorrectAnswers').textContent = incorrectCount;
+            
             showQuestion();
             createNavigator();
         }
@@ -860,6 +1021,9 @@
             document.getElementById('correctAnswers').textContent = correctCount;
             document.getElementById('incorrectAnswers').textContent = incorrectCount;
 
+            // 保存答题记录
+            saveProgress();
+
             // 显示下一题按钮
             document.getElementById('submitBtn').classList.add('hidden');
             document.getElementById('nextBtn').classList.remove('hidden');
@@ -873,6 +1037,7 @@
         // 下一题
         function nextQuestion() {
             currentQuestionIndex++;
+            saveProgress(); // 保存当前进度
             showQuestion();
         }
 
@@ -1014,11 +1179,20 @@
             answeredQuestions.clear();
             questionResults.clear();
             filteredQuestions = [];
+            
+            // 清除localStorage记录
+            clearProgress();
         }
 
         // 页面加载时加载问题
         window.onload = async function() {
             await loadQuestions();
+            
+            // 加载localStorage中的设置
+            loadProgress();
+            
+            // 更新UI显示
+            updateUIFromStorage();
         };
     </script>
 </body>
