@@ -528,6 +528,11 @@
                             <span class="mode-title">AWS SAA-C03</span>
                             <span class="mode-desc">AWS解决方案架构师</span>
                         </button>
+                        <button class="mode-btn" onclick="selectQuestionBank('SAP-C02.json')" id="sapBankBtn">
+                            <span class="mode-icon">🏗️</span>
+                            <span class="mode-title">AWS SAP-C02</span>
+                            <span class="mode-desc">AWS专业级架构师</span>
+                        </button>
                     </div>
                 </div>
 
@@ -682,6 +687,18 @@
         // 从localStorage加载答题记录
         function loadProgress() {
             try {
+                // 首先尝试加载题库选择（从AIF的存储中获取，因为这是默认值）
+                const savedQuestionBank = localStorage.getItem('AIF_all_questionBank');
+                if (savedQuestionBank) {
+                    currentQuestionBank = savedQuestionBank;
+                }
+                
+                // 尝试加载模式选择（从AIF的存储中获取，因为这是默认值）
+                const savedMode = localStorage.getItem('AIF_all_mode');
+                if (savedMode) {
+                    currentMode = savedMode;
+                }
+                
                 // 加载统计
                 const savedCorrect = localStorage.getItem(getStorageKey(STORAGE_KEY_TYPES.CORRECT_COUNT));
                 if (savedCorrect) {
@@ -736,6 +753,7 @@
             // 更新题库选择按钮
             document.getElementById('aifBankBtn').classList.toggle('active', currentQuestionBank === 'AIF.json');
             document.getElementById('saaBankBtn').classList.toggle('active', currentQuestionBank === 'SAA-C03.json');
+            document.getElementById('sapBankBtn').classList.toggle('active', currentQuestionBank === 'SAP-C02.json');
             
             // 更新模式选择按钮
             document.getElementById('allModeBtn').classList.toggle('active', currentMode === 'all');
@@ -750,7 +768,7 @@
         function clearAllProgress() {
             if (confirm('确定要清除所有题库和模式的答题记录吗？此操作不可恢复。')) {
                 // 清除所有可能的存储键
-                const banks = ['AIF', 'SAA-C03'];
+                const banks = ['AIF', 'SAA-C03', 'SAP-C02'];
                 const modes = ['all', 'wrong'];
                 const keyTypes = Object.values(STORAGE_KEY_TYPES);
                 
@@ -782,6 +800,10 @@
             // 更新按钮状态
             document.getElementById('aifBankBtn').classList.toggle('active', questionBank === 'AIF.json');
             document.getElementById('saaBankBtn').classList.toggle('active', questionBank === 'SAA-C03.json');
+            document.getElementById('sapBankBtn').classList.toggle('active', questionBank === 'SAP-C02.json');
+            
+            // 保存题库选择到localStorage
+            localStorage.setItem('AIF_all_questionBank', questionBank);
             
             // 重新加载问题数据
             await loadQuestions();
@@ -812,6 +834,9 @@
             // 显示/隐藏错题输入框
             const wrongQuestionsInput = document.getElementById('wrongQuestionsInput');
             wrongQuestionsInput.classList.toggle('hidden', mode === 'all');
+            
+            // 保存模式选择到localStorage
+            localStorage.setItem('AIF_all_mode', mode);
             
             // 保存模式选择
             saveProgress();
@@ -1186,10 +1211,11 @@
 
         // 页面加载时加载问题
         window.onload = async function() {
-            await loadQuestions();
-            
-            // 加载localStorage中的设置
+            // 首先加载localStorage中的设置
             loadProgress();
+            
+            // 然后加载问题数据
+            await loadQuestions();
             
             // 更新UI显示
             updateUIFromStorage();
