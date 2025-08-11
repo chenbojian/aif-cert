@@ -72,11 +72,18 @@ def convert_sap_c02_question_to_saa_c03(question_data: Dict[str, Any], question_
     choices = question_data.get('choices', {})
     correct_answer = get_correct_answer(question_data)
     discussion = question_data.get('discussion', [])
+    url = question_data.get('url', '')
+    
+    # Add URL to question text if available
+    if url:
+        question_text_with_url = f"{question_text}\n\nSource: {url}"
+    else:
+        question_text_with_url = question_text
     
     # Convert to SAA-C03 format
     converted_question = {
         "id": f"Question {question_number}",
-        "question": question_text,
+        "question": question_text_with_url,
         "answers": convert_choices_to_answers(choices),
         "correct_answer": correct_answer,
         "explanation": extract_explanation_from_discussion(discussion)
