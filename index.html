@@ -1069,7 +1069,7 @@
         // 获取正确答案的索引数组
         function getCorrectAnswerIndices(correctAnswer) {
             const answerLetters = correctAnswer.trim().split('');
-            const answerMap = { 'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4 };
+            const answerMap = { 'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7 };
             return answerLetters.map(letter => answerMap[letter]).filter(index => index !== undefined);
         }
 
