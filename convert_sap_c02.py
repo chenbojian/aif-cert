@@ -46,8 +46,8 @@ def convert_choices_to_answers(choices: Dict[str, str]) -> str:
     # Format each choice
     formatted_choices = []
     for key, value in sorted_choices:
-        # Clean up the choice text
-        cleaned_value = value.strip()
+        # Clean up the choice text - replace newlines with spaces and strip whitespace
+        cleaned_value = value.replace('\n', ' ').strip()
         formatted_choices.append(f"{key}. {cleaned_value}")
     
     return "\n".join(formatted_choices)
