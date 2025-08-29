@@ -658,6 +658,11 @@
 
         // 保存答题记录到localStorage
         function saveProgress() {
+            // 错题模式下不保存进度
+            if (currentMode === 'wrong') {
+                return;
+            }
+            
             try {
                 localStorage.setItem(getStorageKey(STORAGE_KEY_TYPES.QUESTION_BANK), currentQuestionBank);
                 localStorage.setItem(getStorageKey(STORAGE_KEY_TYPES.MODE), currentMode);
@@ -898,15 +903,20 @@
                 if (!filterWrongQuestions()) {
                     return;
                 }
+                // 错题模式下重置所有进度，不加载localStorage
+                currentQuestionIndex = 0;
+                correctCount = 0;
+                incorrectCount = 0;
+                answeredQuestions = new Set();
+                questionResults = new Map();
             } else {
                 filteredQuestions = [...questions];
+                // 全部模式下加载之前的答题记录
+                loadProgress();
             }
 
             document.getElementById('startScreen').classList.add('hidden');
             document.getElementById('questionScreen').classList.remove('hidden');
-            
-            // 加载之前的答题记录
-            loadProgress();
             
             // 恢复筛选后的题目
             if (filteredQuestions.length === 0) {
