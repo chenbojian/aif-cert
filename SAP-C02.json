@@ -3636,7 +3636,7 @@
     "id": "Question 520",
     "question": "A retail company needs to provide a series of data files to another company, which is its business partner. These files are saved in an Amazon S3 bucket under Account A, which belongs to the retail company. The business partner company wants one of its IAM users, User_DataProcessor, to access the files from its own AWS account (Account B).\nWhich combination of steps must the companies take so that User_DataProcessor can access the S3 bucket successfully? (Choose two.)\n\nSource: https://www.examtopics.com/discussions/amazon/view/90940-exam-aws-certified-solutions-architect-professional-sap-c02/",
     "answers": "A. Turn on the cross-origin resource sharing (CORS) feature for the S3 bucket in Account A.\nB. In Account A, set the S3 bucket policy to the following:\nC. In Account A, set the S3 bucket policy to the following:\nD. In Account B, set the permissions of User_DataProcessor to the following:\nE. In Account B, set the permissions of User_DataProcessor to the following:",
-    "correct_answer": "C",
+    "correct_answer": "CD",
     "explanation": "Answer: C & D Source: https://aws.amazon.com/premiumsupport/knowledge-center/cross-account-access-s3/ https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example4.html"
   },
   {
