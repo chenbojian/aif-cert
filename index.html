@@ -234,6 +234,24 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
+        .copy-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            margin-left: 15px;
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
         .mode-selection {
             margin: 30px 0;
         }
@@ -1168,10 +1186,54 @@
             document.getElementById('progressFill').style.width = progress + '%';
         }
 
+        // 获取错题列表
+        function getWrongQuestionsList() {
+            const wrongQuestions = [];
+            questionResults.forEach((isCorrect, questionIndex) => {
+                if (!isCorrect) {
+                    const question = filteredQuestions[questionIndex];
+                    if (question) {
+                        wrongQuestions.push(question.id);
+                    }
+                }
+            });
+            return wrongQuestions.join('\n');
+        }
+
+        // 复制错题列表到剪贴板
+        function copyWrongQuestions() {
+            const wrongQuestionsList = getWrongQuestionsList();
+            if (wrongQuestionsList) {
+                navigator.clipboard.writeText(wrongQuestionsList).then(() => {
+                    alert('错题列表已复制到剪贴板！');
+                }).catch(() => {
+                    // 如果clipboard API不可用，使用传统方法
+                    const textArea = document.createElement('textarea');
+                    textArea.value = wrongQuestionsList;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('错题列表已复制到剪贴板！');
+                });
+            } else {
+                alert('没有错题！');
+            }
+        }
+
         // 显示最终结果
         function showFinalResults() {
             const accuracy = ((correctCount / filteredQuestions.length) * 100).toFixed(1);
+            const wrongQuestionsList = getWrongQuestionsList();
             const content = document.querySelector('.content');
+            
+            let buttonsHtml = '<button class="start-btn" onclick="restartQuiz()">重新开始</button>';
+            
+            // 如果有错题，添加复制错题列表按钮
+            if (wrongQuestionsList) {
+                buttonsHtml += '<button class="copy-btn" onclick="copyWrongQuestions()">复制错题列表</button>';
+            }
+            
             content.innerHTML = `
                 <div class="start-screen">
                     <h2>答题完成！</h2>
@@ -1184,7 +1246,7 @@
                             <div class="stat-number">${correctCount}</div>
                             <div class="stat-label">正确</div>
                         </div>
-                                                <div class="stat-item">
+                        <div class="stat-item">
                             <div class="stat-number">${incorrectCount}</div>
                             <div class="stat-label">错误</div>
                         </div>
@@ -1194,7 +1256,7 @@
                         </div>
                     </div>
                     <p>恭喜你完成了所有题目！</p>
-                    <button class="start-btn" onclick="restartQuiz()">重新开始</button>
+                    ${buttonsHtml}
                 </div>
             `;
         }
