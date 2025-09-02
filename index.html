@@ -551,6 +551,11 @@
                             <span class="mode-title">AWS SAP-C02</span>
                             <span class="mode-desc">AWS专业级架构师</span>
                         </button>
+                        <button class="mode-btn" onclick="selectQuestionBank('MLS-C01.json')" id="mlsBankBtn">
+                            <span class="mode-icon">🧠</span>
+                            <span class="mode-title">AWS MLS-C01</span>
+                            <span class="mode-desc">AWS机器学习专家</span>
+                        </button>
                     </div>
                 </div>
 
@@ -777,6 +782,7 @@
             document.getElementById('aifBankBtn').classList.toggle('active', currentQuestionBank === 'AIF.json');
             document.getElementById('saaBankBtn').classList.toggle('active', currentQuestionBank === 'SAA-C03.json');
             document.getElementById('sapBankBtn').classList.toggle('active', currentQuestionBank === 'SAP-C02.json');
+            document.getElementById('mlsBankBtn').classList.toggle('active', currentQuestionBank === 'MLS-C01.json');
             
             // 更新模式选择按钮
             document.getElementById('allModeBtn').classList.toggle('active', currentMode === 'all');
@@ -791,7 +797,7 @@
         function clearAllProgress() {
             if (confirm('确定要清除所有题库和模式的答题记录吗？此操作不可恢复。')) {
                 // 清除所有可能的存储键
-                const banks = ['AIF', 'SAA-C03', 'SAP-C02'];
+                const banks = ['AIF', 'SAA-C03', 'SAP-C02', 'MLS-C01'];
                 const modes = ['all', 'wrong'];
                 const keyTypes = Object.values(STORAGE_KEY_TYPES);
                 
@@ -824,6 +830,7 @@
             document.getElementById('aifBankBtn').classList.toggle('active', questionBank === 'AIF.json');
             document.getElementById('saaBankBtn').classList.toggle('active', questionBank === 'SAA-C03.json');
             document.getElementById('sapBankBtn').classList.toggle('active', questionBank === 'SAP-C02.json');
+            document.getElementById('mlsBankBtn').classList.toggle('active', questionBank === 'MLS-C01.json');
             
             // 保存题库选择到localStorage
             localStorage.setItem('AIF_all_questionBank', questionBank);
