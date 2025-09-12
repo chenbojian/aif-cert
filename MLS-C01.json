@@ -150,7 +150,7 @@
     "id": "Question 22",
     "question": "A machine learning specialist needs to analyze comments on a news website with users across the globe. The specialist must find the most discussed topics in the comments that are in either English or Spanish.\nWhat steps could be used to accomplish this task? (Choose two.)\n\nSource: https://www.examtopics.com/discussions/amazon/view/74991-exam-aws-certified-machine-learning-specialty-topic-1/",
     "answers": "A. Use an Amazon SageMaker BlazingText algorithm to find the topics independently from language. Proceed with the analysis.\nB. Use an Amazon SageMaker seq2seq algorithm to translate from Spanish to English, if necessary. Use a SageMaker Latent Dirichlet Allocation (LDA) algorithm to find the topics.\nC. Use Amazon Translate to translate from Spanish to English, if necessary. Use Amazon Comprehend topic modeling to find the topics.\nD. Use Amazon Translate to translate from Spanish to English, if necessary. Use Amazon Lex to extract topics form the content.\nE. Use Amazon Translate to translate from Spanish to English, if necessary. Use Amazon SageMaker Neural Topic Model (NTM) to find the topics.",
-    "correct_answer": "C",
+    "correct_answer": "CE",
     "explanation": "C and E B needs to build custom model"
   },
   {
