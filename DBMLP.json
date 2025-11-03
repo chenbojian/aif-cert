@@ -1,0 +1,422 @@
+[
+  {
+    "id": "Question 1",
+    "question": "Which of the following describes concept drift?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128977-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Concept drift is when there is a change in the distribution of an input variable\nB. Concept drift is when there is a change in the distribution of a target variable\nC. Concept drift is when there is a change in the relationship between input variables and target variables\nD. Concept drift is when there is a change in the distribution of the predicted target given by the model\nE. None of these describe Concept drift",
+    "correct_answer": "C",
+    "explanation": "C. Concept drift is when there is a change in the relationship between input variables and target variables. Concept drift refers to the situation when the statistical properties of the target variable, which the model is trying to predict, change over time in unforeseen ways. This causes the model to become less accurate as time passes."
+  },
+  {
+    "id": "Question 2",
+    "question": "Which of the following is a reason for using Jensen-Shannon (JS) distance over a Kolmogorov-Smirnov (KS) test for numeric feature drift detection?\n\nSource: https://www.examtopics.com/discussions/databricks/view/133259-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. All of these reasons\nB. JS is not normalized or smoothed\nC. None of these reasons\nD. JS is more robust when working with large datasets\nE. JS does not require any manual threshold or cutoff determinations",
+    "correct_answer": "D",
+    "explanation": "This is a key advantage of using Jensen-Shannon divergence. It produces a value between 0 and 1, which represents the divergence between two distributions. This value can be interpreted without needing to set arbitrary thresholds or cutoffs. In contrast, the KS test involves comparing the test statistic to a critical value, which can depend on the significance level chosen."
+  },
+  {
+    "id": "Question 3",
+    "question": "A data scientist is utilizing MLflow to track their machine learning experiments. After completing a series of runs for the experiment with experiment ID exp_id, the data scientist wants to programmatically work with the experiment run data in a Spark DataFrame. They have an active MLflow Client client and an active Spark session spark.\nWhich of the following lines of code can be used to obtain run-level results for exp_id in a Spark DataFrame?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128972-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. client.list_run_infos(exp_id)\nB. spark.read.format(\"delta\").load(exp_id)\nC. There is no way to programmatically return row-level results from an MLflow Experiment.\nD. mlflow.search_runs(exp_id)\nE. spark.read.format(\"mlflow-experiment\").load(exp_id)",
+    "correct_answer": "E",
+    "explanation": "Doc: https://docs.databricks.com/en/query/formats/mlflow-experiment.html#load-data-using-experiment-ids"
+  },
+  {
+    "id": "Question 4",
+    "question": "A data scientist has developed and logged a scikit-learn random forest model model, and then they ended their Spark session and terminated their cluster. After starting a new cluster, they want to review the feature_importances_ of the original model object.\nWhich of the following lines of code can be used to restore the model object so that feature_importances_ is available?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128973-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. mlflow.load_model(model_uri)\nB. client.list_artifacts(run_id)[\"feature-importances.csv\"]\nC. mlflow.sklearn.load_model(model_uri)\nD. This can only be viewed in the MLflow Experiments UI\nE. client.pyfunc.load_model(model_uri)",
+    "correct_answer": "C",
+    "explanation": "C. mlflow.sklearn.load_model(model_uri) for two different case, write different code 1. sklean : mlflow.sklearn.load_model(model_uri) 2. xgboost : mlflow.xgboost.load_model(model_uri)"
+  },
+  {
+    "id": "Question 5",
+    "question": "Which of the following is a simple statistic to monitor for categorical feature drift?\n\nSource: https://www.examtopics.com/discussions/databricks/view/140168-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Mode\nB. None of these\nC. Mode, number of unique values, and percentage of missing values\nD. Percentage of missing values\nE. Number of unique values",
+    "correct_answer": "C",
+    "explanation": "Categorical Features ->Summary Statistics: Mode, Number of unique values, Number of missing values"
+  },
+  {
+    "id": "Question 6",
+    "question": "Which of the following lists all of the model stages are available in the MLflow Model Registry?\n\nSource: https://www.examtopics.com/discussions/databricks/view/129505-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Development, Staging, Production\nB. None, Staging, Production\nC. Staging, Production, Archived\nD. None, Staging, Production, Archived\nE. Development, Staging, Production, Archived",
+    "correct_answer": "D",
+    "explanation": "None, staging, production, archived. Though: as of MLflow 2.9.0, Model Stages have been deprecated and will be removed in a future major release."
+  },
+  {
+    "id": "Question 7",
+    "question": "Which of the following MLflow Model Registry use cases requires the use of an HTTP Webhook?\n\nSource: https://www.examtopics.com/discussions/databricks/view/129506-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Starting a testing job when a new model is registered\nB. Updating data in a source table for a Databricks SQL dashboard when a model version transitions to the Production stage\nC. Sending an email alert when an automated testing Job fails\nD. None of these use cases require the use of an HTTP Webhook\nE. Sending a message to a Slack channel when a model version transitions stages",
+    "correct_answer": "E",
+    "explanation": "E Sounds Correct!"
+  },
+  {
+    "id": "Question 8",
+    "question": "A machine learning engineer wants to log and deploy a model as an MLflow pyfunc model. They have custom preprocessing that needs to be completed on feature variables prior to fitting the model or computing predictions using that model. They decide to wrap this preprocessing in a custom model class ModelWithPreprocess, where the preprocessing is performed when calling fit and when calling predict. They then log the fitted model of the ModelWithPreprocess class as a pyfunc model.\nWhich of the following is a benefit of this approach when loading the logged pyfunc model for downstream deployment?\n\nSource: https://www.examtopics.com/discussions/databricks/view/129507-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. The pyfunc model can be used to deploy models in a parallelizable fashion\nB. The same preprocessing logic will automatically be applied when calling fit\nC. The same preprocessing logic will automatically be applied when calling predict\nD. This approach has no impact when loading the logged pyfunc model for downstream deployment\nE. There is no longer a need for pipeline-like machine learning objects",
+    "correct_answer": "E",
+    "explanation": "Encapsulating the preprocessing logic within the custom model class, it ensures that the preprocessing steps are consistently applied both during model training and during prediction. When the pyfunc model is loaded for downstream deployment, the preprocessing logic is already integrated into the model, simplifying the deployment process and ensuring consistency in preprocessing across training and inference."
+  },
+  {
+    "id": "Question 9",
+    "question": "A machine learning engineering manager has asked all of the engineers on their team to add text descriptions to each of the model projects in the MLflow Model Registry. They are starting with the model project \"model\" and they'd like to add the text in the model_description variable.\nThe team is using the following line of code:\n//IMG//\n\nWhich of the following changes does the team need to make to the above code block to accomplish the task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/131617-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Replace update_registered_model with update_model_version\nB. There no changes necessary\nC. Replace description with artifact\nD. Replace client.update_registered_model with mlflow\nE. Add a Python model as an argument to update_registered_model",
+    "correct_answer": "B",
+    "explanation": "The correct answer is B, according to documentation this is the correct code to update a model description https://mlflow.org/docs/latest/python_api/mlflow.client.html#mlflow.client.MlflowClient.update_registered_model"
+  },
+  {
+    "id": "Question 10",
+    "question": "A machine learning engineer wants to move their model version model_version for the MLflow Model Registry model model from the Staging stage to the Production stage using MLflow Client client. At the same time, they would like to archive any model versions that are already in the Production stage.\nWhich of the following code blocks can they use to accomplish the task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/130717-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. \nB. \nC. \nD. \nE. It is not possible to transition models from Production to Archived.",
+    "correct_answer": "D",
+    "explanation": "The answer is D. In the transition_model_version_stage function, when setting the archive_existing_versions flag to True, all existing model versions in the specified stage will be automatically moved to the archived stage. https://mlflow.org/docs/latest/python_api/mlflow.client.html#mlflow.client.MlflowClient.transition_model_version_stage"
+  },
+  {
+    "id": "Question 11",
+    "question": "Which of the following Databricks-managed MLflow capabilities is a centralized model store?\n\nSource: https://www.examtopics.com/discussions/databricks/view/129546-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Models\nB. Model Registry\nC. Model Serving\nD. Feature Store\nE. Experiments",
+    "correct_answer": "B",
+    "explanation": "MLflow Model Registry: This is a centralized model store that helps manage the full lifecycle of MLflow Models. It provides model versioning, annotating, and stage transitions through a model's lifecycle, from staging to production. It also offers REST API for integrating with external CI/CD tools and multi-workspace capabilities for using a unified Model Registry across multiple workspaces via Unity Catalog."
+  },
+  {
+    "id": "Question 12",
+    "question": "A machine learning engineer is attempting to create a webhook that will trigger a Databricks Job job_id when a model version for model model transitions into any MLflow Model Registry stage.\nThey have the following incomplete code block:\n//IMG//\n\nWhich of the following lines of code can be used to fill in the blank so that the code block accomplishes the task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/130594-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. \"MODEL_VERSION_CREATED\"\nB. \"MODEL_VERSION_TRANSITIONED_TO_PRODUCTION\"\nC. \"MODEL_VERSION_TRANSITIONED_TO_STAGING\"\nD. \"MODEL_VERSION_TRANSITIONED_STAGE\"\nE. \"MODEL_VERSION_TRANSITIONED_TO_STAGING\", \"MODEL_VERSION_TRANSITIONED_TO_PRODUCTION\"",
+    "correct_answer": "C",
+    "explanation": "Answer is D. Check Webhook events documentation: https://docs.databricks.com/en/mlflow/model-registry-webhooks.html#webhook-events"
+  },
+  {
+    "id": "Question 13",
+    "question": "Which of the following MLflow operations can be used to delete a model from the MLflow Model Registry?\n\nSource: https://www.examtopics.com/discussions/databricks/view/131619-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. client.transition_model_version_stage\nB. client.delete_model_version\nC. client.update_registered_model\nD. client.delete_model\nE. client.delete_registered_model",
+    "correct_answer": "E",
+    "explanation": "The correct answer is E. https://mlflow.org/docs/latest/model-registry.html#deleting-mlflow-models"
+  },
+  {
+    "id": "Question 14",
+    "question": "A machine learning engineer wants to programmatically create a new Databricks Job whose schedule depends on the result of some automated tests in a machine learning pipeline.\nWhich of the following Databricks tools can be used to programmatically create the Job?\n\nSource: https://www.examtopics.com/discussions/databricks/view/130362-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. MLflow APIs\nB. AutoML APIs\nC. MLflow Client\nD. Jobs cannot be created programmatically\nE. Databricks REST APIs",
+    "correct_answer": "A",
+    "explanation": "The answer is E. Databricks REST APIs. Explanation: While MLflow offers APIs for model management and tracking, and AutoML provides automation for machine learning tasks, neither directly supports programmatic job creation. The Databricks REST APIs, however, provide comprehensive functionality for interacting with Databricks workspace resources, including creating and managing jobs."
+  },
+  {
+    "id": "Question 15",
+    "question": "A machine learning engineer wants to view all of the active MLflow Model Registry Webhooks for a specific model.\nThey are using the following code block:\n//IMG//\n\nWhich of the following changes does the machine learning engineer need to make to this code block so it will successfully accomplish the task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/130750-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. There are no necessary changes\nB. Replace list with view in the endpoint URL\nC. Replace POST with GET in the call to http_request\nD. Replace list with webhooks in the endpoint URL\nE. Replace POST with PUT in the call to http_request",
+    "correct_answer": "C",
+    "explanation": "Answer is C"
+  },
+  {
+    "id": "Question 16",
+    "question": "A data scientist has developed a model to predict ice cream sales using the expected temperature and expected number of hours of sun in the day. However, the expected temperature is dropping beneath the range of the input variable on which the model was trained.\nWhich of the following types of drift is present in the above scenario?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128974-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Label drift\nB. None of these\nC. Concept drift\nD. Prediction drift\nE. Feature drift",
+    "correct_answer": "E",
+    "explanation": "E is answer"
+  },
+  {
+    "id": "Question 17",
+    "question": "A machine learning engineer has created a webhook with the following code block:\n//IMG//\n\nWhich of the following code blocks will trigger this webhook to run the associate job?\n\nSource: https://www.examtopics.com/discussions/databricks/view/130749-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. \nB. \nC. \nD. \nE. ",
+    "correct_answer": "E",
+    "explanation": "The correct method is transition_model_version_stage(), the model should be the same as defined in the webhook: \"model\" and not \"new_model\", and the method only requires specifying the target stage, there's no \"from\" or \"to\" arguments."
+  },
+  {
+    "id": "Question 18",
+    "question": "A data scientist wants to remove the star_rating column from the Delta table at the location path. To do this, they need to load in data and drop the star_rating column.\nWhich of the following code blocks accomplishes this task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128975-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. spark.read.format(“delta”).load(path).drop(“star_rating”)\nB. spark.read.format(“delta”).table(path).drop(“star_rating”)\nC. Delta tables cannot be modified\nD. spark.read.table(path).drop(“star_rating”)\nE. spark.sql(“SELECT * EXCEPT star_rating FROM path”)",
+    "correct_answer": "A",
+    "explanation": "A. spark.read.format(“delta”).load(path).drop(“star_rating”)"
+  },
+  {
+    "id": "Question 19",
+    "question": "Which of the following operations in Feature Store Client fs can be used to return a Spark DataFrame of a data set associated with a Feature Store table?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128976-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. fs.create_table\nB. fs.write_table\nC. fs.get_table\nD. There is no way to accomplish this task with fs\nE. fs.read_table",
+    "correct_answer": "E",
+    "explanation": "E"
+  },
+  {
+    "id": "Question 20",
+    "question": "A machine learning engineer is in the process of implementing a concept drift monitoring solution. They are planning to use the following steps:\n1. Deploy a model to production and compute predicted values\n2. Obtain the observed (actual) label values\n3. _____\n4. Run a statistical test to determine if there are changes over time\nWhich of the following should be completed as Step #3?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128985-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Obtain the observed values (actual) feature values\nB. Measure the latency of the prediction time\nC. Retrain the model\nD. None of these should be completed as Step #3\nE. Compute the evaluation metric using the observed and predicted values",
+    "correct_answer": "E",
+    "explanation": "concept drift can only be detected by observing model performance metrics."
+  },
+  {
+    "id": "Question 21",
+    "question": "Which of the following is a probable response to identifying drift in a machine learning application?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128965-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. None of these responses\nB. Retraining and deploying a model on more recent data\nC. All of these responses\nD. Rebuilding the machine learning application with a new label variable\nE. Sunsetting the machine learning application",
+    "correct_answer": "B",
+    "explanation": "This response involves updating the model by retraining it on more recent data to adapt to changes in the underlying data distribution and maintain its performance."
+  },
+  {
+    "id": "Question 22",
+    "question": "A data scientist has computed updated feature values for all primary key values stored in the Feature Store table features. In addition, feature values for some new primary key values have also been computed. The updated feature values are stored in the DataFrame features_df. They want to replace all data in features with the newly computed data.\nWhich of the following code blocks can they use to perform this task using the Feature Store Client fs?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128970-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. \nB. \nC. \nD. \nE. ",
+    "correct_answer": "D",
+    "explanation": "The data scientist already has the table created, so the method should be \"write_table\". Since he wants to replace all data in features with the newly computed data the \"mode\" overwrite should be used. Doc: https://docs.databricks.com/en/machine-learning/feature-store/workspace-feature-store/feature-tables.html#create-a-feature-table-in-databricks-feature-store"
+  },
+  {
+    "id": "Question 23",
+    "question": "After a data scientist noticed that a column was missing from a production feature set stored as a Delta table, the machine learning engineering team has been tasked with determining when the column was dropped from the feature set.\nWhich of the following SQL commands can be used to accomplish this task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/130280-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. VERSION\nB. DESCRIBE\nC. HISTORY\nD. DESCRIBE HISTORY\nE. TIMESTAMP",
+    "correct_answer": "D",
+    "explanation": "DESCRIBE HISTORY command in SQL provides a history of all changes made to a Delta table, including column additions and deletions. Doc: https://docs.databricks.com/en/sql/language-manual/delta-describe-history.html"
+  },
+  {
+    "id": "Question 24",
+    "question": "Which of the following describes label drift?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128961-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Label drift is when there is a change in the distribution of the predicted target given by the model\nB. None of these describe label drift\nC. Label drift is when there is a change in the distribution of an input variable\nD. Label drift is when there is a change in the relationship between input variables and target variables\nE. Label drift is when there is a change in the distribution of a target variable",
+    "correct_answer": "E",
+    "explanation": "Label drift is when drift occurs in the label itself. Doc: https://docs.deepchecks.com/stable/tabular/auto_checks/train_test_validation/plot_label_drift.html"
+  },
+  {
+    "id": "Question 25",
+    "question": "Which of the following machine learning model deployment paradigms is the most common for machine learning projects?\n\nSource: https://www.examtopics.com/discussions/databricks/view/129486-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. On-device\nB. Streaming\nC. Real-time\nD. Batch\nE. None of these deployments",
+    "correct_answer": "D",
+    "explanation": "The most widely used deployment paradigm for machine learning projects is typically batch."
+  },
+  {
+    "id": "Question 26",
+    "question": "A data scientist would like to enable MLflow Autologging for all machine learning libraries used in a notebook. They want to ensure that MLflow Autologging is used no matter what version of the Databricks Runtime for Machine Learning is used to run the notebook and no matter what workspace-wide configurations are selected in the Admin Console.\nWhich of the following lines of code can they use to accomplish this task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128963-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. mlflow.sklearn.autolog()\nB. mlflow.spark.autolog()\nC. spark.conf.set(“autologging”, True)\nD. It is not possible to automatically log MLflow runs.\nE. mlflow.autolog()",
+    "correct_answer": "E",
+    "explanation": "The correct answer is E. mlflow.autolog()1. This function enables autologging for each supported library you have installed as soon as you import it1. It allows you to log metrics, parameters, and models without the need for explicit log statements"
+  },
+  {
+    "id": "Question 27",
+    "question": "A machine learning engineer is monitoring categorical input variables for a production machine learning application. The engineer believes that missing values are becoming more prevalent in more recent data for a particular value in one of the categorical input variables.\nWhich of the following tools can the machine learning engineer use to assess their theory?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128978-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Kolmogorov-Smirnov (KS) test\nB. One-way Chi-squared Test\nC. Two-way Chi-squared Test\nD. Jenson-Shannon distance\nE. None of these",
+    "correct_answer": "B",
+    "explanation": "It's two-way b/c two-way doesn't rely on counts and, as long as the nulls are not evenly distributed over all categories (they are only in a single category in this scenario) it will catch this difference. A one-way is dependent on counts, so if there are nulls in one sample, it will see that as a different distribution when in fact it may not be (distribution could be the same as before, only with less counts b/c of nulls)."
+  },
+  {
+    "id": "Question 28",
+    "question": "A data scientist has developed a model model and computed the RMSE of the model on the test set. They have assigned this value to the variable rmse. They now want to manually store the RMSE value with the MLflow run.\nThey write the following incomplete code block:\n//IMG//\n\nWhich of the following lines of code can be used to fill in the blank so the code block can successfully complete the task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128964-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. log_artifact\nB. log_model\nC. log_metric\nD. log_param\nE. There is no way to store values like this.",
+    "correct_answer": "C",
+    "explanation": "RMSE is a metric so we should use the inbuilt mlflow.log_metric(). Doc: https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_metric"
+  },
+  {
+    "id": "Question 29",
+    "question": "Which of the following MLflow operations can be used to automatically calculate and log a Shapley feature importance plot?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128990-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. mlflow.shap.log_explanation\nB. None of these operations can accomplish the task.\nC. mlflow.shap\nD. mlflow.log_figure\nE. client.log_artifact",
+    "correct_answer": "A",
+    "explanation": "Answer A. https://mlflow.org/docs/latest/python_api/mlflow.shap.html#mlflow.shap.log_explanation \"... computes and logs explanations of an ML model’s output. Explanations are logged as a directory of artifacts containing the following items generated by SHAP (SHapley Additive exPlanations). - Base values - SHAP values (computed using shap.KernelExplainer) - Summary bar plot (shows the average impact of each feature on model output)\""
+  },
+  {
+    "id": "Question 30",
+    "question": "A data scientist has developed a scikit-learn random forest model model, but they have not yet logged model with MLflow. They want to obtain the input schema and the output schema of the model so they can document what type of data is expected as input.\nWhich of the following MLflow operations can be used to perform this task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128960-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. mlflow.models.schema.infer_schema\nB. mlflow.models.signature.infer_signature\nC. mlflow.models.Model.get_input_schema\nD. mlflow.models.Model.signature\nE. There is no way to obtain the input schema and the output schema of an unlogged model.",
+    "correct_answer": "E",
+    "explanation": "The correct import statement would be: 'from mlflow.models import infer_signature.' I'm choosing B since it contains the actual method name infer_signature."
+  },
+  {
+    "id": "Question 31",
+    "question": "A machine learning engineer and data scientist are working together to convert a batch deployment to an always-on streaming deployment. The machine learning engineer has expressed that rigorous data tests must be put in place as a part of their conversion to account for potential changes in data formats.\nWhich of the following describes why these types of data type tests and checks are particularly important for streaming deployments?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128959-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Because the streaming deployment is always on, all types of data must be handled without producing an error\nB. All of these statements\nC. Because the streaming deployment is always on, there is no practitioner to debug poor model performance\nD. Because the streaming deployment is always on, there is a need to confirm that the deployment can autoscale\nE. None of these statements",
+    "correct_answer": "D",
+    "explanation": "The correct answer is B. All of these statements. In a streaming deployment, the system is always on and continuously processing data. Therefore, it’s crucial to handle all types of data without producing an error. Rigorous data tests and checks can help ensure that the system can handle changes in data formats and continue to operate smoothly. Additionally, because the system is always on, there may not be a practitioner available to debug poor model performance in real-time. Data tests and checks can help catch potential issues before they impact model performance. Finally, because the system is always on, it’s important to confirm that the deployment can autoscale to handle varying data volumes. Data tests and checks can help validate the system’s ability to scale."
+  },
+  {
+    "id": "Question 32",
+    "question": "Which of the following deployment paradigms can centrally compute predictions for a single record with exceedingly fast results?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128958-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Streaming\nB. Batch\nC. Edge/on-device\nD. None of these strategies will accomplish the task.\nE. Real-time",
+    "correct_answer": "D",
+    "explanation": "Real-time deployment is designed for low-latency, high-throughput inference, making it suitable for scenarios where predictions need to be computed quickly for individual records. This paradigm ensures rapid responses to requests, allowing for fast results even for single records."
+  },
+  {
+    "id": "Question 33",
+    "question": "A machine learning engineering team wants to build a continuous pipeline for data preparation of a machine learning application. The team would like the data to be fully processed and made ready for inference in a series of equal-sized batches.\nWhich of the following tools can be used to provide this type of continuous processing?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128956-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Spark UDFs\nB. Structured Streaming\nC. MLflow\nD. Delta Lake\nE. AutoML",
+    "correct_answer": "B",
+    "explanation": "Structured Streaming in Spark allows for continuous processing of data streams, where data can be processed in real-time and output in equal-sized batches. This makes it suitable for building continuous pipelines for data preparation in machine learning applications."
+  },
+  {
+    "id": "Question 34",
+    "question": "A machine learning engineer wants to deploy a model for real-time serving using MLflow Model Serving. For the model, the machine learning engineer currently has one model version in each of the stages in the MLflow Model Registry. The engineer wants to know which model versions can be queried once Model Serving is enabled for the model.\nWhich of the following lists all of the MLflow Model Registry stages whose model versions are automatically deployed with Model Serving?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128955-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Staging, Production, Archived\nB. Production\nC. None, Staging, Production, Archived\nD. Staging, Production\nE. None, Staging, Production",
+    "correct_answer": "D",
+    "explanation": "E is correct"
+  },
+  {
+    "id": "Question 35",
+    "question": "A data scientist has written a function to track the runs of their random forest model. The data scientist is changing the number of trees in the forest across each run.\nWhich of the following MLflow operations is designed to log single values like the number of trees in a random forest?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128957-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. mlflow.log_artifact\nB. mlflow.log_model\nC. mlflow.log_metric\nD. mlflow.log_param\nE. There is no way to store values like this.",
+    "correct_answer": "D",
+    "explanation": "Using mlflow.log_param, the data scientist can easily track and record the number of trees in the random forest model across different runs. Doc: https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_param"
+  },
+  {
+    "id": "Question 36",
+    "question": "A machine learning engineer is converting a Hyperopt-based hyperparameter tuning process from manual MLflow logging to MLflow Autologging. They are trying to determine how to manage nested Hyperopt runs with MLflow Autologging.\nWhich of the following approaches will create a single parent run for the process and a child run for each unique combination of hyperparameter values when using Hyperopt and MLflow Autologging?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128991-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Starting a manual parent run before calling fmin\nB. Ensuring that a built-in model flavor is used for the model logging\nC. Starting a manual child run within the objective_function\nD. There is no way to accomplish nested runs with MLflow Autologging and Hyperopt\nE. MLflow Autologging will automatically accomplish this task with Hyperopt",
+    "correct_answer": "A",
+    "explanation": "A the notebook linked here https://learn.microsoft.com/en-us/azure/databricks/machine-learning/automl-hyperparam-tuning/hyperopt-spark-mlflow-integration#parallelize-hyperparameter-tuning-with-automated-mlflow-tracking-notebook shoes that a parent run is started before calling fmin"
+  },
+  {
+    "id": "Question 37",
+    "question": "A data scientist has created a Python function compute_features that returns a Spark DataFrame with the following schema:\n//IMG//\n\nThe resulting DataFrame is assigned to the features_df variable. The data scientist wants to create a Feature Store table using features_df.\nWhich of the following code blocks can they use to create and populate the Feature Store table using the Feature Store Client fs?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128953-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. \nB. \nC. features_df.write.mode(\"fs\").path(\"new_table\")\nD. \nE. features_df.write.mode(\"feature\").path(\"new_table\")",
+    "correct_answer": "D",
+    "explanation": "A is correct"
+  },
+  {
+    "id": "Question 38",
+    "question": "A data scientist is using MLflow to track their machine learning experiment. As a part of each MLflow run, they are performing hyperparameter tuning. The data scientist would like to have one parent run for the tuning process with a child run for each unique combination of hyperparameter values.\nThey are using the following code block:\n//IMG//\n\nThe code block is not nesting the runs in MLflow as they expected.\nWhich of the following changes does the data scientist need to make to the above code block so that it successfully nests the child runs under the parent run in MLflow?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128980-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Indent the child run blocks within the parent run block\nB. Add the nested=True argument to the parent run\nC. Remove the nested=True argument from the child runs\nD. Provide the same name to the run_name parameter for all three run blocks\nE. Add the nested=True argument to the parent run and remove the nested=True arguments from the child runs",
+    "correct_answer": "A",
+    "explanation": "A should be the correct answer."
+  },
+  {
+    "id": "Question 39",
+    "question": "Which of the following is a benefit of logging a model signature with an MLflow model?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128954-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. The model will have a unique identifier in the MLflow experiment\nB. The schema of input data can be validated when serving models\nC. The model can be deployed using real-time serving tools\nD. The model will be secured by the user that developed it\nE. The schema of input data will be converted to match the signature",
+    "correct_answer": "B",
+    "explanation": "The correct answer is B. The schema of input data can be validated when serving models123. Model signatures in MLflow define the schema of a model’s inputs and outputs3. When a model is deployed, MLflow’s deployment tools can use the signature to validate incoming data, ensuring that it matches the schema the model expects12. This enhances model reliability and eases the transition from development to production"
+  },
+  {
+    "id": "Question 40",
+    "question": "Which of the following statements describes streaming with Spark as a model deployment strategy?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128952-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. The inference of batch processed records as soon as a trigger is hit\nB. The inference of all types of records in real-time\nC. The inference of batch processed records as soon as a Spark job is run\nD. The inference of incrementally processed records as soon as trigger is hit\nE. The inference of incrementally processed records as soon as a Spark job is run",
+    "correct_answer": "E",
+    "explanation": "The correct answer is D. The inference of incrementally processed records as soon as a trigger is hit. In this context, a “trigger” refers to the condition that initiates the processing of the next set of data. This could be a time interval (e.g., process new data every second), a data size (e.g., process every 1000 records), or other custom conditions"
+  },
+  {
+    "id": "Question 41",
+    "question": "A machine learning engineer has deployed a model recommender using MLflow Model Serving. They now want to query the version of that model that is in the Production stage of the MLflow Model Registry.\nWhich of the following model URIs can be used to query the described model version?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128951-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. https://<databricks-instance>/model-serving/recommender/Production/invocations\nB. The version number of the model version in Production is necessary to complete this task.\nC. https://<databricks-instance>/model/recommender/stage-production/invocations\nD. https://<databricks-instance>/model-serving/recommender/stage-production/invocations\nE. https://<databricks-instance>/model/recommender/Production/invocations",
+    "correct_answer": "E",
+    "explanation": "The URI should contain \"/model/\" and not \"/model-serving/\"."
+  },
+  {
+    "id": "Question 42",
+    "question": "Which of the following tools can assist in real-time deployments by packaging software with its own application, tools, and libraries?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128946-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Cloud-based compute\nB. None of these tools\nC. REST APIs\nD. Containers\nE. Autoscaling clusters",
+    "correct_answer": "A",
+    "explanation": "Containers, such as Docker containers, are a method of packaging software with its dependencies and libraries into a standardized unit for deployment. This encapsulation ensures that the software can run consistently across different environments, making it suitable for real-time deployments where consistency and portability are essential."
+  },
+  {
+    "id": "Question 43",
+    "question": "A machine learning engineer has registered a sklearn model in the MLflow Model Registry using the sklearn model flavor with UI model_uri.\nWhich of the following operations can be used to load the model as an sklearn object for batch deployment?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128948-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. mlflow.spark.load_model(model_uri)\nB. mlflow.pyfunc.read_model(model_uri)\nC. mlflow.sklearn.read_model(model_uri)\nD. mlflow.pyfunc.load_model(model_uri)\nE. mlflow.sklearn.load_model(model_uri)",
+    "correct_answer": "D",
+    "explanation": "Doc: https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.load_model"
+  },
+  {
+    "id": "Question 44",
+    "question": "A data scientist set up a machine learning pipeline to automatically log a data visualization with each run. They now want to view the visualizations in Databricks.\nWhich of the following locations in Databricks will show these data visualizations?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128949-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. The MLflow Model Registry Model page\nB. The Artifacts section of the MLflow Experiment page\nC. Logged data visualizations cannot be viewed in Databricks\nD. The Artifacts section of the MLflow Run page\nE. The Figures section of the MLflow Run page",
+    "correct_answer": "E",
+    "explanation": "The correct answer is D. The Artifacts section of the MLflow Run page. When a data visualization is logged in an MLflow run, it is stored as an artifact of that run. These artifacts can be viewed in the Artifacts section of the corresponding MLflow Run page in Databricks. This allows data scientists to easily access and review the visualizations generated during the run. The MLflow Experiment page provides a high-level overview of all the runs in an experiment, but to view the details of a specific run, including any logged artifacts like data visualizations, you would need to navigate to the specific Run page."
+  },
+  {
+    "id": "Question 45",
+    "question": "A data scientist has developed a scikit-learn model sklearn_model and they want to log the model using MLflow.\nThey write the following incomplete code block:\n//IMG//\n\nWhich of the following lines of code can be used to fill in the blank so the code block can successfully complete the task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128950-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. mlflow.spark.track_model(sklearn_model, \"model\")\nB. mlflow.sklearn.log_model(sklearn_model, \"model\")\nC. mlflow.spark.log_model(sklearn_model, \"model\")\nD. mlflow.sklearn.load_model(\"model\")\nE. mlflow.sklearn.track_model(sklearn_model, \"model\")",
+    "correct_answer": "A",
+    "explanation": "B. import mlflow.sklearn # Log the model mlflow.sklearn.log_model(sklearn_model, \"model\")"
+  },
+  {
+    "id": "Question 46",
+    "question": "Which of the following describes the concept of MLflow Model flavors?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128940-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. A convention that deployment tools can use to wrap preprocessing logic into a Model\nB. A convention that MLflow Model Registry can use to version models\nC. A convention that MLflow Experiments can use to organize their Runs by project\nD. A convention that deployment tools can use to understand the model\nE. A convention that MLflow Model Registry can use to organize its Models by project",
+    "correct_answer": "C",
+    "explanation": "MLflow model flavors refer to the different framework-specific model formats that MLflow supports for logging, saving, and serving models. Each flavor represents a way to package a model along with the required metadata and environment details, allowing it to be loaded and used consistently across different environments."
+  },
+  {
+    "id": "Question 47",
+    "question": "In a continuous integration, continuous deployment (CI/CD) process for machine learning pipelines, which of the following events commonly triggers the execution of automated testing?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128941-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. The launch of a new cost-efficient SQL endpoint\nB. CI/CD pipelines are not needed for machine learning pipelines\nC. The arrival of a new feature table in the Feature Store\nD. The launch of a new cost-efficient job cluster\nE. The arrival of a new model version in the MLflow Model Registry",
+    "correct_answer": "D",
+    "explanation": "The correct answer is E. The arrival of a new model version in the MLflow Model Registry. In a CI/CD process for machine learning pipelines, the arrival of a new model version in the MLflow Model Registry is a common event that triggers the execution of automated testing. This is because each new model version could potentially introduce changes that might affect the performance or functionality of the machine learning pipeline. Automated testing helps ensure that the new model version meets the necessary quality standards before it is deployed."
+  },
+  {
+    "id": "Question 48",
+    "question": "A machine learning engineering team has written predictions computed in a batch job to a Delta table for querying. However, the team has noticed that the querying is running slowly. The team has already tuned the size of the data files. Upon investigating, the team has concluded that the rows meeting the query condition are sparsely located throughout each of the data files.\nBased on the scenario, which of the following optimization techniques could speed up the query by colocating similar records while considering values in multiple columns?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128944-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Z-Ordering\nB. Bin-packing\nC. Write as a Parquet file\nD. Data skipping\nE. Tuning the file size",
+    "correct_answer": "E",
+    "explanation": "The correct answer is A. Z-Ordering. Z-Ordering is a technique used in Delta Lake to optimize the layout of data to improve query performance. It’s a multi-dimensional clustering technique that colocates related information in the same set of files. This colocation can significantly improve the speed of queries and analytics, especially when dealing with high-dimensional data. By using Z-Ordering, the team can ensure that rows meeting the query condition are located close together, thereby speeding up the query."
+  },
+  {
+    "id": "Question 49",
+    "question": "A machine learning engineer wants to log feature importance data from a CSV file at path importance_path with an MLflow run for model model.\nWhich of the following code blocks will accomplish this task inside of an existing MLflow run block?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128981-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. \nB. \nC. mlflow.log_data(importance_path, \"feature-importance.csv\")\nD. mlflow.log_artifact(importance_path, \"feature-importance.csv\")\nE. None of these code blocks tan accomplish the task.",
+    "correct_answer": "D",
+    "explanation": "D"
+  },
+  {
+    "id": "Question 50",
+    "question": "A machine learning engineer needs to deliver predictions of a machine learning model in real-time. However, the feature values needed for computing the predictions are available one week before the query time.\nWhich of the following is a benefit of using a batch serving deployment in this scenario rather than a real-time serving deployment where predictions are computed at query time?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128945-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Batch serving has built-in capabilities in Databricks Machine Learning\nB. There is no advantage to using batch serving deployments over real-time serving deployments\nC. Computing predictions in real-time provides more up-to-date results\nD. Testing is not possible in real-time serving deployments\nE. Querying stored predictions can be faster than computing predictions in real-time",
+    "correct_answer": "A",
+    "explanation": "The correct answer is E. Querying stored predictions can be faster than computing predictions in real-time. In this scenario, since the feature values needed for computing the predictions are available one week before the query time, the predictions can be precomputed using a batch serving deployment. When the predictions are needed, they can be quickly retrieved from storage, which can be faster than computing the predictions in real-time. This approach also allows for the efficient use of resources, as the computational work can be done during off-peak times."
+  },
+  {
+    "id": "Question 51",
+    "question": "A machine learning engineer has developed a random forest model using scikit-learn, logged the model using MLflow as random_forest_model, and stored its run ID in the run_id Python variable. They now want to deploy that model by performing batch inference on a Spark DataFrame spark_df.\nWhich of the following code blocks can they use to create a function called predict that they can use to complete the task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128937-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. \nB. It is not possible to deploy a scikit-learn model on a Spark DataFrame.\nC. \nD. \nE. ",
+    "correct_answer": "E",
+    "explanation": "E is correct"
+  },
+  {
+    "id": "Question 52",
+    "question": "Which of the following describes the purpose of the context parameter in the predict method of Python models for MLflow?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128938-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. The context parameter allows the user to specify which version of the registered MLflow Model should be used based on the given application's current scenario\nB. The context parameter allows the user to document the performance of a model after it has been deployed\nC. The context parameter allows the user to include relevant details of the business case to allow downstream users to understand the purpose of the model\nD. The context parameter allows the user to provide the model with completely custom if-else logic for the given application's current scenario\nE. The context parameter allows the user to provide the model access to objects like preprocessing models or custom configuration files",
+    "correct_answer": "E",
+    "explanation": "The context parameter is typically used to provide additional context or resources to the model during prediction, such as preprocessing models or custom configuration files. This allows the model to make use of relevant information or dependencies necessary for accurate predictions."
+  },
+  {
+    "id": "Question 53",
+    "question": "A machine learning engineer has developed a model and registered it using the FeatureStoreClient fs. The model has model URI model_uri. The engineer now needs to perform batch inference on customer-level Spark DataFrame spark_df, but it is missing a few of the static features that were used when training the model. The customer_id column is the primary key of spark_df and the training set used when training and logging the model.\nWhich of the following code blocks can be used to compute predictions for spark_df when the missing feature values can be found in the Feature Store by searching for features by customer_id?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128939-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. df = fs.get_missing_features(spark_df, model_uri) fs.score_model(model_uri, df)\nB. fs.score_model(model_uri, spark_df)\nC. df = fs.get_missing_features(spark_df, model_uri) fs.score_batch(model_uri, df)\nD. df = fs.get_missing_features(spark_df) fs.score_batch(model_uri, df)\nE. fs.score_batch(model_uri, spark_df)",
+    "correct_answer": "E",
+    "explanation": "The answer is E. See score_batch in https://api-docs.databricks.com/python/feature-store/latest/feature_store.client.html. \"Additional features required for model evaluation will be automatically retrieved from Feature Store.\" Besides, methods \"get_missing_features\" and \"score_model\" do not appear in the documentation."
+  },
+  {
+    "id": "Question 54",
+    "question": "A machine learning engineer needs to select a deployment strategy for a new machine learning application. The feature values are not available until the time of delivery, and results are needed exceedingly fast for one record at a time.\nWhich of the following deployment strategies can be used to meet these requirements?\n\nSource: https://www.examtopics.com/discussions/databricks/view/140282-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Edge/on-device\nB. Streaming\nC. None of these strategies will meet the requirements.\nD. Batch\nE. Real-time",
+    "correct_answer": "E",
+    "explanation": "Real Time should be ..."
+  },
+  {
+    "id": "Question 55",
+    "question": "A machine learning engineer is using the following code block as part of a batch deployment pipeline:\n//IMG//\n\nWhich of the following changes needs to be made so this code block will work when the inference table is a stream source?\n\nSource: https://www.examtopics.com/discussions/databricks/view/129433-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Replace \"inference\" with the path to the location of the Delta table\nB. Replace schema(schema) with option(\"maxFilesPerTrigger\", 1)\nC. Replace spark.read with spark.readStream\nD. Replace format(\"delta\") with format(\"stream\")\nE. Replace predict with a stream-friendly prediction function",
+    "correct_answer": "C",
+    "explanation": "C. Replace spark.read with spark.readStream"
+  },
+  {
+    "id": "Question 56",
+    "question": "A machine learning engineer is migrating a machine learning pipeline to use Databricks Machine Learning. They have programmatically identified the best run from an MLflow Experiment and stored its URI in the model_uri variable and its Run ID in the run_id variable. They have also determined that the model was logged with the name \"model\". Now, the machine learning engineer wants to register that model in the MLflow Model Registry with the name \"best_model\".\nWhich of the following lines of code can they use to register the model to the MLflow Model Registry?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128933-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. mlflow.register_model(model_uri, \"best_model\")\nB. mlflow.register_model(run_id, \"best_model\")\nC. mlflow.register_model(f\"runs:/{run_id}/best_model\", \"model\")\nD. mlflow.register_model(model_uri, \"model\")\nE. mlflow.register_model(f\"runs:/{run_id}/model\")",
+    "correct_answer": "A",
+    "explanation": "According to MLflow documentation, we need the model_uri and a model name to register it. The run_id is not necessary for registering the model itself; it might be useful for other operations, such as retrieving additional information about the run from which the model was produced. Doc: https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.register_model"
+  },
+  {
+    "id": "Question 57",
+    "question": "A machine learning engineer wants to move their model version model_version for the MLflow Model Registry model model from the Staging stage to the Production stage using MLflow Client client.\nWhich of the following code blocks can they use to accomplish the task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128934-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. \nB. \nC. \nD. \nE. ",
+    "correct_answer": "A",
+    "explanation": "Answer is C. # Transition the model version from Staging to Production client.transition_model_version_stage( name=\"model\", version=model_version, stage=\"Production\" )"
+  },
+  {
+    "id": "Question 58",
+    "question": "A machine learning engineer is manually refreshing a model in an existing machine learning pipeline. The pipeline uses the MLflow Model Registry model \"project\". The machine learning engineer would like to add a new version of the model to \"project\".\nWhich of the following MLflow operations can the machine learning engineer use to accomplish this task?\n\nSource: https://www.examtopics.com/discussions/databricks/view/128935-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. mlflow.register_model\nB. MlflowClient.update_registered_model\nC. mlflow.add_model_version\nD. MlflowClient.get_model_version\nE. The machine learning engineer needs to create an entirely new MLflow Model Registry model",
+    "correct_answer": "A",
+    "explanation": "it automatically add a new version"
+  },
+  {
+    "id": "Question 59",
+    "question": "Which of the following is an advantage of using the python_function(pyfunc) model flavor over the built-in library-specific model flavors?\n\nSource: https://www.examtopics.com/discussions/databricks/view/129504-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. python_function provides no benefits over the built-in library-specific model flavors\nB. python_function can be used to deploy models in a parallelizable fashion\nC. python_function can be used to deploy models without worrying about which library was used to create the model\nD. python_function can be used to store models in an MLmodel file\nE. python_function can be used to deploy models without worrying about whether they are deployed in batch, streaming, or real-time environments",
+    "correct_answer": "C",
+    "explanation": "The python_function flavor allows you to deploy models without being tied to a specific library, making it versatile and agnostic to the library used for model creation."
+  },
+  {
+    "id": "Question 60",
+    "question": "Which of the following is a simple, low-cost method of monitoring numeric feature drift?\n\nSource: https://www.examtopics.com/discussions/databricks/view/130275-exam-certified-machine-learning-professional-topic-1/",
+    "answers": "A. Jensen-Shannon test\nB. Summary statistics trends\nC. Chi-squared test\nD. None of these can be used to monitor feature drift\nE. Kolmogorov-Smirnov (KS) test",
+    "correct_answer": "B",
+    "explanation": "Monitoring summary statistics trends over time is a simple and low-cost method of monitoring numeric feature drift. It involves tracking basic statistical metrics such as mean, median, standard deviation, etc., and observing how they change over time. This method provides insights into whether the distribution of the feature values is shifting, which could indicate drift."
+  }
+]
